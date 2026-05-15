@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Platform | Next-Gen AI Agents</title>
+    <meta name="description" content="Automate WhatsApp, Telegram, customer support, campaigns, and workflows using one AI-powered platform.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-gradient-mesh"></div>
+    <div class="grid-overlay"></div>
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="bot"></i>
+                </div>
+                <span>AutoAI</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#workflows">Workflows</a>
+                <a href="#integrations">Integrations</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn btn-ghost open-modal" data-modal-title="Login">Login</a>
+                <a href="#" class="btn btn-primary open-modal" data-modal-title="Book a Demo">Book Demo</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-nav-links">
+                <a href="#features" class="mobile-link">Features</a>
+                <a href="#workflows" class="mobile-link">Workflows</a>
+                <a href="#integrations" class="mobile-link">Integrations</a>
+                <a href="#pricing" class="mobile-link">Pricing</a>
+            </div>
+            <div class="mobile-nav-actions">
+                <a href="#" class="btn btn-ghost btn-full open-modal" data-modal-title="Login">Login</a>
+                <a href="#" class="btn btn-primary btn-full open-modal" data-modal-title="Book a Demo">Book Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="feature-badges">
+                    <span class="badge"><i data-lucide="sparkles"></i> GPT Powered</span>
+                    <span class="badge"><i data-lucide="workflow"></i> No-Code Workflows</span>
+                    <span class="badge"><i data-lucide="message-circle"></i> WhatsApp Automation</span>
+                </div>
+                <h1 class="hero-title">Train AI Agents For Your Business</h1>
+                <p class="hero-subtitle">Automate WhatsApp, Telegram, customer support, campaigns, and workflows using one AI-powered platform.</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary btn-large open-modal" data-modal-title="Start Free Trial">Start Free Trial <i data-lucide="arrow-right"></i></a>
+                    <a href="#" class="btn btn-secondary btn-large open-modal" data-modal-title="Book a Demo">Book Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-mockup glass-card">
+                    <div class="mockup-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <div class="mockup-title">AI Automation Dashboard</div>
+                    </div>
+                    <div class="mockup-body">
+                        <!-- Simulated Chat Interface -->
+                        <div class="chat-interface">
+                            <div class="chat-msg received">Hey, I need help with my recent order.</div>
+                            <div class="chat-msg sent ai-msg">
+                                <i data-lucide="bot" class="ai-icon-small"></i>
+                                Hello! I can help you with that. Can you please provide your order ID?
+                            </div>
+                            <div class="chat-msg received">It's #98421</div>
+                            <div class="chat-msg sent ai-msg typing">
+                                <i data-lucide="bot" class="ai-icon-small"></i>
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="floating-card lead-card glass-card">
+                            <div class="icon-box"><i data-lucide="user-check"></i></div>
+                            <div class="card-info">
+                                <h4>New Lead Captured</h4>
+                                <p>From WhatsApp</p>
+                            </div>
+                        </div>
+                        <div class="floating-card analytics-card glass-card">
+                            <div class="icon-box blue"><i data-lucide="trending-up"></i></div>
+                            <div class="card-info">
+                                <h4>+240%</h4>
+                                <p>Resolution Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Connection lines decoration -->
+                    <svg class="connection-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path class="animated-path" d="M0,50 Q25,20 50,50 T100,50" fill="none" stroke="url(#gradient)" stroke-width="2"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#7C3AED" />
+                                <stop offset="100%" stop-color="#2563EB" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. TRUSTED COMPANIES SECTION -->
+    <section class="trusted-companies">
+        <div class="container">
+            <p class="section-subtitle-small">Trusted by modern businesses and fast-growing teams</p>
+            <div class="logo-grid">
+                <div class="company-logo"><i data-lucide="triangle"></i> Vertex</div>
+                <div class="company-logo"><i data-lucide="hexagon"></i> Nexus</div>
+                <div class="company-logo"><i data-lucide="circle-dot"></i> Omni Corp</div>
+                <div class="company-logo"><i data-lucide="box"></i> Cubed</div>
+                <div class="company-logo"><i data-lucide="aperture"></i> Aperture</div>
+                <div class="company-logo"><i data-lucide="command"></i> Command</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. AI TRAINING SECTION -->
+    <section class="ai-training section-padding" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Train AI Using Your Business Knowledge</h2>
+                <p class="section-desc">Instantly turn your company data into a smart, responsive AI agent. Connect your existing knowledge base and let the AI do the rest.</p>
+            </div>
+            
+            <div class="training-grid">
+                <!-- Training sources -->
+                <div class="training-sources">
+                    <div class="glass-card source-card">
+                        <div class="icon-box red"><i data-lucide="file-text"></i></div>
+                        <div class="source-info">
+                            <h3>PDF Documents</h3>
+                            <p>Upload manuals and guides</p>
+                        </div>
+                    </div>
+                    <div class="glass-card source-card">
+                        <div class="icon-box blue"><i data-lucide="globe"></i></div>
+                        <div class="source-info">
+                            <h3>Website URLs</h3>
+                            <p>Scrape your entire site</p>
+                        </div>
+                    </div>
+                    <div class="glass-card source-card">
+                        <div class="icon-box green"><i data-lucide="database"></i></div>
+                        <div class="source-info">
+                            <h3>Help Center / FAQs</h3>
+                            <p>Sync with Zendesk or Intercom</p>
+                        </div>
+                    </div>
+                    <div class="glass-card source-card">
+                        <div class="icon-box yellow"><i data-lucide="folder-sync"></i></div>
+                        <div class="source-info">
+                            <h3>Google Drive</h3>
+                            <p>Continuous folder syncing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Brain Visual -->
+                <div class="ai-brain-visual glass-card">
+                    <div class="brain-core">
+                        <i data-lucide="cpu" class="glow-icon"></i>
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring delay-1"></div>
+                        <div class="pulse-ring delay-2"></div>
+                    </div>
+                    <div class="training-status">
+                        <div class="status-bar">
+                            <div class="status-progress"></div>
+                        </div>
+                        <span>Processing Knowledge Graph... 84%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WORKFLOW AUTOMATION SECTION -->
+    <section class="workflow-automation section-padding" id="workflows">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Build Powerful Automation Workflows</h2>
+                <p class="section-desc">Design complex conversational journeys visually. No coding required.</p>
+            </div>
+            
+            <div class="workflow-builder glass-card">
+                <div class="builder-header">
+                    <div class="tools"><i data-lucide="mouse-pointer-2"></i> <i data-lucide="hand"></i> <i data-lucide="zoom-in"></i></div>
+                    <div class="builder-title">Lead Qualification Flow</div>
+                    <button class="btn btn-primary btn-small">Publish</button>
+                </div>
+                <div class="builder-canvas">
+                    <!-- Workflow Nodes -->
+                    <div class="node node-trigger" style="top: 20px; left: 50%; transform: translateX(-50%);">
+                        <div class="node-icon"><i data-lucide="message-square"></i></div>
+                        <div class="node-content">
+                            <h4>Customer Message</h4>
+                            <p>WhatsApp</p>
+                        </div>
+                    </div>
+                    
+                    <div class="node-connector" style="top: 80px; left: 50%; height: 40px;"></div>
+                    
+                    <div class="node node-ai" style="top: 120px; left: 50%; transform: translateX(-50%);">
+                        <div class="node-icon"><i data-lucide="bot"></i></div>
+                        <div class="node-content">
+                            <h4>AI Response</h4>
+                            <p>Answer & Ask for Email</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Split paths -->
+                    <svg class="node-split" style="top: 180px; left: 50%; transform: translateX(-50%);" width="200" height="60">
+                        <path d="M100,0 L100,20 L10,20 L10,60" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                        <path d="M100,0 L100,20 L190,20 L190,60" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    </svg>
+
+                    <div class="node node-action" style="top: 240px; left: calc(50% - 90px); transform: translateX(-50%);">
+                        <div class="node-icon"><i data-lucide="database"></i></div>
+                        <div class="node-content">
+                            <h4>CRM Update</h4>
+                            <p>Save Lead</p>
+                        </div>
+                    </div>
+                    
+                    <div class="node node-human" style="top: 240px; left: calc(50% + 90px); transform: translateX(-50%);">
+                        <div class="node-icon"><i data-lucide="headphones"></i></div>
+                        <div class="node-content">
+                            <h4>Assign Sales</h4>
+                            <p>Live Agent Handoff</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. OMNICHANNEL INTEGRATIONS SECTION -->
+    <section class="integrations section-padding" id="integrations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Connect Every Communication Channel</h2>
+                <p class="section-desc">Deploy your AI agents wherever your customers are. Seamlessly integrate with your favorite tools.</p>
+            </div>
+            
+            <div class="integration-grid">
+                <!-- Row 1 -->
+                <div class="integration-card glass-card"><i data-lucide="message-circle" style="color: #25D366;"></i> WhatsApp</div>
+                <div class="integration-card glass-card"><i data-lucide="send" style="color: #0088cc;"></i> Telegram</div>
+                <div class="integration-card glass-card"><i data-lucide="instagram" style="color: #E1306C;"></i> Instagram</div>
+                <div class="integration-card glass-card"><i data-lucide="facebook" style="color: #1877F2;"></i> Messenger</div>
+                <div class="integration-card glass-card"><i data-lucide="mail" style="color: #EA4335;"></i> Gmail</div>
+                <!-- Row 2 -->
+                <div class="integration-card glass-card"><i data-lucide="shopping-bag" style="color: #95BF47;"></i> Shopify</div>
+                <div class="integration-card glass-card"><i data-lucide="slack" style="color: #E01E5A;"></i> Slack</div>
+                <div class="integration-card glass-card"><i data-lucide="zap" style="color: #FF4F00;"></i> Zapier</div>
+                <div class="integration-card glass-card"><i data-lucide="code" style="color: #A8B9CC;"></i> APIs</div>
+                <div class="integration-card glass-card"><i data-lucide="webhook" style="color: #7C3AED;"></i> Webhooks</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CAMPAIGNS & BROADCASTS SECTION -->
+    <section class="campaigns section-padding">
+        <div class="container container-split">
+            <div class="split-content">
+                <h2 class="section-title">Launch Smart AI Campaigns</h2>
+                <ul class="feature-list">
+                    <li><i data-lucide="check-circle-2"></i> <strong>WhatsApp Broadcasts:</strong> Send mass messages with high open rates.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Campaign Scheduling:</strong> Plan campaigns ahead of time for optimal delivery.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Message Templates:</strong> Pre-approved Meta templates for quick launching.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Smart Segmentation:</strong> Target users based on interaction history.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Automated Follow-ups:</strong> AI handles responses to campaign replies.</li>
+                </ul>
+            </div>
+            <div class="split-visual">
+                <div class="glass-card analytics-dashboard">
+                    <div class="dash-header">Campaign Stats: Black Friday Sale</div>
+                    <div class="dash-stats">
+                        <div class="stat-box">
+                            <div class="stat-label">Sent</div>
+                            <div class="stat-value">12,450</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Delivered</div>
+                            <div class="stat-value">98.2%</div>
+                        </div>
+                        <div class="stat-box highlight">
+                            <div class="stat-label">Replies</div>
+                            <div class="stat-value">3,124</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <!-- CSS bar chart -->
+                        <div class="bar-chart">
+                            <div class="bar" style="height: 30%;"></div>
+                            <div class="bar" style="height: 50%;"></div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar" style="height: 40%;"></div>
+                            <div class="bar" style="height: 90%;"></div>
+                            <div class="bar" style="height: 60%;"></div>
+                            <div class="bar highlight" style="height: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. AI + HUMAN SUPPORT SECTION -->
+    <section class="human-support section-padding">
+        <div class="container container-split reverse">
+            <div class="split-content">
+                <h2 class="section-title">AI Automation With Human Support</h2>
+                <p class="section-desc">Don't lose the human touch. Our platform seamlessly routes complex queries to human agents while the AI handles the repetitive tasks.</p>
+                <div class="feature-grid-2">
+                    <div class="feat-item">
+                        <i data-lucide="bot"></i>
+                        <h5>AI First Line</h5>
+                        <p>Resolves 80% of queries instantly.</p>
+                    </div>
+                    <div class="feat-item">
+                        <i data-lucide="users"></i>
+                        <h5>Live Agent Handoff</h5>
+                        <p>Seamless transfer with full context.</p>
+                    </div>
+                    <div class="feat-item">
+                        <i data-lucide="inbox"></i>
+                        <h5>Shared Inbox</h5>
+                        <p>Collaborate across your team.</p>
+                    </div>
+                    <div class="feat-item">
+                        <i data-lucide="sparkles"></i>
+                        <h5>AI Assisted Replies</h5>
+                        <p>Draft suggested responses for humans.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="split-visual">
+                <div class="split-screen-mockup glass-card">
+                    <div class="left-pane">
+                        <div class="chat-list">
+                            <div class="chat-list-item active">
+                                <div class="avatar"><i data-lucide="user"></i></div>
+                                <div class="preview">
+                                    <strong>Sarah M.</strong>
+                                    <span>Need help with billing...</span>
+                                </div>
+                                <span class="badge-bot">AI</span>
+                            </div>
+                            <div class="chat-list-item">
+                                <div class="avatar"><i data-lucide="user"></i></div>
+                                <div class="preview">
+                                    <strong>John D.</strong>
+                                    <span>Where is my order?</span>
+                                </div>
+                                <span class="badge-human">Human</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-pane">
+                        <div class="chat-header">
+                            <div>
+                                <strong>Sarah M.</strong>
+                                <span class="status text-muted">Handed off to agent</span>
+                            </div>
+                            <button class="btn btn-small btn-outline">Close Ticket</button>
+                        </div>
+                        <div class="chat-body">
+                            <div class="msg-group">
+                                <div class="msg user">Hi, I need to update my credit card.</div>
+                                <div class="msg ai">Hello Sarah! I can help. Here is a secure link to update your billing details: [Link]</div>
+                                <div class="msg user">The link is giving me an error.</div>
+                            </div>
+                            <div class="system-msg">AI routed to human agent based on sentiment.</div>
+                            <div class="msg-group">
+                                <div class="msg human">Hi Sarah, I'm Michael. I see you're having trouble with the link. Let me generate a new one for you.</div>
+                            </div>
+                        </div>
+                        <div class="chat-input-area">
+                            <div class="ai-suggestion glass-card">
+                                <span><i data-lucide="sparkles"></i> Suggestion:</span> "Here is your new secure link: https://..."
+                                <button class="btn btn-small">Use</button>
+                            </div>
+                            <div class="input-box">Type a message...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ANALYTICS DASHBOARD SECTION -->
+    <section class="analytics section-padding text-center">
+        <div class="container">
+            <div class="section-header mx-auto">
+                <h2 class="section-title">Track Performance In Real Time</h2>
+                <p class="section-desc">Comprehensive insights into your AI's performance, lead generation, and customer satisfaction.</p>
+            </div>
+            
+            <div class="analytics-grid">
+                <div class="glass-card stat-card">
+                    <div class="stat-header">
+                        <span class="title">Resolution Rate</span>
+                        <i data-lucide="trending-up" class="text-green"></i>
+                    </div>
+                    <div class="stat-value-large">86.4%</div>
+                    <div class="stat-sub">+5.2% from last week</div>
+                    <div class="mini-chart chart-green"></div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-header">
+                        <span class="title">Messages Processed</span>
+                        <i data-lucide="message-square" class="text-blue"></i>
+                    </div>
+                    <div class="stat-value-large">124k</div>
+                    <div class="stat-sub">+12% from last week</div>
+                    <div class="mini-chart chart-blue"></div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-header">
+                        <span class="title">Avg Response Time</span>
+                        <i data-lucide="clock" class="text-purple"></i>
+                    </div>
+                    <div class="stat-value-large">1.2s</div>
+                    <div class="stat-sub">-0.4s from last week</div>
+                    <div class="mini-chart chart-purple"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TEMPLATE MARKETPLACE SECTION -->
+    <section class="templates section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Start Faster With Ready-Made Templates</h2>
+                <p class="section-desc">Deploy industry-specific AI agents in one click.</p>
+            </div>
+            
+            <div class="template-grid">
+                <div class="glass-card template-card">
+                    <div class="template-icon"><i data-lucide="home"></i></div>
+                    <h3>Real Estate AI Bot</h3>
+                    <p>Qualify leads, schedule property viewings, and answer FAQs about listings.</p>
+                    <a href="#" class="template-link open-modal" data-modal-title="Preview Template">Preview Template <i data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="glass-card template-card">
+                    <div class="template-icon"><i data-lucide="stethoscope"></i></div>
+                    <h3>Clinic Assistant</h3>
+                    <p>Manage appointments, send reminders, and handle patient inquiries securely.</p>
+                    <a href="#" class="template-link open-modal" data-modal-title="Preview Template">Preview Template <i data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="glass-card template-card">
+                    <div class="template-icon"><i data-lucide="utensils"></i></div>
+                    <h3>Restaurant Booking Bot</h3>
+                    <p>Take reservations, showcase menus, and handle takeout orders on WhatsApp.</p>
+                    <a href="#" class="template-link open-modal" data-modal-title="Preview Template">Preview Template <i data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="glass-card template-card">
+                    <div class="template-icon"><i data-lucide="shopping-cart"></i></div>
+                    <h3>E-commerce Sales Bot</h3>
+                    <p>Recommend products, track orders, and recover abandoned carts.</p>
+                    <a href="#" class="template-link open-modal" data-modal-title="Preview Template">Preview Template <i data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="glass-card template-card">
+                    <div class="template-icon"><i data-lucide="headphones"></i></div>
+                    <h3>Customer Support AI</h3>
+                    <p>Handle returns, refunds, and general inquiries with a human handoff option.</p>
+                    <a href="#" class="template-link open-modal" data-modal-title="Preview Template">Preview Template <i data-lucide="arrow-right"></i></a>
+                </div>
+                <div class="glass-card template-card">
+                    <div class="template-icon"><i data-lucide="magnet"></i></div>
+                    <h3>Lead Generation Bot</h3>
+                    <p>Engage website visitors, collect contact info, and sync directly to your CRM.</p>
+                    <a href="#" class="template-link open-modal" data-modal-title="Preview Template">Preview Template <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. PRICING SECTION -->
+    <section class="pricing section-padding" id="pricing">
+        <div class="container">
+            <div class="section-header text-center mx-auto">
+                <h2 class="section-title">Transparent Pricing for Growing Teams</h2>
+                <p class="section-desc">Start for free. Scale when you need to.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Growth -->
+                <div class="glass-card pricing-card">
+                    <h3>Growth</h3>
+                    <p class="price-desc">For small businesses starting with AI.</p>
+                    <div class="price"><span>₹</span>1299<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> 1,500 Contacts</li>
+                        <li><i data-lucide="check"></i> 10 Campaigns / Month</li>
+                        <li><i data-lucide="check"></i> 150 Bot Replies / Day</li>
+                        <li><i data-lucide="check"></i> Basic Chatbot Builder</li>
+                        <li><i data-lucide="check"></i> 2 WhatsApp Templates</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full open-modal" data-modal-title="Start Growth Trial">Start Free Trial</a>
+                </div>
+                
+                <!-- Pro -->
+                <div class="glass-card pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <p class="price-desc">For growing teams automating workflows.</p>
+                    <div class="price"><span>₹</span>3200<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> 5000 Contacts</li>
+                        <li><i data-lucide="check"></i> 30 Campaigns / Month</li>
+                        <li><i data-lucide="check"></i> Unlimited Bot Replies</li>
+                        <li><i data-lucide="check"></i> Advanced Chatbot Builder</li>
+                        <li><i data-lucide="check"></i> API Integration (Limited)</li>
+                        <li><i data-lucide="check"></i> 5 Agent Access</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-full glow-btn open-modal" data-modal-title="Get Started with Pro">Get Started</a>
+                </div>
+                
+                <!-- Business -->
+                <div class="glass-card pricing-card">
+                    <h3>Business</h3>
+                    <p class="price-desc">Custom solutions for large organizations.</p>
+                    <div class="price"><span>₹</span>6999<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li><i data-lucide="check"></i> Unlimited Contacts</li>
+                        <li><i data-lucide="check"></i> Unlimited Campaigns</li>
+                        <li><i data-lucide="check"></i> Multi-Agent Support (50+)</li>
+                        <li><i data-lucide="check"></i> Custom Integration Team</li>
+                        <li><i data-lucide="check"></i> Account Manager</li>
+                        <li><i data-lucide="check"></i> SLA & Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline btn-full open-modal" data-modal-title="Contact Business Sales">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="cta-background">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+        </div>
+        <div class="container text-center relative z-10">
+            <h2 class="hero-title">Start Automating Customer Conversations With AI</h2>
+            <p class="hero-subtitle mx-auto" style="max-width: 600px;">Join thousands of businesses saving time and increasing sales with our AI automation platform.</p>
+            <div class="hero-cta justify-center mt-8">
+                <a href="#" class="btn btn-primary btn-large glow-btn open-modal" data-modal-title="Get Started Now">Get Started Now</a>
+                <a href="#" class="btn btn-ghost btn-large open-modal" data-modal-title="Book a Demo">Book Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i data-lucide="bot"></i>
+                        </div>
+                        <span>AutoAI</span>
+                    </a>
+                    <p class="footer-desc">Next-generation AI automation platform for modern businesses. Streamline communication, automate workflows, and grow faster.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                        <a href="#"><i data-lucide="github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#integrations">Integrations</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Templates</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">API Reference</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Community</a>
+                    <a href="#">Help Center</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 AutoAI Inc. All rights reserved.</p>
+                <div class="status-indicator">
+                    <span class="pulse-dot"></span> All systems operational
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal glass-card" id="main-modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Book a Demo</h3>
+                <button class="close-modal" id="close-modal"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="lead-form" class="lead-form">
+                    <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 20px; text-align: center;">Enter your WhatsApp number to receive a live interactive demo directly on your phone.</p>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number</label>
+                        <input type="tel" placeholder="+91 90000 00000" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full glow-btn">Send Demo to WhatsApp</button>
+                </form>
+                <div class="form-success" id="form-success" style="display: none;">
+                    <i data-lucide="check-circle" style="color: #10b981; width: 48px; height: 48px; margin-bottom: 16px;"></i>
+                    <h4>Demo Sent!</h4>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">Check your WhatsApp! The AI bot has just messaged you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
