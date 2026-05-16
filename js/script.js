@@ -101,30 +101,27 @@ document.querySelectorAll('.section-title, .section-desc, .glass-card, .integrat
     observer.observe(el);
 });
 
-// Mobile Menu Toggle
-const mobileBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+// Mobile Nav Drawer
+const mobileBtn    = document.getElementById('mobile-menu-btn');
+const navDrawer    = document.getElementById('mobile-nav-drawer');
+const navOverlay   = document.getElementById('mobile-nav-overlay');
+const navCloseBtn  = document.getElementById('mobile-nav-close-btn');
 
-if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        if (mobileMenu.classList.contains('open')) {
-            mobileBtn.innerHTML = '<i data-lucide="x"></i>';
-        } else {
-            mobileBtn.innerHTML = '<i data-lucide="menu"></i>';
-        }
-        lucide.createIcons();
-    });
-
-    // Close mobile menu on link click
-    document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            mobileBtn.innerHTML = '<i data-lucide="menu"></i>';
-            lucide.createIcons();
-        });
-    });
+function openNav() {
+    navDrawer?.classList.add('active');
+    navOverlay?.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
+function closeNav() {
+    navDrawer?.classList.remove('active');
+    navOverlay?.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+mobileBtn?.addEventListener('click', openNav);
+navCloseBtn?.addEventListener('click', closeNav);
+navOverlay?.addEventListener('click', closeNav);
+document.querySelectorAll('.svc-nav-links a').forEach(l => l.addEventListener('click', closeNav));
 
 // Modal Logic
 const modalOverlay = document.getElementById('modal-overlay');
@@ -241,3 +238,75 @@ if (floatingCards.length > 0) {
         });
     });
 }
+
+// ── Typed Text Effect in Hero ──
+const typedTarget = document.querySelector('.gradient-text-purple');
+if (typedTarget) {
+    const words = ['Conversations', 'Workflows', 'Customer Journeys', 'Lead Capture', 'Appointments'];
+    let wi = 0, ci = 0, deleting = false;
+    const cursor = document.createElement('span');
+    cursor.className = 'typed-cursor';
+    typedTarget.parentNode.insertBefore(cursor, typedTarget.nextSibling);
+    function typeLoop() {
+        const word = words[wi];
+        if (!deleting) {
+            typedTarget.textContent = word.slice(0, ++ci);
+            if (ci === word.length) { deleting = true; return setTimeout(typeLoop, 1800); }
+        } else {
+            typedTarget.textContent = word.slice(0, --ci);
+            if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+        }
+        setTimeout(typeLoop, deleting ? 45 : 90);
+    }
+    typeLoop();
+}
+
+// ── Stat Counter on data-count elements ──
+function countUp(el) {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    let val = 0;
+    const step = target / 80;
+    const timer = setInterval(() => {
+        val = Math.min(val + step, target);
+        el.textContent = (Number.isInteger(target) ? Math.floor(val) : val.toFixed(1)) + suffix;
+        if (val >= target) clearInterval(timer);
+    }, 18);
+}
+document.querySelectorAll('[data-count]').forEach(el => {
+    const io = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { countUp(el); io.disconnect(); }
+    }, { threshold: 0.5 });
+    io.observe(el);
+});
+
+// ── Enhanced Scroll Reveal for index sections ──
+const revealEls = document.querySelectorAll(
+    '.section-title, .section-desc, .glass-card, .integration-card, .feat-item, .logo-grid, .pricing-card'
+);
+const revealIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0) scale(1)';
+            revealIO.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.08 });
+revealEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px) scale(0.97)';
+    el.style.transition = 'opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1)';
+    revealIO.observe(el);
+});
+
+// ── Pricing card 3D tilt ──
+document.querySelectorAll('.pricing-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `translateY(-6px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
+});

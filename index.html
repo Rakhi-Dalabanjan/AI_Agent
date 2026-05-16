@@ -14,14 +14,71 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/new_hero.css">
+    <link rel="stylesheet" href="css/animations.css">
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        /* Index navbar responsive */
+        @media (max-width: 992px) {
+            .navbar .nav-links      { display: none !important; }
+            .navbar .btn-login      { display: none !important; }
+            .navbar .nav-btn-solid  { display: none !important; }
+            .navbar .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; }
+        }
+        @media (min-width: 993px) {
+            .navbar .mobile-menu-btn { display: none !important; }
+        }
+        /* Typed cursor */
+        .typed-cursor { display:inline-block; width:3px; height:0.9em; background:#a855f7; margin-left:2px; vertical-align:middle; animation:blink-cur 0.9s step-end infinite; border-radius:2px; }
+        @keyframes blink-cur { 0%,100%{opacity:1} 50%{opacity:0} }
+        /* Animated stat numbers */
+        .hero-stat { text-align:center; }
+        .hero-stat-num { font-size:clamp(28px,4vw,48px); font-weight:800; background:linear-gradient(135deg,#6366f1,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:block; }
+        .hero-stat-lbl { font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:1px; }
+        /* Animated SVG pulse rings */
+        @keyframes ring-pulse { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(2.2);opacity:0} }
+        .pulse-ring { animation: ring-pulse 2s ease-out infinite; }
+        .pulse-ring-2 { animation: ring-pulse 2s ease-out 0.7s infinite; }
+        /* Gradient border on glass cards */
+        .glass-card { position:relative; overflow:hidden; }
+        .glass-card::before { content:''; position:absolute; inset:0; border-radius:inherit; padding:1px; background:linear-gradient(135deg,rgba(99,102,241,0.3) 0%,transparent 60%); -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:0; transition:opacity 0.4s; }
+        .glass-card:hover::before { opacity:1; }
+        /* Integration card hover glow */
+        .integration-card { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s !important; }
+        .integration-card:hover { transform:translateY(-6px) scale(1.04) !important; box-shadow:0 16px 40px rgba(99,102,241,0.2) !important; }
+        /* Feature item stagger */
+        .feat-item { transition: transform 0.3s, box-shadow 0.3s !important; }
+        .feat-item:hover { transform:translateY(-4px) !important; box-shadow:0 12px 30px rgba(168,85,247,0.15) !important; }
+        /* Animated hero SVG line */
+        @keyframes svg-draw { to { stroke-dashoffset: 0; } }
+        .svg-draw-line { stroke-dasharray: 300; stroke-dashoffset: 300; animation: svg-draw 2s ease forwards; }
+    </style>
 </head>
 <body>
     <!-- BACKGROUND -->
     <div class="floating-particles" id="particles"></div>
+
+    <!-- MOBILE NAV DRAWER -->
+    <div class="svc-nav-overlay" id="mobile-nav-overlay"></div>
+    <div class="svc-nav-drawer" id="mobile-nav-drawer">
+        <div class="svc-nav-close">
+            <button id="mobile-nav-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <nav class="svc-nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="#industries">Industries</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#resources">Resources</a>
+        </nav>
+        <div class="svc-nav-cta">
+            <a href="#">Login</a>
+            <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo">Book Free Demo</button>
+        </div>
+    </div>
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
@@ -40,12 +97,12 @@
             <a href="#resources">Resources <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
         </div>
 
-        <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+        <div class="nav-actions">
             <a href="#" class="btn-login">Login</a>
             <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo">
                 Book Free Demo
             </button>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" style="background:none;border:none;color:white;cursor:pointer;font-size:22px;padding:4px 8px;">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
