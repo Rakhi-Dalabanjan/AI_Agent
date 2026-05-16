@@ -83,10 +83,10 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-            <div class="logo">
-                <div class="logo-box">🤖</div>
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i data-lucide="bot"></i></div>
                 <h2>AgenticAI</h2>
-            </div>
+            </a>
 
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
@@ -102,7 +102,7 @@
             <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo">
                 Book Free Demo
             </button>
-            <button class="mobile-menu-btn" id="mobile-menu-btn" style="background:none;border:none;color:white;cursor:pointer;font-size:22px;padding:4px 8px;">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -120,7 +120,7 @@
             <!-- LEFT -->
             <div class="hero-content">
                 <div class="hero-badge">
-                    <i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> AI AGENTS FOR MODERN BUSINESSES
+                    <i data-lucide="zap" style="color: #f59e0b; width: 16px; height: 16px;"></i> AI AGENTS FOR MODERN BUSINESSES
                 </div>
 
                 <h1 class="hero-heading">
@@ -140,7 +140,7 @@
 
                 <div class="hero-buttons">
                     <button class="btn-primary-purple open-modal" data-modal-title="Book a Demo">
-                        <i class="fa-regular fa-calendar-check"></i> Book Free Demo <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+                        <i data-lucide="calendar-check" style="width: 18px; height: 18px;"></i> Book Free Demo <i data-lucide="arrow-right" style="margin-left: 5px; width: 18px; height: 18px;"></i>
                     </button>
                     <button class="btn-secondary-outline" id="talk-whatsapp-btn">
                         <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 18px;"></i> Talk on WhatsApp
@@ -149,7 +149,7 @@
 
                 <div class="trust-grid">
                     <div class="trust-box">
-                        <div class="trust-icon" style="color: #3b82f6;"><i class="fa-solid fa-clock"></i><span class="icon-24">24</span></div>
+                        <div class="trust-icon" style="color: #3b82f6;"><i data-lucide="clock"></i><span class="icon-24">24</span></div>
                         <div class="trust-text"><span class="highlight-text">24/7</span><br>AI Support</div>
                     </div>
                     <div class="trust-box">
@@ -158,7 +158,7 @@
                     </div>
 
                     <div class="trust-box">
-                        <div class="trust-icon" style="color: #3b82f6;"><i class="fa-solid fa-gears"></i></div>
+                        <div class="trust-icon" style="color: #3b82f6;"><i data-lucide="settings-2"></i></div>
                         <div class="trust-text"><span class="highlight-text">CRM &</span><br>Workflow</div>
                     </div>
                 </div>
@@ -300,35 +300,35 @@
         <!-- HERO BOTTOM FEATURES -->
         <div class="hero-bottom-features container">
             <div class="feature-item">
-                <div class="feat-icon"><i class="fa-regular fa-comments"></i></div>
+                <div class="feat-icon"><i data-lucide="message-square"></i></div>
                 <div class="feat-text">
                     <h4>AI-Powered Conversations</h4>
                     <p>Human-like conversations that engage, support, and convert.</p>
                 </div>
             </div>
             <div class="feature-item">
-                <div class="feat-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="feat-icon"><i data-lucide="target"></i></div>
                 <div class="feat-text">
                     <h4>Instant Lead Capture</h4>
                     <p>Capture leads automatically from WhatsApp, Web, and other channels.</p>
                 </div>
             </div>
             <div class="feature-item">
-                <div class="feat-icon"><i class="fa-solid fa-gear"></i></div>
+                <div class="feat-icon"><i data-lucide="settings"></i></div>
                 <div class="feat-text">
                     <h4>Smart Automation</h4>
                     <p>Automate repetitive tasks and workflows to save time and reduce errors.</p>
                 </div>
             </div>
             <div class="feature-item">
-                <div class="feat-icon"><i class="fa-solid fa-chart-column"></i></div>
+                <div class="feat-icon"><i data-lucide="bar-chart-3"></i></div>
                 <div class="feat-text">
                     <h4>Analytics & Insights</h4>
                     <p>Track performance, analyze data, and grow your business faster.</p>
                 </div>
             </div>
             <div class="feature-item">
-                <div class="feat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="feat-icon"><i data-lucide="shield-check"></i></div>
                 <div class="feat-text">
                     <h4>Secure & Scalable</h4>
                     <p>Enterprise-grade security and infrastructure built to scale with you.</p>
@@ -481,14 +481,14 @@
             
             <div class="integration-grid">
                 <!-- Row 1 -->
-                <div class="integration-card glass-card"><i data-lucide="message-circle" style="color: #25D366;"></i> WhatsApp</div>
-                <div class="integration-card glass-card"><i data-lucide="send" style="color: #0088cc;"></i> Telegram</div>
-                <div class="integration-card glass-card"><i data-lucide="instagram" style="color: #E1306C;"></i> Instagram</div>
-                <div class="integration-card glass-card"><i data-lucide="facebook" style="color: #1877F2;"></i> Messenger</div>
+                <div class="integration-card glass-card"><i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 20px;"></i> WhatsApp</div>
+                <div class="integration-card glass-card"><i class="fa-brands fa-telegram" style="color: #0088cc; font-size: 20px;"></i> Telegram</div>
+                <div class="integration-card glass-card"><i class="fa-brands fa-instagram" style="color: #E1306C; font-size: 20px;"></i> Instagram</div>
+                <div class="integration-card glass-card"><i class="fa-brands fa-facebook-messenger" style="color: #1877F2; font-size: 20px;"></i> Messenger</div>
                 <div class="integration-card glass-card"><i data-lucide="mail" style="color: #EA4335;"></i> Gmail</div>
                 <!-- Row 2 -->
-                <div class="integration-card glass-card"><i data-lucide="shopping-bag" style="color: #95BF47;"></i> Shopify</div>
-                <div class="integration-card glass-card"><i data-lucide="slack" style="color: #E01E5A;"></i> Slack</div>
+                <div class="integration-card glass-card"><i class="fa-brands fa-shopify" style="color: #95BF47; font-size: 20px;"></i> Shopify</div>
+                <div class="integration-card glass-card"><i class="fa-brands fa-slack" style="color: #E01E5A; font-size: 20px;"></i> Slack</div>
                 <div class="integration-card glass-card"><i data-lucide="zap" style="color: #FF4F00;"></i> Zapier</div>
                 <div class="integration-card glass-card"><i data-lucide="code" style="color: #A8B9CC;"></i> APIs</div>
                 <div class="integration-card glass-card"><i data-lucide="webhook" style="color: #7C3AED;"></i> Webhooks</div>
@@ -796,17 +796,17 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">
+                    <a href="index.html" class="logo">
                         <div class="logo-icon">
                             <i data-lucide="bot"></i>
                         </div>
-                        <span>AutoAI</span>
+                        <h2>AgenticAI</h2>
                     </a>
                     <p class="footer-desc">Next-generation AI automation platform for modern businesses. Streamline communication, automate workflows, and grow faster.</p>
                     <div class="social-links">
-                        <a href="#"><i data-lucide="twitter"></i></a>
-                        <a href="#"><i data-lucide="linkedin"></i></a>
-                        <a href="#"><i data-lucide="github"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -827,7 +827,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 AutoAI Inc. All rights reserved.</p>
+                <p>&copy; 2026 AgenticAI Inc. All rights reserved.</p>
                 <div class="status-indicator">
                     <span class="pulse-dot"></span> All systems operational
                 </div>
@@ -865,5 +865,6 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

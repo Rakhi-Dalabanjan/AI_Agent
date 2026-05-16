@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/new_hero.css">
     <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/animations.css">
     <style>
         .action-tabs-container {
             background: rgba(15, 23, 42, 0.5);
@@ -100,7 +101,7 @@
     <nav class="navbar" id="navbar">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <a href="index.html" class="logo">
-                <div class="logo-box">🤖</div>
+                <div class="logo-icon"><i data-lucide="bot"></i></div>
                 <h2>AgenticAI</h2>
             </a>
             <div class="nav-links">
@@ -550,10 +551,10 @@
         <div class="container">
             <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
                 <div style="max-width: 300px;">
-                    <div class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <div class="logo-box">🤖</div>
+                    <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <div class="logo-icon"><i data-lucide="bot"></i></div>
                         <h2>AgenticAI</h2>
-                    </div>
+                    </a>
                     <p style="color:#94a3b8; font-size:13px; line-height:1.6;">Building cutting-edge autonomous AI solutions to empower modern fast-growing businesses.</p>
                 </div>
                 <div style="display:flex; gap: 60px;">
@@ -681,5 +682,6 @@
         mobileNavOverlay?.addEventListener('click', closeNav);
         document.querySelectorAll('.svc-nav-links a').forEach(l => l.addEventListener('click', closeNav));
     </script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

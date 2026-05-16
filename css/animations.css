@@ -2,6 +2,169 @@
    AGENTICAI — ANIMATION & INTERACTION LAYER
    ===================================================== */
 
+/* ═══════════════════════════════════════════════════
+   MOBILE NAV DRAWER  (used by ALL pages via animations.css)
+   ═══════════════════════════════════════════════════ */
+.svc-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 199;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.svc-nav-overlay.active { 
+    display: block;
+    opacity: 1; 
+    pointer-events: auto;
+}
+.svc-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(300px, 85vw);
+    height: 100vh;
+    background: #070d1f;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    z-index: 200;
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+    overflow-y: auto;
+}
+.svc-nav-drawer.active { right: 0; }
+.svc-nav-close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 28px;
+}
+.svc-nav-close button {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+.svc-nav-close button:hover { color: white; }
+.svc-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+.svc-nav-links a {
+    display: block;
+    padding: 13px 16px;
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.svc-nav-links a:hover,
+.svc-nav-links a.active {
+    background: rgba(99,102,241,0.15);
+    color: white;
+}
+.svc-nav-cta {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.svc-nav-cta a {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.svc-nav-cta .nav-btn-solid {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: #6366f1;
+    color: white;
+    transition: background 0.2s;
+}
+.svc-nav-cta .nav-btn-solid:hover { background: #4f46e5; }
+@media (max-width: 992px) {
+    /* Overlay handled by .active class now */
+}
+@media (min-width: 993px) {
+    .svc-nav-drawer { right: -100% !important; }
+    .svc-nav-overlay { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════
+   ACTIVE NAV LINK  (desktop & mobile drawer)
+   ═══════════════════════════════════════════════════ */
+.nav-links a {
+    position: relative;
+}
+.nav-links a.active,
+.nav-links a[data-active="true"] {
+    color: #ffffff !important;
+}
+.nav-links a.active::after,
+.nav-links a[data-active="true"]::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    border-radius: 2px;
+    animation: nav-underline-in 0.3s ease forwards;
+}
+@keyframes nav-underline-in {
+    from { width: 0; opacity: 0; }
+    to   { width: 60%; opacity: 1; }
+}
+/* Navbar actions flex */
+.navbar .nav-actions {
+    display: flex !important;
+    gap: 15px;
+    align-items: center;
+}
+.navbar .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 4px 8px;
+    line-height: 1;
+}
+@media (max-width: 992px) {
+    .navbar .nav-links      { display: none !important; }
+    .navbar .btn-login      { display: none !important; }
+    .navbar .nav-btn-solid  { display: none !important; }
+    .navbar .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; }
+}
+@media (min-width: 993px) {
+    .navbar .mobile-menu-btn { display: none !important; }
+}
+
 /* ── Scroll Reveal Base ── */
 .reveal {
     opacity: 0;
@@ -270,10 +433,53 @@
 }
 
 /* ── CTA Card Animated Border ── */
-.footer-cta-card {
+/* ── Navigation Active States ── */
+.nav-links a {
     position: relative;
-    overflow: hidden;
+    padding-bottom: 5px;
 }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+.nav-links a.active {
+    color: white !important;
+}
+
+/* ── Center CTA Robot ── */
+.footer-cta-card {
+    padding: 60px 40px !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cta-robot-floating {
+    position: relative !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    margin: -100px auto 20px !important; /* Pull it up slightly to overlap */
+    width: 200px !important;
+}
+.footer-cta-card p {
+    margin: 0 auto 30px !important;
+}
+.cta-buttons {
+    justify-content: center;
+}
+
 .footer-cta-card::before {
     content: '';
     position: absolute;

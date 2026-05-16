@@ -1,5 +1,3 @@
-// Initialize Lucide Icons
-lucide.createIcons();
 
 // Sticky Navbar Background
 const navbar = document.getElementById('navbar');
@@ -76,52 +74,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Scroll Reveal Animation (Simple Intersection Observer)
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
+// Reveal animations handled by animations.js
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Add reveal class to elements
-document.querySelectorAll('.section-title, .section-desc, .glass-card, .integration-card, .feat-item, .logo-grid').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
-});
-
-// Mobile Nav Drawer
-const mobileBtn    = document.getElementById('mobile-menu-btn');
-const navDrawer    = document.getElementById('mobile-nav-drawer');
-const navOverlay   = document.getElementById('mobile-nav-overlay');
-const navCloseBtn  = document.getElementById('mobile-nav-close-btn');
-
-function openNav() {
-    navDrawer?.classList.add('active');
-    navOverlay?.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-function closeNav() {
-    navDrawer?.classList.remove('active');
-    navOverlay?.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-mobileBtn?.addEventListener('click', openNav);
-navCloseBtn?.addEventListener('click', closeNav);
-navOverlay?.addEventListener('click', closeNav);
-document.querySelectorAll('.svc-nav-links a').forEach(l => l.addEventListener('click', closeNav));
+// Mobile drawer handled by animations.js
 
 // Modal Logic
 const modalOverlay = document.getElementById('modal-overlay');
