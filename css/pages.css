@@ -1,5 +1,161 @@
 /* COMMON SUBPAGES STYLING (SERVICES & SOLUTIONS) */
 
+/* ===================================================
+   SUBPAGE NAVBAR — BASE
+   =================================================== */
+.logo-box {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+/* nav-actions must flex so hamburger appears next to items */
+.navbar .nav-actions {
+    display: flex !important;
+    gap: 15px;
+    align-items: center;
+}
+/* Hamburger hidden on desktop by default */
+.navbar .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 4px 8px;
+    line-height: 1;
+}
+
+/* ===================================================
+   SUBPAGE MOBILE DRAWER
+   =================================================== */
+.svc-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 199;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.svc-nav-overlay.active {
+    opacity: 1;
+}
+.svc-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(300px, 85vw);
+    height: 100vh;
+    background: #070d1f;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 200;
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+.svc-nav-drawer.active {
+    right: 0;
+}
+.svc-nav-close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 28px;
+}
+.svc-nav-close button {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+.svc-nav-close button:hover { color: white; }
+.svc-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+.svc-nav-links a {
+    display: block;
+    padding: 13px 16px;
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.svc-nav-links a:hover,
+.svc-nav-links a.active {
+    background: rgba(99, 102, 241, 0.15);
+    color: white;
+}
+.svc-nav-cta {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.svc-nav-cta a {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.svc-nav-cta a:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+.svc-nav-cta .nav-btn-solid {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: #6366f1;
+    color: white;
+    transition: background 0.2s;
+}
+.svc-nav-cta .nav-btn-solid:hover { background: #4f46e5; }
+
+/* ===================================================
+   SUBPAGE NAVBAR RESPONSIVE — Hides nav at ≤992px
+   =================================================== */
+@media (max-width: 992px) {
+    .navbar .nav-links         { display: none !important; }
+    .navbar .btn-login         { display: none !important; }
+    .navbar .nav-btn-solid     { display: none !important; }
+    .navbar .mobile-menu-btn   { display: flex !important; align-items: center; justify-content: center; }
+    .svc-nav-overlay           { display: block; }
+}
+@media (min-width: 993px) {
+    .navbar .mobile-menu-btn   { display: none !important; }
+    .svc-nav-drawer            { right: -100% !important; }
+    .svc-nav-overlay           { display: none !important; }
+}
+
+
 .subpage-hero {
     padding: 140px 0 80px;
     position: relative;
@@ -500,96 +656,7 @@
     align-items: center;
 }
 
-/* ===================================================
-   MOBILE NAV DRAWER (Subpages)
-   =================================================== */
-.mobile-nav-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 199;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.mobile-nav-overlay.active {
-    opacity: 1;
-}
-.mobile-nav-drawer {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: min(320px, 85vw);
-    height: 100vh;
-    background: #080f24;
-    border-left: 1px solid rgba(255,255,255,0.08);
-    z-index: 200;
-    padding: 30px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
-}
-.mobile-nav-drawer.active {
-    right: 0;
-}
-.mobile-nav-close {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 30px;
-}
-.mobile-nav-close button {
-    background: none;
-    border: none;
-    color: #94a3b8;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 4px;
-    transition: color 0.2s;
-}
-.mobile-nav-close button:hover { color: white; }
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex: 1;
-}
-.mobile-nav-links a {
-    display: block;
-    padding: 13px 16px;
-    color: #94a3b8;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 10px;
-    transition: 0.2s;
-    text-decoration: none;
-}
-.mobile-nav-links a:hover,
-.mobile-nav-links a.active {
-    background: rgba(99,102,241,0.12);
-    color: white;
-}
-.mobile-nav-actions {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.07);
-}
-.mobile-nav-actions .btn-login {
-    text-align: center;
-    padding: 12px;
-    border-radius: 10px;
-}
-.mobile-nav-actions .nav-btn-solid {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 600;
-}
+
 
 /* ===================================================
    SUBPAGE HERO RESPONSIVE
@@ -634,20 +701,6 @@
 
 /* --- Tablet (max 992px) --- */
 @media (max-width: 992px) {
-    /* Navbar */
-    .nav-links { display: none; }
-    .btn-login { display: none; }
-    .nav-btn-solid { display: none; }
-    .mobile-menu-btn {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
-    .mobile-nav-overlay { display: block; }
-
     /* Hero */
     .hero-container {
         grid-template-columns: 1fr;

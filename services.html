@@ -14,6 +14,20 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/new_hero.css">
     <link rel="stylesheet" href="css/pages.css">
+    <style>
+        /* Ensure navbar items hide on mobile (overrides any inline styles) */
+        @media (max-width: 992px) {
+            .navbar .nav-links     { display: none !important; }
+            .navbar .btn-login     { display: none !important; }
+            .navbar .nav-btn-solid { display: none !important; }
+            .navbar .mobile-menu-btn { display: flex !important; }
+        }
+        @media (min-width: 993px) {
+            .navbar .mobile-menu-btn { display: none !important; }
+        }
+    </style>
+
+
 </head>
 <body>
 
@@ -22,12 +36,12 @@
     <div class="bg-glow-2" style="bottom: 0; right: 0;"></div>
 
     <!-- MOBILE NAV DRAWER -->
-    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-        <div class="mobile-nav-close">
+    <div class="svc-nav-overlay" id="mobile-nav-overlay"></div>
+    <div class="svc-nav-drawer" id="mobile-nav-drawer">
+        <div class="svc-nav-close">
             <button id="mobile-nav-close-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <nav class="mobile-nav-links">
+        <nav class="svc-nav-links">
             <a href="index.html">Home</a>
             <a href="services.html" class="active">Services</a>
             <a href="solutions.html">Solutions</a>
@@ -35,8 +49,8 @@
             <a href="pricing.html">Pricing</a>
             <a href="resources.html">Resources</a>
         </nav>
-        <div class="mobile-nav-actions">
-            <a href="#" class="btn-login" style="border:1px solid rgba(255,255,255,0.2); border-radius:10px; text-align:center; display:block; padding:12px; color:white; text-decoration:none;">Login</a>
+        <div class="svc-nav-cta">
+            <a href="#" style="display:block; text-align:center; padding:12px; border:1px solid rgba(255,255,255,0.2); border-radius:10px; color:white; text-decoration:none; font-size:14px;">Login</a>
             <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo" style="width:100%; padding:14px; border-radius:10px; font-size:15px; font-weight:600;">Book Free Demo</button>
         </div>
     </div>
@@ -56,12 +70,12 @@
                 <a href="pricing.html">Pricing</a>
                 <a href="resources.html">Resources</a>
             </div>
-            <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+            <div class="nav-actions">
                 <a href="#" class="btn-login">Login</a>
                 <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo">
                     Book Free Demo
                 </button>
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" style="background:none; border:none; color:white; cursor:pointer; font-size:20px; padding:4px 8px;">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -562,7 +576,7 @@
         mobileNavOverlay?.addEventListener('click', closeMobileNav);
 
         // Close drawer when any mobile nav link is clicked
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        document.querySelectorAll('.svc-nav-links a').forEach(link => {
             link.addEventListener('click', closeMobileNav);
         });
 
