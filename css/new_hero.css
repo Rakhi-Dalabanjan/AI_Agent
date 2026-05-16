@@ -84,7 +84,9 @@
 
 .hero-content {
     position: relative;
-    z-index: 20; /* Push content and buttons above any absolute floating elements */
+    z-index: 20; 
+    flex: 1.2;
+    min-width: 0;
 }
 
 .trust-grid {
@@ -137,11 +139,27 @@
 }
 
 /* COMPLEX HERO VISUALS */
+.hero-heading {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 90%; /* Force wrapping before it touches the image */
+    line-height: 1.2;
+    position: relative;
+    z-index: 10;
+}
 .hero-visual-complex {
     position: relative;
+    flex: 0.8;
     width: 100%;
-    height: 700px;
-    margin-top: 71px;
+    max-width: 100%;
+    height: auto;
+    min-height: 400px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: visible;
+    min-width: 0;
 }
 .comp-card {
     background: rgba(15, 23, 42, 0.6);
@@ -155,13 +173,19 @@
 
 /* Main Dashboard */
 .main-dashboard {
-    top: 0;
-    right: 0;
-    width: 92%;
-    height: 460px;
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Ensure it never exceeds parent */
+    height: auto;
+    aspect-ratio: 16 / 10;
     display: flex;
     flex-direction: column;
     z-index: 1;
+    margin: 0 auto;
+    transition: all 0.4s ease;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
+    overflow: hidden; /* Local overflow is fine to keep the card clean */
 }
 .md-header {
     padding: 12px 20px;
@@ -598,14 +622,59 @@
 }
 
 @media(max-width: 1200px) {
-    .hero-bottom-features { grid-template-columns: repeat(3, 1fr); }
-    .main-dashboard { width: 95%; }
+    .main-dashboard { aspect-ratio: 1.2; } /* Make it more square/mobile-like */
+    .sidebar, .md-sidebar { width: 120px; }
+    .hero-container { gap: 30px; }
+    
+    /* Auto-compact after typing completes */
+    .hero-container.typing-finished .main-dashboard {
+        max-width: 320px !important; /* Force a very compact width */
+        aspect-ratio: 0.8;
+        transform: scale(0.8);
+        transform-origin: right center;
+    }
+    .hero-container.typing-finished .sidebar,
+    .hero-container.typing-finished .md-sidebar {
+        display: none !important;
+    }
+    .hero-container.typing-finished .md-body {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Global rule for even wider screens to ensure fit */
+.hero-container.typing-finished .main-dashboard {
+    max-width: 420px; /* Physically limit width */
+    aspect-ratio: 1; /* Make it more compact */
+    transform: none; /* Avoid scale clipping */
+}
+.hero-container.typing-finished .sidebar,
+.hero-container.typing-finished .md-sidebar {
+    display: none !important;
+}
+.hero-container.typing-finished .md-body {
+    grid-template-columns: 1fr !important;
+}
+
+@media(max-width: 1100px) {
+    .hero-container { grid-template-columns: 1fr; text-align: center; }
+    .hero-content { margin-bottom: 30px; }
+    .hero-visual-complex { margin-top: 30px; justify-content: center; }
+    .main-dashboard { max-width: 480px; aspect-ratio: 0.8; } /* Mobile View style */
+    .md-body { flex-direction: column; }
+    .sidebar, .md-sidebar { display: none !important; }
+    .md-body { grid-template-columns: 1fr !important; }
+    .md-stats-row { grid-template-columns: repeat(2, 1fr); }
+    .hero-buttons { justify-content: center; }
 }
 @media(max-width: 900px) {
     .hero-bottom-features { grid-template-columns: repeat(2, 1fr); }
-    .hero-visual-complex { height: 400px; transform: scale(0.8); transform-origin: top center; }
+    .hero-visual-complex { min-height: 300px; margin-top: 30px; }
 }
 @media(max-width: 768px) {
     .hero-bottom-features { grid-template-columns: 1fr; }
-    .hero-visual-complex { display: none; }
+    .hero-visual-complex { min-height: 250px; }
+    .main-dashboard { aspect-ratio: 1.2; }
+    .sidebar { display: none !important; }
+    .md-body { grid-template-columns: 1fr !important; }
 }

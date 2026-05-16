@@ -337,10 +337,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    gap: 60px;
+    width: 100%;
+    position: relative;
 }
 
 .feature-badges {
@@ -371,12 +373,16 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title {
     font-size: 4rem;
     margin-bottom: 24px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 90%; /* Prevent it from touching the right column edge */
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 40px;
+    max-width: 85%;
 }
 
 .hero-cta {

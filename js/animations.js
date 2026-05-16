@@ -172,4 +172,143 @@
     if (window.lucide) {
         lucide.createIcons();
     }
+
+    /* ── 11. Interactive Background Grid ── */
+    function initInteractiveGrid() {
+        const container = document.createElement('div');
+        container.className = 'interactive-grid-bg';
+        const canvas = document.createElement('canvas');
+        canvas.className = 'interactive-grid-canvas';
+        container.appendChild(canvas);
+        document.body.prepend(container);
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let mouse = { x: -1000, y: -1000 };
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        resize();
+
+        const gridSize = 40;
+        const dotSize = 1;
+        const color = 'rgba(99, 102, 241, 0.2)';
+        const activeColor = 'rgba(168, 85, 247, 0.6)';
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            
+            const cols = Math.ceil(width / gridSize) + 1;
+            const rows = Math.ceil(height / gridSize) + 1;
+
+            for (let i = 0; i < cols; i++) {
+                for (let j = 0; j < rows; j++) {
+                    const x = i * gridSize;
+                    const y = j * gridSize;
+                    
+                    const dist = Math.hypot(x - mouse.x, y - mouse.y);
+                    const maxDist = 150;
+                    
+                    if (dist < maxDist) {
+                        const ratio = 1 - (dist / maxDist);
+                        ctx.fillStyle = activeColor;
+                        const size = dotSize + ratio * 2;
+                        ctx.beginPath();
+                        ctx.arc(x, y, size, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Draw line to mouse
+                        ctx.strokeStyle = `rgba(168, 85, 247, ${ratio * 0.2})`;
+                        ctx.beginPath();
+                        ctx.moveTo(x, y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    } else {
+                        ctx.fillStyle = color;
+                        ctx.beginPath();
+                        ctx.arc(x, y, dotSize, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    }
+    initInteractiveGrid();
+
+    /* ── 12. AI Typing Animation ── */
+    function initTypingAnimation() {
+        const elements = document.querySelectorAll('[data-typed-text]');
+        elements.forEach(el => {
+            const text = el.dataset.typedText;
+            const speed = parseInt(el.dataset.typedSpeed) || 100;
+            const delay = parseInt(el.dataset.typedDelay) || 0;
+            
+            el.textContent = '';
+            el.classList.add('typed-text');
+            
+            setTimeout(() => {
+                let i = 0;
+                const interval = setInterval(() => {
+                    el.textContent += text[i];
+                    i++;
+                    if (i >= text.length) {
+                        clearInterval(interval);
+                        // Trigger layout adjustment if space is tight
+                        const container = el.closest('.hero-container');
+                        if (container) container.classList.add('typing-finished');
+
+                        setTimeout(() => {
+                            el.style.borderRight = 'none';
+                        }, 1000);
+                    }
+                }, speed);
+            }, delay);
+        });
+    }
+    initTypingAnimation();
+
+    /* ── 13. Magnetic Buttons ── */
+    function initMagneticButtons() {
+        const buttons = document.querySelectorAll('.btn-magnetic');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+    }
+    initMagneticButtons();
+
+    /* ── 14. Enhanced Scroll Reveal ── */
+    const enhancedRevealIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                enhancedRevealIO.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-zoom, .stagger-container').forEach(el => {
+        enhancedRevealIO.observe(el);
+    });
+
 })();
