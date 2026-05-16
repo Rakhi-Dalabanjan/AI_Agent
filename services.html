@@ -21,6 +21,26 @@
     <div class="bg-glow-1" style="top: 0; left: 0;"></div>
     <div class="bg-glow-2" style="bottom: 0; right: 0;"></div>
 
+    <!-- MOBILE NAV DRAWER -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+        <div class="mobile-nav-close">
+            <button id="mobile-nav-close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="industries.html">Industries</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="resources.html">Resources</a>
+        </nav>
+        <div class="mobile-nav-actions">
+            <a href="#" class="btn-login" style="border:1px solid rgba(255,255,255,0.2); border-radius:10px; text-align:center; display:block; padding:12px; color:white; text-decoration:none;">Login</a>
+            <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo" style="width:100%; padding:14px; border-radius:10px; font-size:15px; font-weight:600;">Book Free Demo</button>
+        </div>
+    </div>
+
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
@@ -519,6 +539,33 @@
         document.getElementById('talk-whatsapp-btn-2')?.addEventListener('click', () => {
             window.location.href = "https://wa.me/918151889911";
         });
+
+        // Mobile Nav Drawer
+        const mobileMenuBtn    = document.getElementById('mobile-menu-btn');
+        const mobileNavDrawer  = document.getElementById('mobile-nav-drawer');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileNavClose   = document.getElementById('mobile-nav-close-btn');
+
+        function openMobileNav() {
+            mobileNavDrawer.classList.add('active');
+            mobileNavOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileNav() {
+            mobileNavDrawer.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn?.addEventListener('click', openMobileNav);
+        mobileNavClose?.addEventListener('click', closeMobileNav);
+        mobileNavOverlay?.addEventListener('click', closeMobileNav);
+
+        // Close drawer when any mobile nav link is clicked
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+
     </script>
 </body>
 </html>
