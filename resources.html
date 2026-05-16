@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Resources | Guides, Case Studies & Documentation | AgenticAI</title>
+    <meta name="description" content="Explore AI automation guides, case studies, API documentation, blog insights, and support resources to help your business implement powerful AI systems.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new_hero.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <style>
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+        .resource-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .resource-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .resource-card.rc-blue::after { background: linear-gradient(90deg, #3b82f6, #6366f1); }
+        .resource-card.rc-green::after { background: linear-gradient(90deg, #22c55e, #16a34a); }
+        .resource-card.rc-orange::after { background: linear-gradient(90deg, #f97316, #ef4444); }
+        .resource-card.rc-purple::after { background: linear-gradient(90deg, #a855f7, #6366f1); }
+        .resource-card.rc-teal::after { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+        .resource-card.rc-pink::after { background: linear-gradient(90deg, #ec4899, #a855f7); }
+        .resource-card:hover { transform: translateY(-6px); border-color: rgba(99,102,241,0.25); }
+        .resource-card:hover::after { opacity: 1; }
+        .rc-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .rc-blue .rc-icon { background: rgba(59,130,246,0.15); color: #3b82f6; }
+        .rc-green .rc-icon { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .rc-orange .rc-icon { background: rgba(249,115,22,0.15); color: #f97316; }
+        .rc-purple .rc-icon { background: rgba(168,85,247,0.15); color: #a855f7; }
+        .rc-teal .rc-icon { background: rgba(6,182,212,0.15); color: #06b6d4; }
+        .rc-pink .rc-icon { background: rgba(236,72,153,0.15); color: #ec4899; }
+        .rc-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: white; }
+        .rc-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
+        .rc-link { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+        .rc-blue .rc-link { color: #60a5fa; }
+        .rc-green .rc-link { color: #4ade80; }
+        .rc-orange .rc-link { color: #fb923c; }
+        .rc-purple .rc-link { color: #c084fc; }
+        .rc-teal .rc-link { color: #22d3ee; }
+        .rc-pink .rc-link { color: #f472b6; }
+        .resource-card:hover .rc-link { gap: 10px; }
+        .featured-resource {
+            background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(168,85,247,0.08));
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .featured-resource .fr-icon { font-size: 64px; color: #6366f1; flex-shrink: 0; }
+        .featured-resource h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+        .featured-resource p { font-size: 14px; color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
+        @media (max-width: 992px) { .resources-grid { grid-template-columns: repeat(2,1fr); } .featured-resource { flex-direction: column; text-align: center; } }
+        @media (max-width: 600px) { .resources-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow-1" style="top: 0; left: 0;"></div>
+    <div class="bg-glow-2" style="bottom: 0; right: 0;"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo">
+                <div class="logo-box">🤖</div>
+                <h2>AgenticAI</h2>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="industries.html">Industries</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="resources.html" class="active">Resources</a>
+            </div>
+            <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+                <a href="#" class="btn-login">Login</a>
+                <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo">Book Free Demo</button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="subpage-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge-accent">📚 AI AUTOMATION RESOURCES</span>
+                <h1 class="hero-heading" style="font-size: clamp(36px, 4.5vw, 56px);">
+                    Learn, Explore & Grow With
+                    <span class="gradient-text-purple"> AI Automation</span>
+                </h1>
+                <p class="hero-description">
+                    Discover guides, case studies, automation insights, AI tutorials, and business resources designed to help companies understand and implement powerful AI automation systems.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-primary-purple open-modal" data-modal-title="Book a Demo">
+                        Book Free Demo <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
+                    </button>
+                    <button class="btn-secondary-outline" id="talk-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> Talk on WhatsApp
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual-complex" style="height: 520px;">
+                <div class="comp-card main-dashboard" style="height: 420px; top: 20px;">
+                    <div class="md-header">
+                        <div class="md-logo"><i class="fa-solid fa-book-open"></i> Resource Hub</div>
+                        <div style="display:flex; gap:10px; color:#94a3b8;"><i class="fa-solid fa-search"></i></div>
+                    </div>
+                    <div class="md-body" style="padding:20px; display:flex; flex-direction:column; gap:10px;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-file-lines" style="color:#3b82f6; width:16px;"></i>
+                            <div><div style="font-size:11px; font-weight:600;">Documentation</div><div style="font-size:10px; color:#64748b;">Setup & integration guides</div></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-chart-bar" style="color:#22c55e; width:16px;"></i>
+                            <div><div style="font-size:11px; font-weight:600;">Case Studies</div><div style="font-size:10px; color:#64748b;">Real business success stories</div></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-robot" style="color:#a855f7; width:16px;"></i>
+                            <div><div style="font-size:11px; font-weight:600;">AI Automation Guides</div><div style="font-size:10px; color:#64748b;">Learn automation strategies</div></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:12px 14px; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-code" style="color:#f97316; width:16px;"></i>
+                            <div><div style="font-size:11px; font-weight:600;">API Documentation</div><div style="font-size:10px; color:#64748b;">Developer resources & support</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- FEATURED RESOURCE -->
+        <div class="featured-resource">
+            <div class="fr-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div>
+                <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#a5b4fc; margin-bottom:8px;">⭐ Featured Guide</div>
+                <h3>The Ultimate AI Automation Guide for Businesses in 2026</h3>
+                <p>Learn how to automate customer support, lead generation, appointment booking, and workflows using modern AI-powered systems. Step-by-step implementation strategies for any business size.</p>
+                <button class="nav-btn-solid open-modal" data-modal-title="Get Free AI Guide" style="padding:12px 28px; font-size:13px;">Get Free Guide <i class="fa-solid fa-arrow-right" style="margin-left:6px;"></i></button>
+            </div>
+        </div>
+
+        <!-- RESOURCE CATEGORIES -->
+        <div class="section-title-centered">
+            <h2>Resource Categories</h2>
+            <p>Everything you need to learn, implement, and scale AI automation for your business.</p>
+        </div>
+
+        <div class="resources-grid">
+
+            <div class="resource-card rc-blue">
+                <div class="rc-icon"><i class="fa-solid fa-file-lines"></i></div>
+                <div class="rc-title">Documentation</div>
+                <div class="rc-desc">Detailed setup guides and integration documentation for AI systems and automation workflows. Get step-by-step instructions to deploy AI agents for your business.</div>
+                <a href="#" class="rc-link open-modal" data-modal-title="Access Documentation">Browse Docs <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card rc-green">
+                <div class="rc-icon"><i class="fa-solid fa-chart-bar"></i></div>
+                <div class="rc-title">Case Studies</div>
+                <div class="rc-desc">Explore real business success stories powered by AI automation solutions. Discover how companies across industries improved efficiency and grew revenue.</div>
+                <a href="#" class="rc-link open-modal" data-modal-title="View Case Studies">View Case Studies <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card rc-purple">
+                <div class="rc-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="rc-title">AI Automation Guides</div>
+                <div class="rc-desc">Learn how businesses automate customer support, lead management, workflows, and operations using AI. Practical guides for every automation scenario.</div>
+                <a href="#" class="rc-link open-modal" data-modal-title="Get AI Guides">Explore Guides <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card rc-orange">
+                <div class="rc-icon"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="rc-title">Blog & Insights</div>
+                <div class="rc-desc">Stay updated with the latest trends, strategies, and innovations in AI automation. Expert opinions and actionable insights for modern businesses.</div>
+                <a href="#" class="rc-link open-modal" data-modal-title="Read Blog">Read Blog <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card rc-teal">
+                <div class="rc-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="rc-title">API Documentation</div>
+                <div class="rc-desc">Developer-friendly API resources and integration support for advanced automation systems. Build custom integrations with our AI platform.</div>
+                <a href="#" class="rc-link open-modal" data-modal-title="Access API Docs">View API Docs <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="resource-card rc-pink">
+                <div class="rc-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="rc-title">Support Center</div>
+                <div class="rc-desc">Access technical support, FAQs, troubleshooting guides, and customer assistance resources. Our team is ready to help you succeed with AI automation.</div>
+                <a href="#" class="rc-link open-modal" data-modal-title="Contact Support">Get Support <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+
+        <!-- FOOTER CTA -->
+        <div class="footer-cta-wrap">
+            <div class="footer-cta-card">
+                <div class="cta-robot-floating"><img src="images/hero_robot.png" alt="Floating AI Robot"></div>
+                <h2>Ready To Automate Your Business With AI?</h2>
+                <p>Transform customer communication, automate operations, improve efficiency, and scale your business using intelligent AI-powered systems.</p>
+                <div class="cta-buttons">
+                    <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo" style="padding: 16px 32px; font-size: 16px;">Book Free Demo</button>
+                    <button class="btn-secondary-outline" id="talk-whatsapp-btn-2"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Talk on WhatsApp</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.08); background: #050816; position: relative; z-index:10;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
+                <div style="max-width: 300px;">
+                    <div class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <div class="logo-box">🤖</div><h2>AgenticAI</h2>
+                    </div>
+                    <p style="color:#94a3b8; font-size:13px; line-height:1.6;">Building cutting-edge autonomous AI solutions to empower modern fast-growing businesses.</p>
+                </div>
+                <div style="display:flex; gap: 60px;">
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <h4 style="font-size:14px; font-weight:600; color:white;">Platform</h4>
+                        <a href="services.html" style="color:#94a3b8; font-size:13px;">Services</a>
+                        <a href="solutions.html" style="color:#94a3b8; font-size:13px;">Solutions</a>
+                        <a href="pricing.html" style="color:#94a3b8; font-size:13px;">Pricing</a>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:12px;">
+                        <h4 style="font-size:14px; font-weight:600; color:white;">Company</h4>
+                        <a href="#" class="open-modal" data-modal-title="Contact Support" style="color:#94a3b8; font-size:13px;">Contact</a>
+                        <a href="#" style="color:#94a3b8; font-size:13px;">Privacy Policy</a>
+                        <a href="#" style="color:#94a3b8; font-size:13px;">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#64748b;">
+                <p>&copy; 2026 AgenticAI Inc. All rights reserved.</p>
+                <div style="display:flex; align-items:center; gap:8px;"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; display:inline-block; box-shadow:0 0 5px #22c55e;"></span> Systems Operational</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal glass-card" id="main-modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Book a Demo</h3>
+                <button class="close-modal" id="close-modal"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="lead-form" class="lead-form">
+                    <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 20px; text-align: center;">Enter your WhatsApp number to receive a live interactive demo directly on your phone.</p>
+                    <div class="form-group"><label>Name</label><input type="text" placeholder="Your Name" required></div>
+                    <div class="form-group"><label>WhatsApp Number</label><input type="tel" placeholder="+91 90000 00000" required></div>
+                    <button type="submit" class="btn btn-primary btn-full glow-btn">Send Demo to WhatsApp</button>
+                </form>
+                <div class="form-success" id="form-success" style="display: none;">
+                    <i data-lucide="check-circle" style="color: #10b981; width: 48px; height: 48px; margin-bottom: 16px;"></i>
+                    <h4>Demo Sent!</h4>
+                    <p style="color: var(--text-secondary); margin-top: 8px;">Check your WhatsApp! The AI bot has just messaged you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const modalOverlay = document.getElementById('modal-overlay');
+        const openBtns = document.querySelectorAll('.open-modal');
+        const closeBtn = document.getElementById('close-modal');
+        const leadForm = document.getElementById('lead-form');
+        const successMsg = document.getElementById('form-success');
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('modal-title').textContent = btn.getAttribute('data-modal-title') || 'Book a Demo';
+                modalOverlay.classList.add('active');
+                leadForm.style.display = 'block';
+                successMsg.style.display = 'none';
+            });
+        });
+        closeBtn.addEventListener('click', () => modalOverlay.classList.remove('active'));
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) modalOverlay.classList.remove('active'); });
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            leadForm.style.display = 'none';
+            successMsg.style.display = 'flex';
+            setTimeout(() => { window.location.href = "https://wa.me/918151889911?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20your%20AI%20resources."; }, 1200);
+        });
+        document.getElementById('talk-whatsapp-btn')?.addEventListener('click', () => { window.location.href = "https://wa.me/918151889911"; });
+        document.getElementById('talk-whatsapp-btn-2')?.addEventListener('click', () => { window.location.href = "https://wa.me/918151889911"; });
+    </script>
+</body>
+</html>

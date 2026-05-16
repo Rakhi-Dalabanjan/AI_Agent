@@ -218,3 +218,26 @@ if (leadForm) {
         }, 800);
     });
 }
+
+// Talk on WhatsApp button directly opens WhatsApp link
+const talkWhatsappBtn = document.getElementById('talk-whatsapp-btn');
+if (talkWhatsappBtn) {
+    talkWhatsappBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const customMessage = `Hello I want to know more about your services.`;
+        const waLink = `https://wa.me/918151889911?text=${encodeURIComponent(customMessage)}`;
+        window.open(waLink, '_blank');
+    });
+}
+
+// INDIVIDUAL FLOATING EFFECTS FOR EACH CARD (Prevents isolated stacking contexts so blend-mode works)
+const floatingCards = document.querySelectorAll('.hero-visual-complex .comp-card');
+if (floatingCards.length > 0) {
+    document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 60;
+        const y = (window.innerHeight / 2 - e.pageY) / 60;
+        floatingCards.forEach(card => {
+            card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+        });
+    });
+}

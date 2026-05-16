@@ -9,129 +9,279 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new_hero.css">
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="bg-gradient-mesh"></div>
-    <div class="grid-overlay"></div>
+    <!-- BACKGROUND -->
     <div class="floating-particles" id="particles"></div>
 
-    <!-- Navigation -->
+    <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i data-lucide="bot"></i>
-                </div>
-                <span>AutoAI</span>
-            </a>
-            
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#workflows">Workflows</a>
-                <a href="#integrations">Integrations</a>
-                <a href="#pricing">Pricing</a>
-            </div>
-            
-            <div class="nav-actions">
-                <a href="#" class="btn btn-ghost open-modal" data-modal-title="Login">Login</a>
-                <a href="#" class="btn btn-primary open-modal" data-modal-title="Book a Demo">Book Demo</a>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div class="logo">
+                <div class="logo-box">🤖</div>
+                <h2>AgenticAI</h2>
             </div>
 
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="#industries">Industries</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#resources">Resources <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></a>
+        </div>
+
+        <div class="nav-actions" style="display: flex; gap: 15px; align-items: center;">
+            <a href="#" class="btn-login">Login</a>
+            <button class="nav-btn-solid open-modal" data-modal-title="Book a Demo">
+                Book Free Demo
+            </button>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
-                <i data-lucide="menu"></i>
+                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu" id="mobile-menu">
-            <div class="mobile-nav-links">
-                <a href="#features" class="mobile-link">Features</a>
-                <a href="#workflows" class="mobile-link">Workflows</a>
-                <a href="#integrations" class="mobile-link">Integrations</a>
-                <a href="#pricing" class="mobile-link">Pricing</a>
-            </div>
-            <div class="mobile-nav-actions">
-                <a href="#" class="btn btn-ghost btn-full open-modal" data-modal-title="Login">Login</a>
-                <a href="#" class="btn btn-primary btn-full open-modal" data-modal-title="Book a Demo">Book Demo</a>
-            </div>
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION -->
-    <header class="hero">
-        <div class="container hero-container">
+    <!-- HERO -->
+    <section class="hero" id="home" style="overflow: hidden;">
+        <!-- BACKGROUND GLOWS -->
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+        
+        <div class="hero-container container">
+
+            <!-- LEFT -->
             <div class="hero-content">
-                <div class="feature-badges">
-                    <span class="badge"><i data-lucide="sparkles"></i> GPT Powered</span>
-                    <span class="badge"><i data-lucide="workflow"></i> No-Code Workflows</span>
-                    <span class="badge"><i data-lucide="message-circle"></i> WhatsApp Automation</span>
+                <div class="hero-badge">
+                    <i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> AI AGENTS FOR MODERN BUSINESSES
                 </div>
-                <h1 class="hero-title">Train AI Agents For Your Business</h1>
-                <p class="hero-subtitle">Automate WhatsApp, Telegram, customer support, campaigns, and workflows using one AI-powered platform.</p>
-                <div class="hero-cta">
-                    <a href="#" class="btn btn-primary btn-large open-modal" data-modal-title="Start Free Trial">Start Free Trial <i data-lucide="arrow-right"></i></a>
-                    <a href="#" class="btn btn-secondary btn-large open-modal" data-modal-title="Book a Demo">Book Demo</a>
+
+                <h1 class="hero-heading">
+                    AI Agents That Automate
+                    <span class="gradient-text-purple">
+                        Conversations,
+                    </span>
+                    Workflows &
+                    Business Growth
+                </h1>
+
+                <p class="hero-description">
+                    Build powerful AI systems for WhatsApp, Voice, CRM, and Web automation.
+                    Automate customer support, capture leads instantly, schedule appointments,
+                    and streamline business operations using intelligent AI automation.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary-purple open-modal" data-modal-title="Book a Demo">
+                        <i class="fa-regular fa-calendar-check"></i> Book Free Demo <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+                    </button>
+                    <button class="btn-secondary-outline" id="talk-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 18px;"></i> Talk on WhatsApp
+                    </button>
+                </div>
+
+                <div class="trust-grid">
+                    <div class="trust-box">
+                        <div class="trust-icon" style="color: #3b82f6;"><i class="fa-solid fa-clock"></i><span class="icon-24">24</span></div>
+                        <div class="trust-text"><span class="highlight-text">24/7</span><br>AI Support</div>
+                    </div>
+                    <div class="trust-box">
+                        <div class="trust-icon" style="color: #22c55e;"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="trust-text"><span class="highlight-text">WhatsApp</span><br>Integration</div>
+                    </div>
+                    <div class="trust-box">
+                        <div class="trust-icon" style="color: #a855f7;"><i class="fa-solid fa-microphone"></i></div>
+                        <div class="trust-text"><span class="highlight-text">Voice AI</span><br>Automation</div>
+                    </div>
+                    <div class="trust-box">
+                        <div class="trust-icon" style="color: #3b82f6;"><i class="fa-solid fa-gears"></i></div>
+                        <div class="trust-text"><span class="highlight-text">CRM &</span><br>Workflow</div>
+                    </div>
+                </div>
+
+                <div class="trusted-by-hero">
+                    <p>Trusted by 500+ businesses worldwide</p>
+                    <div class="trusted-logos">
+                        <span><i class="fa-solid fa-house"></i> realestate.com</span>
+                        <span><i class="fa-solid fa-square-plus"></i> MediCare</span>
+                        <span><i class="fa-solid fa-bag-shopping"></i> ShopEase</span>
+                        <span><i class="fa-solid fa-graduation-cap"></i> EduSmart</span>
+                        <span><i class="fa-solid fa-chart-bar"></i> WorkFlow</span>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="dashboard-mockup glass-card">
-                    <div class="mockup-header">
-                        <div class="dots"><span></span><span></span><span></span></div>
-                        <div class="mockup-title">AI Automation Dashboard</div>
-                    </div>
-                    <div class="mockup-body">
-                        <!-- Simulated Chat Interface -->
-                        <div class="chat-interface">
-                            <div class="chat-msg received">Hey, I need help with my recent order.</div>
-                            <div class="chat-msg sent ai-msg">
-                                <i data-lucide="bot" class="ai-icon-small"></i>
-                                Hello! I can help you with that. Can you please provide your order ID?
-                            </div>
 
-                            <div class="chat-msg sent ai-msg typing">
-                                <i data-lucide="bot" class="ai-icon-small"></i>
-                                <span></span><span></span><span></span>
-                            </div>
+            <!-- RIGHT: Complex Visuals -->
+            <div class="hero-visual-complex">
+                
+                <!-- Main Dashboard Card -->
+                <div class="comp-card main-dashboard">
+                    <div class="md-header">
+                        <div class="md-logo"><i class="fa-solid fa-robot"></i> AI Dashboard</div>
+                    </div>
+                    <div class="md-body">
+                        <div class="md-sidebar">
+                            <div class="md-nav active"><i class="fa-regular fa-image"></i> Overview</div>
+                            <div class="md-nav"><i class="fa-regular fa-comment-dots"></i> Conversations</div>
+                            <div class="md-nav"><i class="fa-solid fa-user-group"></i> Leads</div>
+                            <div class="md-nav"><i class="fa-regular fa-calendar"></i> Appointments</div>
+                            <div class="md-nav"><i class="fa-regular fa-user"></i> Customers</div>
+                            <div class="md-nav"><i class="fa-solid fa-chart-pie"></i> Analytics</div>
+                            <div class="md-nav"><i class="fa-solid fa-gear"></i> Settings</div>
                         </div>
-                        
-                        <!-- Floating Elements -->
-                        <div class="floating-card lead-card glass-card">
-                            <div class="icon-box"><i data-lucide="user-check"></i></div>
-                            <div class="card-info">
-                                <h4>New Lead Captured</h4>
-                                <p>From WhatsApp</p>
+                        <div class="md-content">
+                            <div class="md-stats-row">
+                                <div class="md-stat">
+                                    <span>Conversations</span>
+                                    <strong>12,543 <small>+18.2%</small></strong>
+                                </div>
+                                <div class="md-stat">
+                                    <span>Leads Captured</span>
+                                    <strong>3,275 <small>+22.6%</small></strong>
+                                </div>
+                                <div class="md-stat">
+                                    <span>Appointments</span>
+                                    <strong>1,782 <small>+16.3%</small></strong>
+                                </div>
+                                <div class="md-stat">
+                                    <span>Conversion Rate</span>
+                                    <strong>24.6% <small>+8.7%</small></strong>
+                                </div>
                             </div>
-                        </div>
-                        <div class="floating-card analytics-card glass-card">
-                            <div class="icon-box blue"><i data-lucide="trending-up"></i></div>
-                            <div class="card-info">
-                                <h4>+240%</h4>
-                                <p>Resolution Rate</p>
+                            
+                            <div class="md-chart-section">
+                                <div class="md-chart">
+                                    <div class="chart-top">
+                                        <span>Conversations Overview</span>
+                                        <div class="dropdown">This Week <i class="fa-solid fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="md-chart-graph">
+                                        <svg viewBox="0 0 300 100" class="mini-line-graph">
+                                            <path d="M 0,80 L 20,70 L 40,40 L 60,60 L 80,45 L 100,50 L 120,40 L 140,25 L 160,40 L 180,20 L 200,40 L 220,10 L 240,20 L 260,15 L 300,5" fill="none" stroke="#a855f7" stroke-width="2"/>
+                                            <circle cx="20" cy="70" r="2" fill="#a855f7"/>
+                                            <circle cx="40" cy="40" r="2" fill="#a855f7"/>
+                                            <circle cx="120" cy="40" r="2" fill="#a855f7"/>
+                                            <circle cx="220" cy="10" r="2" fill="#a855f7"/>
+                                            <circle cx="260" cy="15" r="2" fill="#a855f7"/>
+                                        </svg>
+                                        <div class="chart-labels-y"><span>6K</span><span>4K</span><span>2K</span><span>0</span></div>
+                                        <div class="chart-labels-x"><span>May 10</span><span>May 11</span><span>May 12</span><span>May 13</span><span>May 14</span><span>May 15</span><span>May 16</span></div>
+                                    </div>
+                                </div>
+                                <div class="md-agent-activity">
+                                    <span>AI Agent Activity</span>
+                                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i></div>
+                                    <strong style="margin-top: 10px;">AI Agent is <span style="color:#22c55e">active</span> <span class="dot-active"></span></strong>
+                                    <p>Handling 32 conversations</p>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"><div class="progress-fill" style="width:98%"></div></div>
+                                        <div class="task-comp">Task Completion <span>98%</span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Connection lines decoration -->
-                    <svg class="connection-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path class="animated-path" d="M0,50 Q25,20 50,50 T100,50" fill="none" stroke="url(#gradient)" stroke-width="2"/>
-                        <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#7C3AED" />
-                                <stop offset="100%" stop-color="#2563EB" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                </div>
+
+
+                <!-- Floating WhatsApp Chat -->
+                <div class="comp-card float-chat">
+                    <div class="cw-header">
+                        <div class="cw-avatar" style="background: #22c55e; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="cw-info"><strong>AI Agent</strong><span><span class="dot-active"></span> Online</span></div>
+                        <div class="cw-actions"><i class="fa-solid fa-video"></i> <i class="fa-solid fa-ellipsis-vertical"></i></div>
+                    </div>
+                    <div class="cw-body">
+                        <div class="msg received">Hi 👋 How can I help you today? <span>10:30 AM</span></div>
+                        <div class="msg sent">I want to book an appointment <span>10:31 AM <i class="fa-solid fa-check-double text-blue"></i></span></div>
+                        <div class="msg received">Sure! Please select a date & time. <span>10:31 AM</span></div>
+                        <div class="msg sent btn-msg">View Available Slots <span>10:32 AM <i class="fa-solid fa-check-double text-blue"></i></span></div>
+                    </div>
+                    <div class="wa-float-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                </div>
+
+                <!-- Floating Workflow -->
+                <div class="comp-card float-workflow">
+                    <div class="ww-header">Workflow Automation</div>
+                    <div class="ww-flow">
+                        <div class="wf-node"><div class="icon bg-blue"><i class="fa-solid fa-user"></i></div><span>New Lead</span></div>
+                        <div class="wf-arrow"><div class="dashed-line"></div></div>
+                        <div class="wf-node"><div class="icon bg-purple"><i class="fa-solid fa-brain"></i></div><span>AI Qualification</span></div>
+                        <div class="wf-arrow"><div class="dashed-line"></div></div>
+                        <div class="wf-node"><div class="icon bg-pink"><i class="fa-solid fa-database"></i></div><span>Add to CRM</span></div>
+                    </div>
+                    <div class="ww-flow mt-10">
+                        <div class="wf-node"><div class="icon bg-green"><i class="fa-brands fa-whatsapp"></i></div><span>Send WhatsApp</span></div>
+                        <div class="wf-arrow left"><div class="dashed-line"></div></div>
+                        <div class="wf-node"><div class="icon bg-indigo"><i class="fa-regular fa-calendar"></i></div><span>Schedule Appointment</span></div>
+                        <div class="wf-arrow left"><div class="dashed-line"></div></div>
+                        <div class="wf-node"><div class="icon bg-red"><i class="fa-regular fa-bell"></i></div><span>Follow Up</span></div>
+                    </div>
+                </div>
+
+                <!-- Floating Robot -->
+                <div class="float-robot">
+                    <div class="robot-glow-rings">
+                        <div class="ring r1"></div>
+                        <div class="ring r2"></div>
+                    </div>
+                    <img src="images/hero_robot.png" alt="Robot" width="190">
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- HERO BOTTOM FEATURES -->
+        <div class="hero-bottom-features container">
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fa-regular fa-comments"></i></div>
+                <div class="feat-text">
+                    <h4>AI-Powered Conversations</h4>
+                    <p>Human-like conversations that engage, support, and convert.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="feat-text">
+                    <h4>Instant Lead Capture</h4>
+                    <p>Capture leads automatically from WhatsApp, Web, and other channels.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fa-solid fa-gear"></i></div>
+                <div class="feat-text">
+                    <h4>Smart Automation</h4>
+                    <p>Automate repetitive tasks and workflows to save time and reduce errors.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fa-solid fa-chart-column"></i></div>
+                <div class="feat-text">
+                    <h4>Analytics & Insights</h4>
+                    <p>Track performance, analyze data, and grow your business faster.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="feat-text">
+                    <h4>Secure & Scalable</h4>
+                    <p>Enterprise-grade security and infrastructure built to scale with you.</p>
                 </div>
             </div>
         </div>
-    </header>
-
+    </section>
     <!-- 2. TRUSTED COMPANIES SECTION -->
     <section class="trusted-companies">
         <div class="container">
@@ -608,9 +758,9 @@
                 
                 <div class="footer-links">
                     <h4>Platform</h4>
+                    <a href="services.html">Services</a>
+                    <a href="solutions.html">Solutions</a>
                     <a href="#features">Features</a>
-                    <a href="#workflows">Workflows</a>
-                    <a href="#integrations">Integrations</a>
                     <a href="#pricing">Pricing</a>
                 </div>
                 
