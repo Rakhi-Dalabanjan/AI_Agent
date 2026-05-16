@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/new_hero.css">
     <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/animations.css">
     <style>
         /* Ensure navbar items hide on mobile (overrides any inline styles) */
         @media (max-width: 992px) {
@@ -83,19 +84,32 @@
     </nav>
 
     <!-- HERO -->
-    <section class="subpage-hero">
-        <div class="container hero-container">
+    <section class="subpage-hero" style="position:relative; overflow:hidden;">
+        <!-- SVG Circuit Lines -->
+        <svg class="hero-circuit-svg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path class="circuit-path" d="M0,100 L200,100 L200,200 L400,200 L400,80 L700,80"/>
+            <path class="circuit-path" d="M900,300 L600,300 L600,180 L350,180 L350,350 L100,350"/>
+            <path class="circuit-path-2" d="M50,450 L300,450 L300,320 L550,320 L550,420 L850,420"/>
+            <circle cx="200" cy="100" r="4" fill="#6366f1" opacity="0.5"/>
+            <circle cx="400" cy="200" r="4" fill="#a855f7" opacity="0.5"/>
+            <circle cx="600" cy="300" r="4" fill="#6366f1" opacity="0.5"/>
+            <circle cx="350" cy="180" r="4" fill="#a855f7" opacity="0.5"/>
+        </svg>
+        <!-- Floating Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="container hero-container" style="position:relative; z-index:2;">
             <div class="hero-content">
                 <span class="badge-accent">⚡ AI AUTOMATION SERVICES</span>
-                <h1 class="hero-heading" style="font-size: clamp(36px, 4.5vw, 56px);">
+                <h1 class="hero-heading reveal" style="font-size: clamp(36px, 4.5vw, 56px);">
                     Powerful AI Services Built To
                     <span class="gradient-text-purple"> Automate Modern Businesses</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description reveal reveal-delay-1">
                     We help businesses automate customer communication, lead generation, customer support, appointment scheduling, workflow management, and operational processes using intelligent AI-powered systems.<br><br>
                     Our AI automation services are designed to improve efficiency, reduce manual work, and increase business growth through smart automation technologies.
                 </p>
-                <div class="hero-buttons">
+                <div class="hero-buttons reveal reveal-delay-2">
                     <button class="btn-primary-purple open-modal" data-modal-title="Book a Demo">
                         Book Free Demo <i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
                     </button>
@@ -162,17 +176,17 @@
     <div class="container">
         
         <!-- SHORTCUT BAR -->
-        <div class="shortcut-tabs">
-            <a href="#whatsapp-agent" class="shortcut-tab tab-green"><i class="fa-brands fa-whatsapp"></i> WhatsApp AI Agent</a>
-            <a href="#crm-automation" class="shortcut-tab tab-blue"><i class="fa-solid fa-gears"></i> CRM Automation</a>
-            <a href="#custom-solutions" class="shortcut-tab tab-red"><i class="fa-solid fa-brain"></i> Custom AI Solutions</a>
+        <div class="shortcut-tabs reveal">
+            <a href="#whatsapp-agent" class="shortcut-tab tab-green" data-section="whatsapp-agent"><i class="fa-brands fa-whatsapp"></i> WhatsApp AI Agent</a>
+            <a href="#crm-automation" class="shortcut-tab tab-blue" data-section="crm-automation"><i class="fa-solid fa-gears"></i> CRM Automation</a>
+            <a href="#custom-solutions" class="shortcut-tab tab-red" data-section="custom-solutions"><i class="fa-solid fa-brain"></i> Custom AI Solutions</a>
         </div>
 
         <!-- MAIN SERVICES HORIZONTAL CARDS -->
         <div class="services-list">
             
             <!-- 01: WhatsApp AI Agent -->
-            <div class="service-h-card border-green" id="whatsapp-agent">
+            <div class="service-h-card border-green reveal reveal-left" id="whatsapp-agent">
                 <div class="shc-number">01</div>
                 <div class="shc-content">
                     <div class="shc-icon-box" style="background: rgba(34, 197, 94, 0.15); color: #22c55e;">
@@ -197,8 +211,8 @@
                             <span style="font-size: 11px; font-weight: 600;">Your Business</span>
                         </div>
                         <div style="flex: 1; background: #efe7dd; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
-                            <div style="align-self: flex-start; background: white; color: #333; padding: 6px 10px; border-radius: 8px 8px 8px 0; font-size: 10px; max-width: 80%;">Hi, I'm interested in your services.</div>
-                            <div style="align-self: flex-end; background: #dcf8c6; color: #333; padding: 6px 10px; border-radius: 8px 8px 0 8px; font-size: 10px; max-width: 80%;">Hello! 😊 How can I help you today?</div>
+                            <div class="chat-bubble-1" style="align-self: flex-start; background: white; color: #333; padding: 6px 10px; border-radius: 8px 8px 8px 0; font-size: 10px; max-width: 80%;">Hi, I'm interested in your services.</div>
+                            <div class="chat-bubble-2" style="align-self: flex-end; background: #dcf8c6; color: #333; padding: 6px 10px; border-radius: 8px 8px 0 8px; font-size: 10px; max-width: 80%;">Hello! 😊 How can I help you today?</div>
                         </div>
                     </div>
                 </div>
@@ -212,7 +226,7 @@
 
 
             <!-- 02: CRM & Workflow Automation -->
-            <div class="service-h-card border-blue" id="crm-automation">
+            <div class="service-h-card border-blue reveal" id="crm-automation">
                 <div class="shc-number">02</div>
                 <div class="shc-content">
                     <div class="shc-icon-box" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">
@@ -252,7 +266,7 @@
             </div>
 
             <!-- 03: Custom AI Solutions -->
-            <div class="service-h-card border-orange" id="custom-solutions">
+            <div class="service-h-card border-orange reveal reveal-right" id="custom-solutions">
                 <div class="shc-number">03</div>
                 <div class="shc-content">
                     <div class="shc-icon-box" style="background: rgba(249, 115, 22, 0.15); color: #f97316;">
@@ -289,81 +303,58 @@
         </div>
 
         <!-- HOW OUR SERVICES WORK -->
-        <div class="section-title-centered">
+        <div class="section-title-centered reveal">
             <h2>How Our Services Work</h2>
             <p>We follow a structured process to design, build, and integrate top-tier AI solutions for your business.</p>
         </div>
 
         <div class="process-timeline">
-            <div class="process-step">
+            <div class="process-step reveal reveal-delay-1">
                 <div class="process-icon"><i class="fa-solid fa-comments-dollar" style="color: #3b82f6;"></i></div>
                 <h3>Consultation</h3>
                 <p>We analyze your business processes and identify high-value AI automation opportunities.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step reveal reveal-delay-2">
                 <div class="process-icon"><i class="fa-solid fa-code" style="color: #a855f7;"></i></div>
                 <h3>AI Development</h3>
                 <p>Our engineers train tailored Large Language Models and build conversational paths.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step reveal reveal-delay-3">
                 <div class="process-icon"><i class="fa-solid fa-plug" style="color: #22c55e;"></i></div>
                 <h3>Integration</h3>
                 <p>We seamlessly link the AI agent to your CRM, WhatsApp APIs, and existing apps.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step reveal reveal-delay-4">
                 <div class="process-icon"><i class="fa-solid fa-rocket" style="color: #f59e0b;"></i></div>
                 <h3>Launch & Optimize</h3>
                 <p>Deploy live, continuously monitor, and optimize conversion metrics dynamically.</p>
             </div>
         </div>
 
+
         <!-- INDUSTRIES WE SERVE -->
-        <div class="section-title-centered" id="industries">
+        <div class="section-title-centered reveal" id="industries">
             <h2>Industries We Serve</h2>
             <p>Our AI solutions are flexible and drive massive growth across a diverse set of market industries.</p>
         </div>
 
         <div class="industries-grid">
-            <div class="industry-card">
-                <i class="fa-solid fa-house-chimney"></i>
-                <h3>Real Estate</h3>
-                <p>Qualify property inquiries, schedule viewings, and send automated listings.</p>
-            </div>
-            <div class="industry-card">
-                <i class="fa-solid fa-heart-pulse"></i>
-                <h3>Healthcare</h3>
-                <p>Automated patient scheduling, FAQs, and medication reminder agents.</p>
-            </div>
-            <div class="industry-card">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <h3>E-Commerce</h3>
-                <p>Resolve tracking issues, recommend products, and recover abandoned carts.</p>
-            </div>
-            <div class="industry-card">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h3>Education</h3>
-                <p>Engage student inquiries, process admissions, and deliver course assistance.</p>
-            </div>
-            <div class="industry-card">
-                <i class="fa-solid fa-utensils"></i>
-                <h3>Restaurants</h3>
-                <p>Handle digital orders, table reservations, and customer support FAQs.</p>
-            </div>
-            <div class="industry-card">
-                <i class="fa-solid fa-briefcase"></i>
-                <h3>Agencies</h3>
-                <p>Scale lead generation, client onboarding, and 24/7 tier-1 support.</p>
-            </div>
+            <div class="industry-card reveal reveal-scale reveal-delay-1"><i class="fa-solid fa-house-chimney"></i><h3>Real Estate</h3><p>Qualify property inquiries, schedule viewings, and send automated listings.</p></div>
+            <div class="industry-card reveal reveal-scale reveal-delay-2"><i class="fa-solid fa-heart-pulse"></i><h3>Healthcare</h3><p>Automated patient scheduling, FAQs, and medication reminder agents.</p></div>
+            <div class="industry-card reveal reveal-scale reveal-delay-3"><i class="fa-solid fa-cart-shopping"></i><h3>E-Commerce</h3><p>Resolve tracking issues, recommend products, and recover abandoned carts.</p></div>
+            <div class="industry-card reveal reveal-scale reveal-delay-4"><i class="fa-solid fa-graduation-cap"></i><h3>Education</h3><p>Engage student inquiries, process admissions, and deliver course assistance.</p></div>
+            <div class="industry-card reveal reveal-scale reveal-delay-5"><i class="fa-solid fa-utensils"></i><h3>Restaurants</h3><p>Handle digital orders, table reservations, and customer support FAQs.</p></div>
+            <div class="industry-card reveal reveal-scale"><i class="fa-solid fa-briefcase"></i><h3>Agencies</h3><p>Scale lead generation, client onboarding, and 24/7 tier-1 support.</p></div>
         </div>
 
         <!-- SUCCESS STORIES -->
-        <div class="section-title-centered">
+        <div class="section-title-centered reveal">
             <h2>Success Stories</h2>
             <p>Real businesses achieving groundbreaking results with our specialized AI agency tools.</p>
         </div>
 
         <div class="results-grid">
-            <div class="result-card">
+            <div class="result-card reveal reveal-delay-1">
                 <div class="result-img-wrap">
                     <img src="images/real_estate.png" alt="Real Estate Case Study">
                 </div>
@@ -384,7 +375,7 @@
                 </div>
             </div>
 
-            <div class="result-card">
+            <div class="result-card reveal reveal-delay-2">
                 <div class="result-img-wrap">
                     <img src="images/whatsapp_study.png" alt="E-commerce Case Study">
                 </div>
@@ -405,7 +396,7 @@
                 </div>
             </div>
 
-            <div class="result-card">
+            <div class="result-card reveal reveal-delay-3">
                 <div class="result-img-wrap">
                     <img src="images/workflow_study.png" alt="Workflow Automation Case Study">
                 </div>
@@ -428,7 +419,7 @@
         </div>
 
         <!-- FOOTER CTA WITH ROBOT -->
-        <div class="footer-cta-wrap">
+        <div class="footer-cta-wrap reveal">
             <div class="footer-cta-card">
                 <div class="cta-robot-floating">
                     <img src="images/hero_robot.png" alt="Floating AI Robot">
@@ -553,6 +544,92 @@
         document.getElementById('talk-whatsapp-btn-2')?.addEventListener('click', () => {
             window.location.href = "https://wa.me/918151889911";
         });
+
+        /* ── Scroll Reveal ── */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    revealObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        /* ── Stat Counter ── */
+        function animateCount(el, target, suffix) {
+            let start = 0, duration = 1800, step = 16;
+            const inc = target / (duration / step);
+            const timer = setInterval(() => {
+                start = Math.min(start + inc, target);
+                el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(1)) + suffix;
+                if (start >= target) clearInterval(timer);
+            }, step);
+        }
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                const el = e.target;
+                const raw = el.dataset.count;
+                const suffix = el.dataset.suffix || '';
+                animateCount(el, parseFloat(raw), suffix);
+                counterObserver.unobserve(el);
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+        /* ── Shortcut Tab Active on Scroll ── */
+        const sections = ['whatsapp-agent','crm-automation','custom-solutions'];
+        const tabLinks  = document.querySelectorAll('.shortcut-tab[data-section]');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    tabLinks.forEach(t => t.classList.remove('tab-active'));
+                    const active = document.querySelector(`.shortcut-tab[data-section="${e.target.id}"]`);
+                    if (active) active.classList.add('tab-active');
+                }
+            });
+        }, { threshold: 0.4 });
+        sections.forEach(id => { const el = document.getElementById(id); if (el) sectionObserver.observe(el); });
+
+        /* ── Mouse Tilt on Service Cards ── */
+        document.querySelectorAll('.service-h-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width  - 0.5;
+                const y = (e.clientY - r.top)  / r.height - 0.5;
+                card.style.transform = `translateY(-6px) rotateX(${-y*4}deg) rotateY(${x*4}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        /* ── Floating Particles in Hero Visual ── */
+        const heroVis = document.querySelector('.hero-visual-complex');
+        if (heroVis) {
+            heroVis.style.position = 'relative';
+            for (let i = 0; i < 12; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.cssText = `
+                    left:${Math.random()*90+5}%;
+                    bottom:${Math.random()*30}px;
+                    animation-duration:${2+Math.random()*3}s;
+                    animation-delay:${Math.random()*3}s;
+                    opacity:${0.4+Math.random()*0.5};
+                    background:${Math.random()>0.5?'rgba(168,85,247,0.8)':'rgba(99,102,241,0.8)'};
+                `;
+                heroVis.appendChild(p);
+            }
+        }
+
+        /* ── Navbar Scroll Shrink ── */
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
 
         // Mobile Nav Drawer
         const mobileMenuBtn    = document.getElementById('mobile-menu-btn');
