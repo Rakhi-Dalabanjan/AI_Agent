@@ -1,0 +1,97 @@
+.typed-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: #a855f7;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink-cur 0.9s step-end infinite;
+  border-radius: 2px;
+}
+@keyframes blink-cur {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+.hero-stat-lbl {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+@keyframes ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.pulse-ring {
+  animation: ring-pulse 2s ease-out infinite;
+}
+.pulse-ring-2 {
+  animation: ring-pulse 2s ease-out 0.7s infinite;
+}
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.glass-card:hover::before {
+  opacity: 1;
+}
+.integration-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s !important;
+}
+.integration-card:hover {
+  transform: translateY(-6px) scale(1.04) !important;
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.2) !important;
+}
+.feat-item {
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+.feat-item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.15) !important;
+}
+@keyframes svg-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.svg-draw-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: svg-draw 2s ease forwards;
+}

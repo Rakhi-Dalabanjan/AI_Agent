@@ -1,0 +1,21 @@
+@media (max-width: 992px) {
+  .navbar .nav-links {
+    display: none !important;
+  }
+  .navbar .btn-login {
+    display: none !important;
+  }
+  .navbar .nav-btn-solid {
+    display: none !important;
+  }
+  .navbar .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (min-width: 993px) {
+  .navbar .mobile-menu-btn {
+    display: none !important;
+  }
+}

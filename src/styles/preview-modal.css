@@ -1,0 +1,334 @@
+/* src/styles/preview-modal.css */
+.preview-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 8, 22, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.preview-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.preview-modal-content {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  width: 90%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 50px;
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  animation: modalEnter 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(0, 184, 255, 0.1);
+}
+
+@keyframes modalEnter {
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.preview-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.preview-close-btn:hover {
+  color: white;
+  transform: rotate(90deg);
+}
+
+.preview-modal-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.preview-modal-header h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.preview-modal-header p {
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+.preview-carousel-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.preview-image-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.preview-image-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.preview-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.preview-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.image-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.preview-image-wrapper:hover .image-hover-overlay {
+  opacity: 1;
+}
+
+.btn-fullscreen {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-fullscreen:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--pricing-accent-blue);
+  box-shadow: 0 0 20px var(--pricing-accent-blue-glow);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+.preview-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--pricing-accent-blue);
+  width: 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--pricing-accent-blue-glow);
+}
+
+.preview-modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+/* Background Particles */
+.interactive-particle-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.5;
+  animation: float 8s infinite alternate ease-in-out;
+}
+
+.particle.p1 {
+  width: 300px; height: 300px;
+  background: rgba(0, 184, 255, 0.15);
+  top: -50px; left: -50px;
+}
+
+.particle.p2 {
+  width: 250px; height: 250px;
+  background: rgba(255, 90, 0, 0.1);
+  bottom: -50px; right: -50px;
+  animation-delay: 2s;
+}
+
+.particle.p3 {
+  width: 200px; height: 200px;
+  background: rgba(138, 43, 226, 0.15);
+  bottom: 20%; left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(0) scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  .preview-modal-content { padding: 30px 20px; }
+  .preview-modal-header h2 { font-size: 28px; }
+  .preview-modal-footer { flex-direction: column; }
+  .carousel-btn { width: 36px; height: 36px; }
+  .prev-btn { left: 10px; }
+  .next-btn { right: 10px; }
+}
+
+/* Add custom cursor to pricing cards to indicate clickability */
+.pricing-category-section.preview-enabled .pricing-card-custom {
+  cursor: pointer;
+}
+.pricing-category-section.preview-enabled .pricing-card-custom::after {
+  content: 'Click to Preview';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--pricing-accent-blue);
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.pricing-category-section.preview-enabled .pricing-card-custom:hover::after {
+  bottom: 15px;
+  opacity: 1;
+}
+
+/* Premium Animated Wrapper for Custom Website Plan */
+.premium-animated-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-animated-wrap img {
+  transform-origin: center;
+  animation: premiumPan 12s ease-in-out infinite alternate, premiumPulse 4s ease-in-out infinite alternate;
+}
+
+.premium-animated-wrap:hover img {
+  animation-play-state: paused;
+}
+
+@keyframes premiumPan {
+  0% { object-position: center top; transform: scale(1.15); }
+  100% { object-position: center bottom; transform: scale(1.15); }
+}
+
+@keyframes premiumPulse {
+  0% { filter: brightness(1) contrast(1); }
+  100% { filter: brightness(1.15) contrast(1.05) drop-shadow(0 0 15px rgba(0, 184, 255, 0.3)); }
+}
+
+/* Holographic Scanline Effect */
+.premium-animated-wrap::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 140%;
+  height: 15%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 184, 255, 0.3), transparent);
+  transform: rotate(10deg);
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+
+@keyframes scanline {
+  0% { top: -20%; }
+  100% { top: 120%; }
+}
