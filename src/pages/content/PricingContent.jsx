@@ -277,7 +277,7 @@ export function PricingContent() {
                 <div className="logo-icon">
                   <i data-lucide="bot" />
                 </div>
-                <h2>AgenticAI</h2>
+                <h2>IAMKRATU.AI</h2>
               </a>
               <p style={{ color: '#94a3b8', fontSize: '13px', maxWidth: '280px' }}>
                 Premium AI automation for modern businesses.

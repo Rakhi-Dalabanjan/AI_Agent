@@ -6,7 +6,7 @@ import '../styles/preview-modal.css';
 export default function PricingPage() {
   return (
     <>
-      <PageHead title="Pricing | AgenticAI" />
+      <PageHead title="Pricing | IAMKRATU.AI" />
       <PricingContent />
     </>
   );

@@ -27,48 +27,44 @@ export function HomeContent() {
                 data-lucide="zap"
                 style={{ color: "#f59e0b", width: "16px", height: "16px" }}
               ></i>{" "}
-              AI AGENTS FOR MODERN BUSINESSES
+              AI WORKFORCE PLATFORM
             </div>
 
             <h1
               className="hero-heading"
-              style={{ fontSize: "clamp(28px, 3.5vw, 46px)", maxWidth: "90%" }}
+              style={{ fontSize: "clamp(28px, 3.5vw, 46px)", maxWidth: "90%", minHeight: "160px" }}
             >
-              AI Agents That Automate <HeroTypedCycle /> Workflows &amp;
-              Business Growth
+              Build Your AI Workforce for <HeroTypedCycle /> &amp; Business Growth
             </h1>
 
             <p className="hero-description">
-              Build powerful AI systems for WhatsApp, workflow automation, and
-              Web automation. Automate customer support, capture leads
-              instantly, schedule appointments, and streamline business
-              operations using intelligent AI automation.
+              IAMKRATU.AI helps businesses hire trained AI Agents for sales, customer support, social media, SEO, lead generation, operations, and automation — available 24x7.
             </p>
 
             <div className="hero-buttons">
               <button
                 className="btn-primary-purple open-modal btn-magnetic"
-                data-modal-title="Book a Demo"
+                data-modal-title="Hire AI Agents"
               >
                 <i
-                  data-lucide="calendar-check"
+                  data-lucide="users"
                   style={{ width: "18px", height: "18px" }}
                 ></i>{" "}
-                Book Free Demo{" "}
+                Hire AI Agents{" "}
                 <i
                   data-lucide="arrow-right"
                   style={{ marginLeft: "5px", width: "18px", height: "18px" }}
                 ></i>
               </button>
               <button
-                className="btn-secondary-outline btn-magnetic"
-                id="talk-whatsapp-btn"
+                className="btn-secondary-outline open-modal btn-magnetic"
+                data-modal-title="Book a Demo"
               >
                 <i
-                  data-lucide="message-circle"
-                  style={{ color: "#25D366", fontSize: "18px" }}
+                  data-lucide="calendar-check"
+                  style={{ color: "#a855f7", fontSize: "18px" }}
                 ></i>{" "}
-                Talk on WhatsApp
+                Book Free Demo
               </button>
             </div>
 
@@ -108,7 +104,7 @@ export function HomeContent() {
             </div>
 
             <div className="trusted-by-hero">
-              <p>Trusted by 500+ businesses worldwide</p>
+              <p>Designed for startups, SMEs, agencies, ecommerce brands, real estate firms, and growing businesses.</p>
               <div className="trusted-logos">
                 <span>
                   <i data-lucide="home"></i> realestate.com
@@ -410,9 +406,9 @@ export function HomeContent() {
                 <i data-lucide="bot-message-square"></i>
               </div>
               <div className="feat-text">
-                <h4>AI-Powered Conversations</h4>
+                <h4>AI Customer Support</h4>
                 <p>
-                  Human-like conversations that engage, support, and convert.
+                  Automate conversations across website, WhatsApp, and social media.
                 </p>
               </div>
             </div>
@@ -421,46 +417,42 @@ export function HomeContent() {
                 <i data-lucide="mouse-pointer-click"></i>
               </div>
               <div className="feat-text">
-                <h4>Instant Lead Capture</h4>
+                <h4>AI Sales Agent</h4>
                 <p>
-                  Capture leads automatically from WhatsApp, Web, and other
-                  channels.
+                  Capture, qualify, and convert leads automatically.
                 </p>
               </div>
             </div>
             <div className="feature-item stagger-item">
               <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="settings-2"></i>
+                <i data-lucide="share-2"></i>
               </div>
               <div className="feat-text">
-                <h4>Smart Automation</h4>
+                <h4>AI Social Media Agent</h4>
                 <p>
-                  Automate repetitive tasks and workflows to save time and
-                  reduce errors.
+                  Generate captions, calendars, and strategies using AI.
                 </p>
               </div>
             </div>
             <div className="feature-item stagger-item">
               <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="bar-chart-big"></i>
+                <i data-lucide="search"></i>
               </div>
               <div className="feat-text">
-                <h4>Analytics & Insights</h4>
+                <h4>AI SEO Agent</h4>
                 <p>
-                  Track performance, analyze data, and grow your business
-                  faster.
+                  Boost rankings with AI-powered keyword research and content.
                 </p>
               </div>
             </div>
             <div className="feature-item stagger-item">
               <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="shield-half"></i>
+                <i data-lucide="message-circle"></i>
               </div>
               <div className="feat-text">
-                <h4>Secure & Scalable</h4>
+                <h4>AI WhatsApp Agent</h4>
                 <p>
-                  Enterprise-grade security and infrastructure built to scale
-                  with you.
+                  Automate engagement, support, and follow-ups on WhatsApp.
                 </p>
               </div>
             </div>
@@ -1102,24 +1094,23 @@ export function HomeContent() {
         </div>
         <div className="container text-center relative z-10">
           <h2 className="hero-title">
-            Start Automating Customer Conversations With AI
+            Ready to Build Your AI Workforce?
           </h2>
           <p className="hero-subtitle mx-auto" style={{ maxWidth: "600px" }}>
-            Join thousands of businesses saving time and increasing sales with
-            our AI automation platform.
+            Deploy intelligent AI Agents for your business today.
           </p>
           <div className="hero-cta justify-center mt-8">
             <a
               href="#"
               className="btn btn-primary btn-large glow-btn open-modal"
-              data-modal-title="Get Started Now"
+              data-modal-title="Start Free Trial"
             >
-              Get Started Now
+              Start Free Trial
             </a>
             <a
               href="#"
               className="btn btn-ghost btn-large open-modal"
-              data-modal-title="Book a Demo"
+              data-modal-title="Book Demo"
             >
               Book Demo
             </a>
@@ -1136,11 +1127,10 @@ export function HomeContent() {
                 <div className="logo-icon">
                   <i data-lucide="bot"></i>
                 </div>
-                <h2>AgenticAI</h2>
+                <h2>IAMKRATU.AI</h2>
               </a>
               <p className="footer-desc">
-                Next-generation AI automation platform for modern businesses.
-                Streamline communication, automate workflows, and grow faster.
+                Empowering Businesses with Intelligent AI Workforces.
               </p>
               <div className="social-links">
                 <a href="#">
@@ -1157,9 +1147,9 @@ export function HomeContent() {
 
             <div className="footer-links">
               <h4>Platform</h4>
-              <a href="/services">Services</a>
-              <a href="/solutions">Solutions</a>
-              <a href="#features">Features</a>
+              <a href="/">Home</a>
+              <a href="/services">AI Agents</a>
+              <a href="/solutions">Industries</a>
               <a href="/pricing">Pricing</a>
             </div>
 
@@ -1167,12 +1157,12 @@ export function HomeContent() {
               <h4>Company</h4>
               <a href="/contact">Contact</a>
               <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+              <a href="#">Terms & Conditions</a>
             </div>
           </div>
 
           <div className="footer-bottom">
-            <p>&copy; 2026 AgenticAI Inc. All rights reserved.</p>
+            <p>&copy; 2026 IAMKRATU.AI. All rights reserved. | <a href="mailto:hello@iamkratu.ai">hello@iamkratu.ai</a> | <a href="http://www.iamkratu.ai">www.iamkratu.ai</a></p>
             <div className="status-indicator">
               <span className="pulse-dot"></span> All systems operational
             </div>

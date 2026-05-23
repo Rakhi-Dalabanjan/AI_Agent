@@ -5,10 +5,10 @@ export function ContactContent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [form, setForm] = useState({
-    name: "",
+    full_name: "",
     email: "",
     phone: "",
-    businessType: "",
+    business_type: "",
     message: "",
   });
 
@@ -20,7 +20,7 @@ export function ContactContent() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
@@ -30,20 +30,29 @@ export function ContactContent() {
         body: JSON.stringify(form),
       });
 
+      const data = await response.json();
+      console.log(data);
+
       if (!response.ok) {
-        throw new Error("Failed to send message. Please try again.");
+        console.log(data.errors);
+
+        if (!response.ok) {
+          throw new Error(
+            data.errors?.map(err => err.msg).join(", ") || data.message
+          );
+        }
       }
 
       setSubmitted(true);
-      
-      const text = `Hello, I'm ${form.name}. Business: ${form.businessType}. ${form.message}`;
+
+      const text = `Hello, I'm ${form.full_name}. Business: ${form.business_type}. ${form.message}`;
       setTimeout(() => {
         window.open(
           `https://wa.me/918151889911?text=${encodeURIComponent(text)}`,
           "_blank",
         );
       }, 800);
-      
+
     } catch (err) {
       setError(err.message || "An error occurred while sending your message.");
     } finally {
@@ -95,10 +104,10 @@ export function ContactContent() {
                   Email
                 </strong>
                 <a
-                  href="mailto:support@agenticai.com"
+                  href="mailto:hello@iamkratu.ai"
                   style={{ color: "#a5b4fc", fontSize: "14px" }}
                 >
-                  support@agenticai.com
+                  hello@iamkratu.ai
                 </a>
               </div>
             </div>
@@ -182,11 +191,11 @@ export function ContactContent() {
                   <label htmlFor="contact-name">Name</label>
                   <input
                     id="contact-name"
-                    name="name"
+                    name="full_name"
                     type="text"
                     placeholder="Your Name"
                     required
-                    value={form.name}
+                    value={form.full_name}
                     onChange={handleChange}
                   />
                 </div>
@@ -217,9 +226,9 @@ export function ContactContent() {
                   <label htmlFor="contact-business">Business Type</label>
                   <select
                     id="contact-business"
-                    name="businessType"
+                    name="business_type"
                     required
-                    value={form.businessType}
+                    value={form.business_type}
                     onChange={handleChange}
                   >
                     <option value="">Select your industry</option>

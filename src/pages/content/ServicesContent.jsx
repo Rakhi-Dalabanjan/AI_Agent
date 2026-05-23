@@ -417,7 +417,7 @@ export function ServicesContent() {
                         <div style={{ maxWidth: '300px' }}>
                             <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '15px' }}>
                                 <div className="logo-icon"><i data-lucide="bot"></i></div>
-                                <h2>AgenticAI</h2>
+                                <h2>IAMKRATU.AI</h2>
                             </a>
                             <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6' }}>Building cutting-edge autonomous AI solutions to empower modern fast-growing businesses.</p>
                         </div>
@@ -437,7 +437,7 @@ export function ServicesContent() {
                         </div>
                     </div>
                     <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', color: '#64748b' }}>
-                        <p>&copy; 2026 AgenticAI Inc. All rights reserved.</p>
+                        <p>&copy; 2026 IAMKRATU.AI. All rights reserved.</p>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block', boxShadow: '0 0 5px #22c55e' }}></span> Systems Operational</div>
                     </div>
                 </div>

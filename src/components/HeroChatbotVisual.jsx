@@ -56,7 +56,7 @@ export function HeroChatbotVisual() {
           </div>
           <div>
             <div style={{ fontWeight: 700, fontSize: "14px", color: "white" }}>
-              AgenticAI Bot
+              IAMKRATU.AI Bot
             </div>
             <div className="status-live">Online &amp; Learning</div>
           </div>

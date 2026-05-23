@@ -4,7 +4,7 @@ import '../styles/resources-page.css';
 export default function ResourcesPage() {
   return (
     <>
-      <PageHead title="Resources | AgenticAI" />
+      <PageHead title="Resources | IAMKRATU.AI" />
       <ResourcesContent />
     </>
   );
