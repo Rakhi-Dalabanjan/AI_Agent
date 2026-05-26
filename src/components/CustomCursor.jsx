@@ -1,14 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [trail, setTrail] = useState({ x: -100, y: -100 });
   const [hovered, setHovered] = useState(false);
   const [hidden, setHidden] = useState(true);
+  
+  const trailRef = useRef(null);
+  const pos = useRef({ x: -100, y: -100 });
+  const trail = useRef({ x: -100, y: -100 });
+  const rafId = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(
+        window.matchMedia("(max-width: 1024px)").matches ||
+        window.matchMedia("(pointer: coarse)").matches
+      );
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      pos.current.x = e.clientX;
+      pos.current.y = e.clientY;
       setHidden(false);
     };
 
@@ -36,9 +55,9 @@ export function CustomCursor() {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("mouseover", handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
@@ -48,33 +67,38 @@ export function CustomCursor() {
   }, []);
 
   useEffect(() => {
-    let animationFrameId;
+    if (isMobile) return;
 
     const updateTrail = () => {
-      setTrail((prev) => {
-        const dx = position.x - prev.x;
-        const dy = position.y - prev.y;
-        return {
-          x: prev.x + dx * 0.4,
-          y: prev.y + dy * 0.4,
-        };
-      });
-      animationFrameId = requestAnimationFrame(updateTrail);
+      if (trailRef.current) {
+        const dx = pos.current.x - trail.current.x;
+        const dy = pos.current.y - trail.current.y;
+        
+        trail.current.x += dx * 0.4;
+        trail.current.y += dy * 0.4;
+        
+        // Use translate3d for hardware acceleration, combined with the CSS translate(-50%, -50%)
+        trailRef.current.style.transform = `translate3d(${trail.current.x}px, ${trail.current.y}px, 0) translate(-50%, -50%)`;
+      }
+      rafId.current = requestAnimationFrame(updateTrail);
     };
 
-    animationFrameId = requestAnimationFrame(updateTrail);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [position]);
+    rafId.current = requestAnimationFrame(updateTrail);
+    return () => {
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
+  }, []);
 
-  if (hidden) return null;
+  if (isMobile || hidden) return null;
 
   return (
     <>
       <div
+        ref={trailRef}
         className={`custom-cursor-trail ${hovered ? "hovered" : ""}`}
         style={{
-          left: `${trail.x}px`,
-          top: `${trail.y}px`,
+          left: 0,
+          top: 0
         }}
       />
     </>

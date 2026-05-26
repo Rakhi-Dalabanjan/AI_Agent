@@ -18,8 +18,21 @@ export function ChromaKeyVideo({
 }) {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 640, height: 360 });
   const detectedKeyColorRef = useRef(null);
+  const isVisible = useRef(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible.current = entry.isIntersecting;
+      },
+      { threshold: 0.01, rootMargin: '200px' }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   // Explicitly play video to bypass autoplay restrictions
   useEffect(() => {
@@ -65,7 +78,7 @@ export function ChromaKeyVideo({
     const processFrame = () => {
       animationFrameId = requestAnimationFrame(processFrame);
 
-      if (video.paused || video.ended || video.readyState < 2) {
+      if (video.paused || video.ended || video.readyState < 2 || !isVisible.current) {
         return;
       }
 
@@ -244,9 +257,14 @@ export function ChromaKeyVideo({
     let w = video.videoWidth;
     let h = video.videoHeight;
 
-    if (w > maxWidth) {
-      const ratio = maxWidth / w;
-      w = maxWidth;
+    let dynamicMaxWidth = maxWidth;
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      dynamicMaxWidth = Math.min(maxWidth, 400);
+    }
+
+    if (w > dynamicMaxWidth) {
+      const ratio = dynamicMaxWidth / w;
+      w = dynamicMaxWidth;
       h = Math.round(video.videoHeight * ratio);
     }
 
@@ -254,7 +272,7 @@ export function ChromaKeyVideo({
   };
 
   return (
-    <div className={className} style={{ position: 'relative', width: '100%', height: '100%', ...style }}>
+    <div ref={containerRef} className={className} style={{ position: 'relative', width: '100%', height: '100%', ...style }}>
       {/* Offscreen video decoder */}
       <video
         ref={videoRef}

@@ -28,38 +28,42 @@ export function useMagneticEffects() {
       }
     };
 
+    const isMobile = window.matchMedia('(max-width: 1024px)').matches || window.matchMedia('(pointer: coarse)').matches;
+
     // ══════════════════════════════════════════════════════════════
     // 1. CURSOR GLOW ORB — soft radial blob following the mouse
     // ══════════════════════════════════════════════════════════════
-    const orb = document.createElement('div');
-    orb.className = 'cursor-glow-orb';
-    document.body.appendChild(orb);
+    if (!isMobile) {
+      const orb = document.createElement('div');
+      orb.className = 'cursor-glow-orb';
+      document.body.appendChild(orb);
 
-    let orbX = window.innerWidth / 2;
-    let orbY = window.innerHeight / 2;
-    let targetOrbX = orbX;
-    let targetOrbY = orbY;
-    let orbRafId;
+      let orbX = window.innerWidth / 2;
+      let orbY = window.innerHeight / 2;
+      let targetOrbX = orbX;
+      let targetOrbY = orbY;
+      let orbRafId;
 
-    const onOrbMouseMove = (e) => {
-      targetOrbX = e.clientX;
-      targetOrbY = e.clientY;
-    };
-    window.addEventListener('mousemove', onOrbMouseMove, { passive: true });
+      const onOrbMouseMove = (e) => {
+        targetOrbX = e.clientX;
+        targetOrbY = e.clientY;
+      };
+      window.addEventListener('mousemove', onOrbMouseMove, { passive: true });
 
-    const lerpOrb = () => {
-      orbX += (targetOrbX - orbX) * 0.07;
-      orbY += (targetOrbY - orbY) * 0.07;
-      orb.style.transform = `translate(calc(${orbX}px - 50%), calc(${orbY}px - 50%))`;
-      orbRafId = requestAnimationFrame(lerpOrb);
-    };
-    lerpOrb();
+      const lerpOrb = () => {
+        orbX += (targetOrbX - orbX) * 0.07;
+        orbY += (targetOrbY - orbY) * 0.07;
+        orb.style.transform = `translate(calc(${orbX}px - 50%), calc(${orbY}px - 50%))`;
+        orbRafId = requestAnimationFrame(lerpOrb);
+      };
+      lerpOrb();
 
-    cleanups.push(() => {
-      cancelAnimationFrame(orbRafId);
-      window.removeEventListener('mousemove', onOrbMouseMove);
-      orb.remove();
-    });
+      cleanups.push(() => {
+        cancelAnimationFrame(orbRafId);
+        window.removeEventListener('mousemove', onOrbMouseMove);
+        orb.remove();
+      });
+    }
 
     // ══════════════════════════════════════════════════════════════
     // 2. MAGNETIC BUTTONS — spring attraction toward cursor
@@ -98,15 +102,18 @@ export function useMagneticEffects() {
         }
       };
 
+      let cachedRect = null;
+
       const onEnter = () => {
         isHovered = true;
+        cachedRect = el.getBoundingClientRect();
         if (!animId) animId = requestAnimationFrame(spring);
       };
 
       const onMove = (e) => {
-        const rect = el.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
+        if (!cachedRect) return;
+        const cx = cachedRect.left + cachedRect.width / 2;
+        const cy = cachedRect.top + cachedRect.height / 2;
         const dx = e.clientX - cx;
         const dy = e.clientY - cy;
 
@@ -116,8 +123,8 @@ export function useMagneticEffects() {
         targetY = Math.max(-maxPull, Math.min(maxPull, dy * 0.24));
 
         // Update CSS vars for the glow highlight
-        const pctX = ((e.clientX - rect.left) / rect.width) * 100;
-        const pctY = ((e.clientY - rect.top) / rect.height) * 100;
+        const pctX = ((e.clientX - cachedRect.left) / cachedRect.width) * 100;
+        const pctY = ((e.clientY - cachedRect.top) / cachedRect.height) * 100;
         el.style.setProperty('--mouse-x', `${pctX}%`);
         el.style.setProperty('--mouse-y', `${pctY}%`);
       };
@@ -157,11 +164,15 @@ export function useMagneticEffects() {
     ].join(', ');
 
     const attachSpotlight = (card) => {
+      let cachedRect = null;
+      const onEnter = () => {
+        cachedRect = card.getBoundingClientRect();
+      };
       const onMove = (e) => {
+        if (!cachedRect) return;
         schedule(() => {
-          const rect = card.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / rect.width) * 100;
-          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          const x = ((e.clientX - cachedRect.left) / cachedRect.width) * 100;
+          const y = ((e.clientY - cachedRect.top) / cachedRect.height) * 100;
           card.style.setProperty('--mouse-x', `${x}%`);
           card.style.setProperty('--mouse-y', `${y}%`);
         });
@@ -170,9 +181,11 @@ export function useMagneticEffects() {
         card.style.removeProperty('--mouse-x');
         card.style.removeProperty('--mouse-y');
       };
+      card.addEventListener('mouseenter', onEnter, { passive: true });
       card.addEventListener('mousemove', onMove, { passive: true });
       card.addEventListener('mouseleave', onLeave, { passive: true });
       cleanups.push(() => {
+        card.removeEventListener('mouseenter', onEnter);
         card.removeEventListener('mousemove', onMove);
         card.removeEventListener('mouseleave', onLeave);
         card.style.removeProperty('--mouse-x');
@@ -220,15 +233,18 @@ export function useMagneticEffects() {
         }
       };
 
+      let cachedRect = null;
+
       const onEnter = () => {
         isTiltHovered = true;
+        cachedRect = el.getBoundingClientRect();
         if (!tiltAnimId) tiltAnimId = requestAnimationFrame(animateTilt);
       };
 
       const onMove = (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        if (!cachedRect) return;
+        const x = (e.clientX - cachedRect.left) / cachedRect.width - 0.5;
+        const y = (e.clientY - cachedRect.top) / cachedRect.height - 0.5;
         targetTiltX = -y * maxDeg * 2;
         targetTiltY = x * maxDeg * 2;
       };
@@ -297,6 +313,8 @@ export function useMagneticEffects() {
     // DYNAMIC SCANNING & BINDING (handles tab changes & SPA routing)
     // ══════════════════════════════════════════════════════════════
     const scanAll = () => {
+      if (isMobile) return;
+
       // 2. Magnetic buttons
       document.querySelectorAll(MAGNETIC_SELECTORS).forEach((el) => {
         if (el.dataset.magneticAttached) return;

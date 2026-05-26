@@ -12,8 +12,15 @@ export function useAnimations() {
     setupLucideGlobal();
 
     const navbar = document.getElementById('navbar');
+    let navTicking = false;
     const onScroll = () => {
-      if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
+      if (!navTicking) {
+        window.requestAnimationFrame(() => {
+          if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
+          navTicking = false;
+        });
+        navTicking = true;
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -79,6 +86,18 @@ export function useAnimations() {
       el.style.transform = 'translateY(0)';
     };
 
+    const autoRevealIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            revealAutoEl(entry.target);
+            autoRevealIO.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -5% 0px' }
+    );
+
     document.querySelectorAll(autoRevealSelectors).forEach((el) => {
       if (el.classList.contains('reveal')) return;
       autoRevealEls.push(el);
@@ -86,17 +105,7 @@ export function useAnimations() {
       el.style.transform = 'translateY(30px)';
       el.style.transition =
         'opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1)';
-      const io = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            revealAutoEl(el);
-            io.disconnect();
-          }
-        },
-        { threshold: 0.05, rootMargin: '0px 0px -5% 0px' }
-      );
-      io.observe(el);
-      autoObservers.push(io);
+      autoRevealIO.observe(el);
     });
 
     function countUp(el) {
@@ -112,19 +121,20 @@ export function useAnimations() {
       }, 18);
     }
 
-    const countObservers = [];
-    document.querySelectorAll('[data-count]').forEach((el) => {
-      const io = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            countUp(el);
-            io.disconnect();
+    const countIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            countUp(entry.target);
+            countIO.unobserve(entry.target);
           }
-        },
-        { threshold: 0.5 }
-      );
-      io.observe(el);
-      countObservers.push(io);
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    document.querySelectorAll('[data-count]').forEach((el) => {
+      countIO.observe(el);
     });
 
     const gridState = initInteractiveGrid();
@@ -172,8 +182,8 @@ export function useAnimations() {
       navCloseBtn?.removeEventListener('click', closeNav);
       navOverlay?.removeEventListener('click', closeNav);
       revealIO.disconnect();
-      autoObservers.forEach((io) => io.disconnect());
-      countObservers.forEach((io) => io.disconnect());
+      autoRevealIO.disconnect();
+      countIO.disconnect();
       enhancedRevealIO.disconnect();
       gridState?.cleanup();
       document.body.style.overflow = '';
@@ -265,8 +275,7 @@ function initInteractiveGrid() {
       const dx = x - mouse.x;
       const dy = y - mouse.y;
       if (dx * dx + dy * dy >= maxDist * maxDist) {
-        ctx.moveTo(x + dotSize, y);
-        ctx.arc(x, y, dotSize, 0, Math.PI * 2);
+        ctx.rect(x - dotSize, y - dotSize, dotSize * 2, dotSize * 2);
       }
     }
     ctx.fill();
