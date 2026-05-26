@@ -1,0 +1,543 @@
+/* Showcase Container */
+.hero-showcase-section {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff; /* White */
+  z-index: 5;
+}
+
+/* Individual Slides */
+.showcase-slide {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.showcase-slide:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Grid Layout */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 0 40px;
+}
+
+@media (max-width: 991px) {
+  .showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: clamp(10px, 3vh, 20px) !important;
+    padding: 90px 16px 20px 16px !important; /* Top padding clears mobile navbar */
+    align-content: center !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .showcase-slide {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .showcase-text {
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .showcase-text h2 {
+    font-size: clamp(20px, 5vw, 26px) !important;
+    margin-top: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .showcase-text p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
+
+  .showcase-text .badge-accent {
+    padding: 4px 10px !important;
+    font-size: 10px !important;
+  }
+
+  .showcase-visual {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .floating-glass-card {
+    max-width: 320px !important;
+    padding: 14px !important;
+    border-radius: 16px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Chat bubbles inside card */
+  .chat-bubble {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* WhatsApp simulator card details */
+  .whatsapp-sim-card .whatsapp-header {
+    padding-bottom: 8px !important;
+    margin-bottom: 8px !important;
+    gap: 8px !important;
+  }
+  
+  .whatsapp-sim-card .whatsapp-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+  }
+
+  .whatsapp-sim-card .whatsapp-user-info h4 {
+    font-size: 12px !important;
+  }
+
+  .whatsapp-sim-card .whatsapp-bubble-sent,
+  .whatsapp-sim-card .whatsapp-bubble-received {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .whatsapp-sim-card .booking-confirm-badge {
+    padding: 8px !important;
+    border-radius: 8px !important;
+    gap: 8px !important;
+  }
+
+  .whatsapp-sim-card .booking-icon {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 6px !important;
+  }
+
+  .whatsapp-sim-card .booking-details h5 {
+    font-size: 10px !important;
+  }
+
+  .whatsapp-sim-card .booking-details p {
+    font-size: 9px !important;
+  }
+
+  /* Analytics simulator card details */
+  .analytics-dashboard-card .analytics-header {
+    margin-bottom: 10px !important;
+  }
+
+  .analytics-dashboard-card .analytics-header h4 {
+    font-size: 13px !important;
+  }
+
+  .analytics-dashboard-card .analytics-header p {
+    font-size: 10px !important;
+  }
+
+  .analytics-dashboard-card .metrics-row {
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .analytics-dashboard-card .metric-box {
+    padding: 8px !important;
+    border-radius: 10px !important;
+  }
+
+  .analytics-dashboard-card .metric-label {
+    font-size: 9px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .analytics-dashboard-card .metric-value {
+    font-size: 14px !important;
+  }
+
+  .analytics-dashboard-card .crm-item {
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+    font-size: 10px !important;
+  }
+
+  .analytics-dashboard-card .crm-user {
+    gap: 6px !important;
+  }
+
+  .analytics-dashboard-card .crm-status {
+    font-size: 8px !important;
+    padding: 1px 6px !important;
+    border-radius: 6px !important;
+  }
+}
+
+/* Text Content styling */
+.showcase-text {
+  max-width: 500px;
+}
+
+.showcase-text h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.showcase-text p {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Glowing Orbs & Mesh Backgrounds */
+.showcase-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.showcase-glow.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #0066FF, transparent 70%);
+  top: 10%;
+  right: 10%;
+  animation: drift 15s ease-in-out infinite alternate;
+}
+
+.showcase-glow.orb-2 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #00BFFF, transparent 70%);
+  bottom: 10%;
+  left: 20%;
+  animation: drift 18s ease-in-out infinite alternate-reverse;
+}
+
+.showcase-glow.orb-3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #a855f7, transparent 70%);
+  top: 20%;
+  left: 10%;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+.showcase-glow.orb-4 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #ec4899, transparent 70%);
+  bottom: 20%;
+  right: 15%;
+  animation: drift 16s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.1); }
+  100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* Visual Elements */
+.showcase-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Floating Glass Cards */
+.floating-glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  position: relative;
+  transition: transform 0.3s ease;
+  animation: floatCard 6s ease-in-out infinite alternate;
+}
+
+.floating-glass-card:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+.card-header-glow {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.confidence-label {
+  color: #64748b;
+}
+
+.chat-bubble {
+  padding: 12px 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  max-width: 85%;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.chat-bubble.received {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.chat-bubble.sent {
+  background: #0066FF;
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* WhatsApp Visuals */
+.whatsapp-sim-card {
+  animation: floatCard 7s ease-in-out infinite alternate-reverse;
+}
+
+.whatsapp-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.whatsapp-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #25D366;
+  display: grid;
+  place-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.whatsapp-user-info h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.whatsapp-user-info span {
+  font-size: 11px;
+  color: #22c55e;
+}
+
+.whatsapp-bubble-sent {
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: #1e293b;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  max-width: 85%;
+}
+
+.whatsapp-bubble-received {
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 16px;
+  border-bottom-right-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  max-width: 85%;
+  margin-left: auto;
+}
+
+.booking-confirm-badge {
+  background: #f8fafc;
+  border: 1px dashed rgba(99, 102, 241, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.booking-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  display: grid;
+  place-content: center;
+}
+
+.booking-details h5 {
+  margin: 0 0 2px;
+  font-size: 12px;
+  color: #0f172a;
+}
+
+.booking-details p {
+  margin: 0;
+  font-size: 10px;
+  color: #64748b;
+}
+
+/* Analytics Visuals */
+.analytics-dashboard-card {
+  animation: floatCard 6.5s ease-in-out infinite alternate;
+}
+
+.analytics-header {
+  margin-bottom: 20px;
+}
+
+.analytics-header h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.analytics-header p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.metric-box {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.metric-change {
+  font-size: 10px;
+  color: #22c55e;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.crm-sync-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crm-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.crm-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.crm-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}

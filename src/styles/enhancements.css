@@ -670,3 +670,115 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Light theme — hero features + chatbot section ── */
+.hero-features-wrap {
+  background: #ffffff;
+  border-radius: 0;
+  padding: 48px 40px 56px;
+  margin: 0;
+  max-width: none;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+}
+
+/* Feature list items — no card, just sit on white bg */
+.hero-features-wrap .feature-item {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 8px 0;
+  box-shadow: none;
+}
+.hero-features-wrap .hero-bottom-features {
+  max-width: var(--container-width, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-features-wrap .feat-icon {
+  background: rgba(99, 102, 241, 0.10);
+  border: 1px solid rgba(99, 102, 241, 0.20);
+  color: #6366f1;
+  flex-shrink: 0;
+}
+.hero-features-wrap .feature-item:nth-child(2) .feat-icon {
+  background: rgba(59, 130, 246, 0.10);
+  border-color: rgba(59, 130, 246, 0.20);
+  color: #3b82f6;
+}
+.hero-features-wrap .feature-item:nth-child(3) .feat-icon {
+  background: rgba(236, 72, 153, 0.10);
+  border-color: rgba(236, 72, 153, 0.20);
+  color: #ec4899;
+}
+.hero-features-wrap .feature-item:nth-child(4) .feat-icon {
+  background: rgba(59, 130, 246, 0.10);
+  border-color: rgba(59, 130, 246, 0.20);
+  color: #3b82f6;
+}
+.hero-features-wrap .feature-item:nth-child(5) .feat-icon {
+  background: rgba(139, 92, 246, 0.10);
+  border-color: rgba(139, 92, 246, 0.20);
+  color: #8b5cf6;
+}
+
+.hero-features-wrap .feat-text h4 {
+  color: #1e293b;
+}
+.hero-features-wrap .feat-text p {
+  color: #64748b;
+}
+
+/* Chatbot panel — light */
+.hero-features-wrap .hero-chatbot-panel {
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.20);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+}
+.hero-features-wrap .hero-chatbot-panel::before {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), transparent 50%, rgba(168, 85, 247, 0.12));
+}
+
+.hero-features-wrap .chatbot-header {
+  border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+}
+.hero-features-wrap .chatbot-header > div:last-child > div:first-child {
+  color: #1e293b !important;
+}
+
+/* Bot bubbles */
+.hero-features-wrap .chat-bubble.bot {
+  background: rgba(99, 102, 241, 0.10);
+  border: 1px solid rgba(99, 102, 241, 0.20);
+  color: #1e293b;
+}
+/* User bubbles */
+.hero-features-wrap .chat-bubble.user {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border: none;
+  color: #ffffff;
+}
+
+/* Typing indicator */
+.hero-features-wrap .chat-typing span {
+  background: #6366f1;
+}
+
+/* Float mini bubbles */
+.hero-features-wrap .float-bubble-mini {
+  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #6366f1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
+  font-weight: 600;
+}
+
+/* Bot name color — dark by default, dark on light bg */
+.chatbot-bot-name {
+  color: #f1f5f9;
+}
+.hero-features-wrap .chatbot-bot-name {
+  color: #1e293b;
+}

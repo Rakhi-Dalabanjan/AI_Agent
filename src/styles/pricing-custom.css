@@ -278,3 +278,72 @@
   box-shadow: 0 8px 25px rgba(0, 184, 255, 0.5);
   filter: brightness(1.1);
 }
+
+/* Pricing Light Theme overrides inside light fold */
+.light-theme-fold .pricing-category-section {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+}
+
+.light-theme-fold .pricing-category-section:last-child {
+  border-bottom: none !important;
+}
+
+.light-theme-fold .pricing-section-header h2 {
+  color: #0f172a !important;
+}
+
+.light-theme-fold .pricing-section-header p {
+  color: #475569 !important;
+}
+
+.light-theme-fold .pricing-card-custom {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04) !important;
+}
+
+.light-theme-fold .pricing-card-custom:hover {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
+}
+
+.light-theme-fold .pricing-card-custom.featured {
+  background: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.12) !important;
+}
+
+.light-theme-fold .pricing-card-custom.featured:hover {
+  box-shadow: 0 20px 50px rgba(59, 130, 246, 0.18) !important;
+}
+
+.light-theme-fold .pc-title {
+  color: #0f172a !important;
+}
+
+.light-theme-fold .pc-desc {
+  color: #475569 !important;
+}
+
+.light-theme-fold .pc-price {
+  color: #0f172a !important;
+}
+
+.light-theme-fold .pc-price span {
+  color: #64748b !important;
+}
+
+.light-theme-fold .pc-features li {
+  color: #334155 !important;
+}
+
+.light-theme-fold .btn-premium-outline {
+  color: #334155 !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+}
+
+.light-theme-fold .btn-premium-outline:hover {
+  background: #f8fafc !important;
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}

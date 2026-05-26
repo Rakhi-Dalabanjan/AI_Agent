@@ -9,6 +9,8 @@ import './styles/animations.css';
 import './styles/pages.css';
 import './styles/subpages-nav.css';
 import './styles/enhancements.css';
+import './styles/magnetic.css';
+import './styles/mobile-sticky-cards.css';
 
 const rootEl = document.getElementById('root');
 if (!rootEl) {

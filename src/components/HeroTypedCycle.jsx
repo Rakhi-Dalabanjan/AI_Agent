@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
 const WORDS = [
-  'Conversations',
-  'Workflows',
-  'Customer Journeys',
-  'Lead Capture',
-  'Appointments',
+  'Business Growth',
+  'Modern Businesses',
+  'AI Automation',
+  '24x7 Operations',
+  'Scale & Automation',
 ];
 
 const TYPE_DELAY = 90;

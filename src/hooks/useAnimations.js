@@ -52,10 +52,12 @@ export function useAnimations() {
       },
       { threshold: 0.1 }
     );
-    document.querySelectorAll('.reveal').forEach((el) => revealIO.observe(el));
+    document.querySelectorAll('.reveal, [data-scroll]').forEach((el) => revealIO.observe(el));
 
     const autoRevealSelectors = [
       '.section-title-centered',
+      '.section-title',
+      '.section-desc',
       '.pricing-card',
       '.glass-card',
       '.result-card',
@@ -64,6 +66,9 @@ export function useAnimations() {
       '.solution-card',
       '.challenges-card',
       '.tab-content-panel',
+      '.integration-card',
+      '.feat-item',
+      '.logo-grid',
     ].join(',');
 
     const autoObservers = [];
@@ -122,40 +127,8 @@ export function useAnimations() {
       countObservers.push(io);
     });
 
-    const tiltCleanups = [];
-    const attachTilt = (selector, transformFn) => {
-      document.querySelectorAll(selector).forEach((card) => {
-        const onMove = (e) => {
-          const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - 0.5;
-          const y = (e.clientY - r.top) / r.height - 0.5;
-          card.style.transform = transformFn(x, y);
-        };
-        const onLeave = () => {
-          card.style.transform = '';
-        };
-        card.addEventListener('mousemove', onMove);
-        card.addEventListener('mouseleave', onLeave);
-        tiltCleanups.push(() => {
-          card.removeEventListener('mousemove', onMove);
-          card.removeEventListener('mouseleave', onLeave);
-        });
-      });
-    };
-
-    attachTilt('[data-tilt]', (x, y) =>
-      `translateY(-5px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`
-    );
-    attachTilt('.service-h-card', (x, y) =>
-      `translateY(-6px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`
-    );
-    attachTilt('.pricing-card', (x, y) =>
-      `translateY(-6px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`
-    );
-
     const gridState = initInteractiveGrid();
     initTypingAnimation();
-    initMagneticButtons();
 
     const enhancedRevealIO = new IntersectionObserver(
       (entries) => {
@@ -202,7 +175,6 @@ export function useAnimations() {
       autoObservers.forEach((io) => io.disconnect());
       countObservers.forEach((io) => io.disconnect());
       enhancedRevealIO.disconnect();
-      tiltCleanups.forEach((fn) => fn());
       gridState?.cleanup();
       document.body.style.overflow = '';
       autoRevealEls.forEach((el) => {
@@ -223,74 +195,108 @@ function initInteractiveGrid() {
   container.className = 'interactive-grid-bg';
   const canvas = document.createElement('canvas');
   canvas.className = 'interactive-grid-canvas';
+  // Hint to the browser: keep this canvas on its own GPU layer
+  canvas.style.willChange = 'transform';
   container.appendChild(canvas);
   document.body.prepend(container);
 
-  const ctx = canvas.getContext('2d');
-  let width;
-  let height;
-  let mouse = { x: -1000, y: -1000 };
-  let rafId;
+  const ctx = canvas.getContext('2d', { alpha: true });
+  const gridSize = 44;
+  const dotSize = 1.2;
+  const maxDist = 140;
+  const baseColor = 'rgba(99, 102, 241, 0.18)';
+  const activeColor = 'rgba(168, 85, 247, 0.55)';
 
-  const resize = () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+  let width = 0;
+  let height = 0;
+  let points = [];   // pre-computed { x, y } grid positions
+  let mouse = { x: -9999, y: -9999 };
+  let dirty = true;  // only redraw when needed
+  let rafId;
+  let resizeTimer;
+
+  // Build the grid point list once
+  const buildGrid = () => {
+    const cols = Math.ceil(width / gridSize) + 1;
+    const rows = Math.ceil(height / gridSize) + 1;
+    points = [];
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        points.push({ x: i * gridSize, y: j * gridSize });
+      }
+    }
   };
 
-  const onResize = () => resize();
+  const resize = () => {
+    width  = canvas.width  = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    buildGrid();
+    dirty = true;
+  };
+
+  // Throttle resize to avoid jank during window drag
+  const onResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 120);
+  };
+
   const onMouseMove = (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
+    dirty = true;   // mark as needing a redraw
   };
 
-  window.addEventListener('resize', onResize);
-  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('resize', onResize, { passive: true });
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
   resize();
 
-  const gridSize = 40;
-  const dotSize = 1;
-  const color = 'rgba(99, 102, 241, 0.2)';
-  const activeColor = 'rgba(168, 85, 247, 0.6)';
-
   const draw = () => {
+    rafId = requestAnimationFrame(draw);
+    if (!dirty) return;   // skip frame — nothing changed
+    dirty = false;
+
     ctx.clearRect(0, 0, width, height);
-    const cols = Math.ceil(width / gridSize) + 1;
-    const rows = Math.ceil(height / gridSize) + 1;
 
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        const x = i * gridSize;
-        const y = j * gridSize;
-        const dist = Math.hypot(x - mouse.x, y - mouse.y);
-        const maxDist = 150;
-
-        if (dist < maxDist) {
-          const ratio = 1 - dist / maxDist;
-          ctx.fillStyle = activeColor;
-          const size = dotSize + ratio * 2;
-          ctx.beginPath();
-          ctx.arc(x, y, size, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.strokeStyle = `rgba(168, 85, 247, ${ratio * 0.2})`;
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.stroke();
-        } else {
-          ctx.fillStyle = color;
-          ctx.beginPath();
-          ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-          ctx.fill();
-        }
+    // --- Pass 1: draw all inactive dots in one batched path ---
+    ctx.beginPath();
+    ctx.fillStyle = baseColor;
+    for (let k = 0; k < points.length; k++) {
+      const { x, y } = points[k];
+      const dx = x - mouse.x;
+      const dy = y - mouse.y;
+      if (dx * dx + dy * dy >= maxDist * maxDist) {
+        ctx.moveTo(x + dotSize, y);
+        ctx.arc(x, y, dotSize, 0, Math.PI * 2);
       }
     }
-    rafId = requestAnimationFrame(draw);
+    ctx.fill();
+
+    // --- Pass 2: draw active (near-mouse) dots individually ---
+    const maxDistSq = maxDist * maxDist;
+    for (let k = 0; k < points.length; k++) {
+      const { x, y } = points[k];
+      const dx = x - mouse.x;
+      const dy = y - mouse.y;
+      const distSq = dx * dx + dy * dy;
+      if (distSq < maxDistSq) {
+        const ratio = 1 - Math.sqrt(distSq) / maxDist;
+        const size = dotSize + ratio * 2.2;
+        ctx.globalAlpha = 0.35 + ratio * 0.65;
+        ctx.fillStyle = activeColor;
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    ctx.globalAlpha = 1;
   };
+
   draw();
 
   return {
     cleanup: () => {
       cancelAnimationFrame(rafId);
+      clearTimeout(resizeTimer);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
       container.remove();
@@ -326,18 +332,3 @@ function initTypingAnimation() {
   });
 }
 
-function initMagneticButtons() {
-  document.querySelectorAll('.btn-magnetic').forEach((btn) => {
-    const onMove = (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-    };
-    const onLeave = () => {
-      btn.style.transform = 'translate(0, 0)';
-    };
-    btn.addEventListener('mousemove', onMove);
-    btn.addEventListener('mouseleave', onLeave);
-  });
-}

@@ -5,8 +5,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHead
-        title="Contact Us | AgenticAI"
-        description="Get in touch with AgenticAI for AI automation, setup, and website development solutions."
+        title="Contact Us | IAMKRATU.AI"
+        description="Get in touch with IAMKRATU.AI for AI automation, setup, and website development solutions."
       />
       <ContactContent />
     </>

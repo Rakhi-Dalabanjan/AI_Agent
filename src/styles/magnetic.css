@@ -1,0 +1,384 @@
+/* ═══════════════════════════════════════════════════════════════
+   MAGNETIC.CSS — Premium Mouse Interaction & Hover Effects
+   Naviravity-style cursor interactions for IAMKRATU.AI
+   All transforms run on compositor thread via will-change
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Base: GPU layer for all interactive elements ── */
+.btn,
+.btn-primary,
+.btn-outline,
+.btn-ghost,
+.glass-card,
+.integration-card,
+.template-card,
+.pricing-card,
+.service-h-card,
+.industry-card,
+.result-card,
+.solution-card,
+.feat-icon,
+.nav-links a,
+.process-step,
+.comp-card {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* ══════════════════════════════════════════════════
+   CTA BUTTONS — magnetic attraction + glow pulse
+   ══════════════════════════════════════════════════ */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+/* Ripple glow layer on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.35) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.4),
+    0 8px 32px rgba(99, 102, 241, 0.45),
+    0 2px 8px rgba(99, 102, 241, 0.25) !important;
+}
+
+.btn-outline:hover {
+  box-shadow:
+    0 0 0 1.5px rgba(99, 102, 241, 0.5),
+    0 6px 24px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   GLASS CARDS — 3D tilt + edge glow tracking
+   ══════════════════════════════════════════════════ */
+.glass-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+/* Moving spotlight on card surface */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(148, 163, 184, 0.12) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.12),
+    0 8px 24px rgba(99, 102, 241, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   INTEGRATION CARDS — float + icon glow
+   ══════════════════════════════════════════════════ */
+.integration-card {
+  transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease !important;
+  cursor: default;
+}
+.integration-card:hover {
+  transform: translateY(-6px) scale(1.06) !important;
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.18) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   FEATURE ICONS — float + pulse on hover
+   ══════════════════════════════════════════════════ */
+.feat-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow 0.4s ease !important;
+}
+.feature-item:hover .feat-icon {
+  transform: translateY(-4px) scale(1.12) rotate(-4deg) !important;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   NAV LINKS — magnetic underline + lift
+   ══════════════════════════════════════════════════ */
+.nav-links a {
+  position: relative;
+  transition: color 0.25s ease, transform 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+  transform-origin: center;
+}
+.nav-links a:hover {
+  transform: translateY(-2px) !important;
+}
+.nav-links a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ══════════════════════════════════════════════════
+   PRICING CARDS — premium tilt + shimmer
+   ══════════════════════════════════════════════════ */
+.pricing-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s ease !important;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on pricing card hover */
+.pricing-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: skewX(-15deg);
+  transition: left 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+.pricing-card:hover::after {
+  left: 125%;
+}
+
+/* ══════════════════════════════════════════════════
+   PROCESS STEPS — sequential hover lift
+   ══════════════════════════════════════════════════ */
+.process-step {
+  transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease !important;
+}
+.process-step:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   SERVICE CARDS — deep 3D tilt + glow border
+   ══════════════════════════════════════════════════ */
+.service-h-card {
+  position: relative;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s ease !important;
+}
+.service-h-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.1) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.service-h-card:hover::before {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════════════
+   COMP CARDS (hero dashboard) — float + glow
+   ══════════════════════════════════════════════════ */
+.comp-card {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s ease !important;
+}
+.comp-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow:
+    0 16px 48px rgba(99, 102, 241, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   INDUSTRY / RESULT / SOLUTION CARDS
+   ══════════════════════════════════════════════════ */
+.industry-card,
+.result-card,
+.solution-card,
+.challenges-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease !important;
+}
+.industry-card:hover,
+.result-card:hover,
+.solution-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.14) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   MOUSE GLOW ORBS — follow cursor on hero/sections
+   ══════════════════════════════════════════════════ */
+.cursor-glow-orb {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.08) 0%,
+    rgba(168, 85, 247, 0.04) 50%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.4s ease;
+  mix-blend-mode: normal;
+  will-change: transform, opacity;
+}
+
+/* ══════════════════════════════════════════════════
+   SHOWCASE SLIDES — tilt and float
+   ══════════════════════════════════════════════════ */
+.showcase-visual {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  transform-style: preserve-3d;
+}
+.showcase-slide:hover .showcase-visual {
+  transform: translateY(-6px) rotateY(-2deg) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   SHOWCASE GLASSMORPHISM WIDGETS — float
+   ══════════════════════════════════════════════════ */
+.showcase-widget {
+  transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1),
+              box-shadow 0.4s ease !important;
+}
+.showcase-slide:hover .showcase-widget {
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.18) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   SOCIAL LINK ICONS (footer) — rotate + lift
+   ══════════════════════════════════════════════════ */
+.social-links a {
+  transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1),
+              color 0.25s ease,
+              background 0.25s ease !important;
+}
+.social-links a:hover {
+  transform: translateY(-4px) scale(1.15) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   LOGO — subtle bounce on hover
+   ══════════════════════════════════════════════════ */
+.logo {
+  transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
+}
+.logo:hover {
+  transform: scale(1.04) !important;
+}
+.logo-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.6, 0.64, 1) !important;
+}
+.logo:hover .logo-icon {
+  transform: rotate(-10deg) scale(1.1) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   TEMPLATE / PRICING BADGE PILLS — pop
+   ══════════════════════════════════════════════════ */
+.badge-accent,
+.badge-ai {
+  transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow 0.3s ease !important;
+  cursor: default;
+}
+.badge-accent:hover,
+.badge-ai:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* ══════════════════════════════════════════════════
+   MEDIA QUERY — disable heavy effects on mobile
+   ══════════════════════════════════════════════════ */
+@media (hover: none), (max-width: 768px) {
+  .glass-card::before,
+  .service-h-card::before,
+  .btn::after,
+  .cursor-glow-orb {
+    display: none !important;
+  }
+
+  .glass-card,
+  .pricing-card,
+  .service-h-card,
+  .integration-card,
+  .process-step,
+  .industry-card {
+    will-change: auto !important;
+  }
+}

@@ -2,6 +2,7 @@ import { PageHead } from '../components/PageHead';
 import { HomeContent } from './content/HomeContent';
 import { useHomeEffects } from '../hooks/useHomeEffects';
 import '../styles/index-page.css';
+import '../styles/sticky-scroll.css';
 
 export default function HomePage() {
   useHomeEffects();

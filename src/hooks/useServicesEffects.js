@@ -14,7 +14,7 @@ export function useServicesEffects() {
       },
       { threshold: 0.12 }
     );
-    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+    document.querySelectorAll('.reveal, [data-scroll]').forEach((el) => revealObserver.observe(el));
 
     const sections = ['whatsapp-agent', 'workflow-automation', 'custom-solutions'];
     const tabLinks = document.querySelectorAll('.shortcut-tab[data-section]');

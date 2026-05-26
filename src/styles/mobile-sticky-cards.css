@@ -1,0 +1,216 @@
+/* =====================================================
+   GLOBAL MOBILE STICKY CARD SCROLL EFFECT
+   Applies immersive sticky stacking scroll to ALL card
+   sections across every page on mobile viewports.
+   Works with: template-card, industry-card, solution-card,
+               result-card, explore-card, pricing-card-custom,
+               featured-card, service-h-card
+   ===================================================== */
+
+@media (max-width: 991px) {
+
+  /* ─────────────────────────────────────────────────────
+     UNIVERSAL GRID → FLEX COLUMN STACK
+     Turn all multi-column card grids into single columns
+     so cards naturally stack for the sticky scroll effect.
+  ───────────────────────────────────────────────────── */
+
+  .template-grid,
+  .solutions-grid,
+  .industry-grid,
+  .results-grid,
+  .pricing-cards-grid,
+  .explore-grid,
+  .featured-cards-grid,
+  .service-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     CORE STICKY CARD RULE
+     Each card becomes a sticky viewport-pinned slide that
+     stacks on top of the previous one as user scrolls down.
+  ───────────────────────────────────────────────────── */
+
+  .template-card,
+  .industry-card,
+  .solution-card,
+  .result-card,
+  .pricing-card-custom,
+  .explore-card,
+  .featured-card,
+  .service-h-card {
+    position: sticky !important;
+    top: 80px !important;      /* Sits just below fixed navbar */
+    z-index: 1 !important;
+    margin-bottom: 10px !important;
+    border-radius: 20px !important;
+    box-shadow:
+      0 4px 20px rgba(15, 23, 42, 0.07),
+      0 1px 4px rgba(15, 23, 42, 0.04) !important;
+    transform: translateZ(0);  /* GPU layer for smooth compositing */
+    will-change: transform;
+    transition: box-shadow 0.3s ease !important;
+  }
+
+  /* Slight peek offset for first card so next card is visible beneath */
+  .template-card:not(:first-child),
+  .industry-card:not(:first-child),
+  .solution-card:not(:first-child),
+  .result-card:not(:first-child),
+  .pricing-card-custom:not(:first-child),
+  .explore-card:not(:first-child),
+  .featured-card:not(:first-child),
+  .service-h-card:not(:first-child) {
+    margin-top: -8px !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     PROGRESSIVE Z-INDEX STACKING (up to 10 cards per grid)
+     Cards appearing later in the DOM appear visually on top.
+  ───────────────────────────────────────────────────── */
+
+  .template-card:nth-child(1),  .industry-card:nth-child(1),
+  .solution-card:nth-child(1),  .result-card:nth-child(1),
+  .pricing-card-custom:nth-child(1), .explore-card:nth-child(1),
+  .featured-card:nth-child(1),  .service-h-card:nth-child(1)  { z-index: 1 !important; }
+
+  .template-card:nth-child(2),  .industry-card:nth-child(2),
+  .solution-card:nth-child(2),  .result-card:nth-child(2),
+  .pricing-card-custom:nth-child(2), .explore-card:nth-child(2),
+  .featured-card:nth-child(2),  .service-h-card:nth-child(2)  { z-index: 2 !important; }
+
+  .template-card:nth-child(3),  .industry-card:nth-child(3),
+  .solution-card:nth-child(3),  .result-card:nth-child(3),
+  .pricing-card-custom:nth-child(3), .explore-card:nth-child(3),
+  .featured-card:nth-child(3),  .service-h-card:nth-child(3)  { z-index: 3 !important; }
+
+  .template-card:nth-child(4),  .industry-card:nth-child(4),
+  .solution-card:nth-child(4),  .result-card:nth-child(4),
+  .pricing-card-custom:nth-child(4), .explore-card:nth-child(4),
+  .featured-card:nth-child(4),  .service-h-card:nth-child(4)  { z-index: 4 !important; }
+
+  .template-card:nth-child(5),  .industry-card:nth-child(5),
+  .solution-card:nth-child(5),  .result-card:nth-child(5),
+  .pricing-card-custom:nth-child(5), .explore-card:nth-child(5),
+  .featured-card:nth-child(5),  .service-h-card:nth-child(5)  { z-index: 5 !important; }
+
+  .template-card:nth-child(6),  .industry-card:nth-child(6),
+  .solution-card:nth-child(6),  .result-card:nth-child(6),
+  .pricing-card-custom:nth-child(6), .explore-card:nth-child(6),
+  .featured-card:nth-child(6),  .service-h-card:nth-child(6)  { z-index: 6 !important; }
+
+  .template-card:nth-child(7),  .industry-card:nth-child(7),
+  .solution-card:nth-child(7),  .result-card:nth-child(7),
+  .pricing-card-custom:nth-child(7), .explore-card:nth-child(7),
+  .featured-card:nth-child(7),  .service-h-card:nth-child(7)  { z-index: 7 !important; }
+
+  .template-card:nth-child(8),  .industry-card:nth-child(8),
+  .solution-card:nth-child(8),  .result-card:nth-child(8),
+  .pricing-card-custom:nth-child(8), .explore-card:nth-child(8),
+  .featured-card:nth-child(8),  .service-h-card:nth-child(8)  { z-index: 8 !important; }
+
+  .template-card:nth-child(9),  .industry-card:nth-child(9),
+  .solution-card:nth-child(9),  .result-card:nth-child(9),
+  .pricing-card-custom:nth-child(9), .explore-card:nth-child(9),
+  .featured-card:nth-child(9),  .service-h-card:nth-child(9)  { z-index: 9 !important; }
+
+  .template-card:nth-child(10), .industry-card:nth-child(10),
+  .solution-card:nth-child(10), .result-card:nth-child(10),
+  .pricing-card-custom:nth-child(10), .explore-card:nth-child(10),
+  .featured-card:nth-child(10), .service-h-card:nth-child(10) { z-index: 10 !important; }
+
+  /* ─────────────────────────────────────────────────────
+     LIGHT THEME — white card background
+  ───────────────────────────────────────────────────── */
+  body:not(.dark-mode) .template-card,
+  body:not(.dark-mode) .industry-card,
+  body:not(.dark-mode) .solution-card,
+  body:not(.dark-mode) .featured-card,
+  body:not(.dark-mode) .explore-card {
+    background: #ffffff !important;
+    border: 1px solid rgba(99, 102, 241, 0.08) !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     PRICING CARDS — featured card keeps its gradient
+  ───────────────────────────────────────────────────── */
+  .pricing-card-custom {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .pricing-card-custom.featured {
+    transform: scale(1) !important; /* Reset desktop pop-out scale on mobile */
+  }
+
+  .pricing-cards-grid {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     RESULT CARDS (Services page) — keep visual intact
+  ───────────────────────────────────────────────────── */
+  .results-grid {
+    overflow: visible !important;
+  }
+
+  .result-card {
+    min-height: auto !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     SERVICE-H-CARDS — service page horizontal cards
+  ───────────────────────────────────────────────────── */
+  .service-h-card {
+    flex-direction: column !important;
+    padding: 24px !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     EXPLORE CARDS (Resources page)
+  ───────────────────────────────────────────────────── */
+  .explore-card {
+    padding: 20px !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     FEATURED CARDS (Resources page)
+  ───────────────────────────────────────────────────── */
+  .featured-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* ─────────────────────────────────────────────────────
+     GLOBAL SECTION PADDING on mobile
+  ───────────────────────────────────────────────────── */
+  .section-padding,
+  [style*="padding: '100px 0'"],
+  [style*="padding: '80px 0'"] {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   EXTRA SMALL SCREENS (< 480px)
+───────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .template-card,
+  .industry-card,
+  .solution-card,
+  .result-card,
+  .pricing-card-custom,
+  .explore-card,
+  .featured-card,
+  .service-h-card {
+    border-radius: 16px !important;
+    padding: 18px !important;
+    top: 75px !important; /* Slightly less gap on small phones */
+  }
+}

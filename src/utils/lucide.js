@@ -17,6 +17,3 @@ export function refreshLucideIcons() {
   }
 }
 
-export function setupLucideGlobal() {
-  /* CDN lucide attaches window.lucide automatically */
-}

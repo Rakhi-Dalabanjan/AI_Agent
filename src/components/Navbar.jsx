@@ -19,7 +19,7 @@ export function Navbar({ variant = 'default' }) {
           <div className="logo-icon">
             <i data-lucide="bot" />
           </div>
-          <h2>AgenticAI</h2>
+          <h2>IAMKRATU.AI</h2>
         </Link>
 
         <div className="nav-links">
@@ -71,9 +71,9 @@ export function Navbar({ variant = 'default' }) {
         </div>
 
         <div className="nav-actions">
-          <a href="#" className="btn-login">
+          <Link to="/admin/login" className="btn-login">
             Login
-          </a>
+          </Link>
           <button
             type="button"
             className="nav-btn-solid open-modal"
@@ -88,13 +88,13 @@ export function Navbar({ variant = 'default' }) {
             style={
               !isHome
                 ? {
-                    background: 'none',
-                    border: 'none',
-                    color: 'white',
-                    cursor: 'pointer',
-                    fontSize: '20px',
-                    padding: '4px 8px',
-                  }
+                  background: 'none',
+                  border: 'none',
+                  color: 'white',
+                  cursor: 'pointer',
+                  fontSize: '20px',
+                  padding: '4px 8px',
+                }
                 : undefined
             }
           >

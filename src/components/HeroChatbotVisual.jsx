@@ -55,8 +55,8 @@ export function HeroChatbotVisual() {
             <i data-lucide="bot" aria-hidden="true" />
           </div>
           <div>
-            <div style={{ fontWeight: 700, fontSize: "14px", color: "white" }}>
-              AgenticAI Bot
+            <div className="chatbot-bot-name" style={{ fontWeight: 700, fontSize: "14px" }}>
+              IAMKRATU.AI Bot
             </div>
             <div className="status-live">Online &amp; Learning</div>
           </div>

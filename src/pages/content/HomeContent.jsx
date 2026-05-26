@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HeroTypedCycle } from "../../components/HeroTypedCycle";
 import { WorkflowMarquee } from "../../components/WorkflowMarquee";
 import { HeroChatbotVisual } from "../../components/HeroChatbotVisual";
@@ -6,13 +6,36 @@ import { CampaignAnalytics } from "../../components/CampaignAnalytics";
 import { LiveSupportSimulation } from "../../components/LiveSupportSimulation";
 import { refreshLucideIcons } from "../../utils/lucide";
 import { ChromaKeyVideo } from "../../components/ChromaKeyVideo";
-const homeHeroVideo = "/images/3.mp4";
-const aiTrainingVideo = "/images/Automating.mp4";
-
-/* Auto-generated from index.html — do not edit by hand unless syncing from legacy HTML */
+const homeHeroVideo = "/images/c_cc_c_ecmp_.mp4";
 export function HomeContent() {
+  const [activeStep, setActiveStep] = useState(1);
+
   useEffect(() => {
     refreshLucideIcons();
+
+    const steps = document.querySelectorAll(".scrollytelling-step");
+    const observerOptions = {
+      root: null,
+      rootMargin: "-30% 0px -30% 0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const stepNum = parseInt(entry.target.getAttribute("data-step"), 10);
+          if (!isNaN(stepNum)) {
+            setActiveStep(stepNum);
+          }
+        }
+      });
+    }, observerOptions);
+
+    steps.forEach((step) => observer.observe(step));
+
+    return () => {
+      steps.forEach((step) => observer.unobserve(step));
+    };
   }, []);
 
   return (
@@ -27,106 +50,45 @@ export function HomeContent() {
                 data-lucide="zap"
                 style={{ color: "#f59e0b", width: "16px", height: "16px" }}
               ></i>{" "}
-              AI AGENTS FOR MODERN BUSINESSES
+              AI Workforce Platform for Businesses
             </div>
 
             <h1
               className="hero-heading"
-              style={{ fontSize: "clamp(28px, 3.5vw, 46px)", maxWidth: "90%" }}
+              style={{ fontSize: "clamp(30px, 3.8vw, 52px)", lineHeight: "1.2", fontWeight: 800 }}
             >
-              AI Agents That Automate <HeroTypedCycle /> Workflows &amp;
-              Business Growth
+              Build Your AI Workforce <br />
+              for <HeroTypedCycle />
             </h1>
 
             <p className="hero-description">
-              Build powerful AI systems for WhatsApp, workflow automation, and
-              Web automation. Automate customer support, capture leads
-              instantly, schedule appointments, and streamline business
-              operations using intelligent AI automation.
+              IAMKRATU.AI helps businesses deploy trained AI Agents for sales, customer support, SEO, lead generation, operations, and automation — available 24x7.
             </p>
 
-            <div className="hero-buttons">
+            <div className="hero-buttons" style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "20px" }}>
               <button
-                className="btn-primary-purple open-modal btn-magnetic"
-                data-modal-title="Book a Demo"
+                className="btn btn-primary open-modal"
+                data-modal-title="Start Free Trial"
               >
-                <i
-                  data-lucide="calendar-check"
-                  style={{ width: "18px", height: "18px" }}
-                ></i>{" "}
-                Book Free Demo{" "}
-                <i
-                  data-lucide="arrow-right"
-                  style={{ marginLeft: "5px", width: "18px", height: "18px" }}
-                ></i>
+                Start Free Trial <i data-lucide="arrow-right" style={{ marginLeft: "6px" }}></i>
               </button>
               <button
-                className="btn-secondary-outline btn-magnetic"
-                id="talk-whatsapp-btn"
+                className="btn btn-outline open-modal"
+                data-modal-title="Book Demo"
               >
-                <i
-                  data-lucide="message-circle"
-                  style={{ color: "#25D366", fontSize: "18px" }}
-                ></i>{" "}
-                Talk on WhatsApp
+                Book Demo
+              </button>
+              <button
+                className="btn btn-ghost open-modal"
+                data-modal-title="Contact Sales"
+              >
+                Contact Sales
               </button>
             </div>
 
-            <div className="trust-grid">
-              <div className="trust-box">
-                <div className="trust-icon" style={{ color: "#3b82f6" }}>
-                  <i data-lucide="clock"></i>
-                  <span className="icon-24">24</span>
-                </div>
-                <div className="trust-text">
-                  <span className="highlight-text">24/7</span>
-                  <br />
-                  AI Support
-                </div>
-              </div>
-              <div className="trust-box">
-                <div className="trust-icon" style={{ color: "#22c55e" }}>
-                  <i data-lucide="message-circle"></i>
-                </div>
-                <div className="trust-text">
-                  <span className="highlight-text">WhatsApp</span>
-                  <br />
-                  Integration
-                </div>
-              </div>
-
-              <div className="trust-box">
-                <div className="trust-icon" style={{ color: "#3b82f6" }}>
-                  <i data-lucide="settings-2"></i>
-                </div>
-                <div className="trust-text">
-                  <span className="highlight-text">Workflow</span>
-                  <br />
-                  Automation
-                </div>
-              </div>
-            </div>
-
-            <div className="trusted-by-hero">
-              <p>Trusted by 500+ businesses worldwide</p>
-              <div className="trusted-logos">
-                <span>
-                  <i data-lucide="home"></i> realestate.com
-                </span>
-                <span>
-                  <i data-lucide="plus-square"></i> MediCare
-                </span>
-                <span>
-                  <i data-lucide="shopping-bag"></i> ShopEase
-                </span>
-                <span>
-                  <i data-lucide="graduation-cap"></i> EduSmart
-                </span>
-                <span>
-                  <i data-lucide="bar-chart"></i> WorkFlow
-                </span>
-              </div>
-            </div>
+            <p className="trust-line" style={{ marginTop: "24px", fontSize: "12px", color: "#64748b", maxWidth: "90%", lineHeight: "1.5" }}>
+              <strong>Designed for:</strong> startups, SMEs, agencies, ecommerce brands, real estate firms, travel companies, clinics, restaurants, and growing businesses.
+            </p>
           </div>
 
           {/* RIGHT: Hero Video */}
@@ -398,289 +360,712 @@ export function HomeContent() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* HERO BOTTOM FEATURES */}
-        <div className="hero-features-wrap">
-          <div
-            className="hero-bottom-features stagger-container"
-            style={{ padding: 0, maxWidth: "none", margin: 0 }}
-          >
-            <div className="feature-item stagger-item">
-              <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="bot-message-square"></i>
-              </div>
-              <div className="feat-text">
-                <h4>AI-Powered Conversations</h4>
-                <p>
-                  Human-like conversations that engage, support, and convert.
-                </p>
-              </div>
+      {/* HERO BOTTOM FEATURES — full-width light section */}
+      <div className="hero-features-wrap">
+        <div
+          className="hero-bottom-features stagger-container"
+          style={{ padding: 0, maxWidth: "none", margin: 0, display: "grid", gridTemplateColumns: "1fr", gap: "10px" }}
+        >
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px" }}>
+              <i data-lucide="bot-message-square" style={{ width: "18px", height: "18px" }}></i>
             </div>
-            <div className="feature-item stagger-item">
-              <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="mouse-pointer-click"></i>
-              </div>
-              <div className="feat-text">
-                <h4>Instant Lead Capture</h4>
-                <p>
-                  Capture leads automatically from WhatsApp, Web, and other
-                  channels.
-                </p>
-              </div>
-            </div>
-            <div className="feature-item stagger-item">
-              <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="settings-2"></i>
-              </div>
-              <div className="feat-text">
-                <h4>Smart Automation</h4>
-                <p>
-                  Automate repetitive tasks and workflows to save time and
-                  reduce errors.
-                </p>
-              </div>
-            </div>
-            <div className="feature-item stagger-item">
-              <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="bar-chart-big"></i>
-              </div>
-              <div className="feat-text">
-                <h4>Analytics & Insights</h4>
-                <p>
-                  Track performance, analyze data, and grow your business
-                  faster.
-                </p>
-              </div>
-            </div>
-            <div className="feature-item stagger-item">
-              <div className="feat-icon animate-svg-pulse">
-                <i data-lucide="shield-half"></i>
-              </div>
-              <div className="feat-text">
-                <h4>Secure & Scalable</h4>
-                <p>
-                  Enterprise-grade security and infrastructure built to scale
-                  with you.
-                </p>
-              </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>AI-Powered Conversations</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Human-like conversations that engage, support, and convert.</p>
             </div>
           </div>
-          <HeroChatbotVisual />
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#3b82f6', background: 'rgba(59, 130, 246, 0.10)', borderColor: 'rgba(59, 130, 246, 0.20)' }}>
+              <i data-lucide="message-square" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>WhatsApp Automation</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Seamlessly automate replies, bookings, and alerts on WhatsApp.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#ec4899', background: 'rgba(236, 72, 153, 0.10)', borderColor: 'rgba(236, 72, 153, 0.20)' }}>
+              <i data-lucide="search" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>SEO Optimization</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Drive organic traffic and rank higher with autonomous SEO.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#06b6d4', background: 'rgba(6, 182, 212, 0.10)', borderColor: 'rgba(6, 182, 212, 0.20)' }}>
+              <i data-lucide="phone" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>AI Voice Calls</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Deploy voice agents to handle calls and appointments 24x7.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#10b981', background: 'rgba(16, 185, 129, 0.10)', borderColor: 'rgba(16, 185, 129, 0.20)' }}>
+              <i data-lucide="check-circle" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>Lead Qualification</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Automatically capture, score, and qualify every incoming lead.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#f59e0b', background: 'rgba(245, 158, 11, 0.10)', borderColor: 'rgba(245, 158, 11, 0.20)' }}>
+              <i data-lucide="refresh-cw" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>Automated Follow-Ups</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Nurture prospects automatically across email and chat.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#6366f1', background: 'rgba(99, 102, 241, 0.10)', borderColor: 'rgba(99, 102, 241, 0.20)' }}>
+              <i data-lucide="git-branch" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>Workflow Automation</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Connect apps and trigger multi-step background workflows.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#a855f7', background: 'rgba(168, 85, 247, 0.10)', borderColor: 'rgba(168, 85, 247, 0.20)' }}>
+              <i data-lucide="bar-chart-3" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>Analytics Dashboard</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Monitor AI performance, chats, and conversions in real time.</p>
+            </div>
+          </div>
+          <div className="feature-item stagger-item" style={{ padding: "4px 0" }}>
+            <div className="feat-icon animate-svg-pulse" style={{ width: "38px", height: "38px", borderRadius: "10px", color: '#4f46e5', background: 'rgba(79, 70, 229, 0.10)', borderColor: 'rgba(79, 70, 229, 0.20)' }}>
+              <i data-lucide="network" style={{ width: "18px", height: "18px" }}></i>
+            </div>
+            <div className="feat-text">
+              <h4 style={{ fontWeight: '700', fontSize: '14px', color: '#1e293b', margin: '0 0 2px' }}>Multi-Agent Workflows</h4>
+              <p style={{ margin: 0, fontSize: '11px', color: '#64748b', lineHeight: '1.4' }}>Orchestrate multiple specialized AI agents in sync.</p>
+            </div>
+          </div>
         </div>
-      </section>
+        <HeroChatbotVisual />
+      </div>
       <WorkflowMarquee />
 
-      {/* 3. AI TRAINING SECTION */}
-      <section className="ai-training section-padding reveal-up" id="features">
+      {/* LIGHT THEME FOLD FOR HOMEPAGE CONTENTS */}
+      <div className="light-theme-fold" style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: 0 }}>
+
+        {/* ABOUT SECTION */}
+        <section className="about-section section-padding reveal-up" id="about" style={{ padding: '100px 0', borderBottom: '1px solid rgba(15,23,42,0.06)' }}>
+          <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div className="about-content" data-scroll="slide-left">
+              <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                About Us
+              </span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, marginBottom: '24px', color: '#0f172a' }}>
+                About IAMKRATU.AI
+              </h2>
+              <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7', marginBottom: '16px' }}>
+                IAMKRATU.AI is an AI Agent Platform that enables businesses to deploy trained AI Agents for business operations, customer engagement, marketing, sales, and workflow automation.
+              </p>
+              <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7', marginBottom: '16px' }}>
+                Our mission is to help businesses build their own AI Workforce without requiring technical expertise.
+              </p>
+              <p style={{ color: '#475569', fontSize: '15px', lineHeight: '1.7' }}>
+                From AI-powered customer support to lead automation and workflow optimization, IAMKRATU.AI helps businesses save time, reduce operational costs, improve productivity, and scale faster.
+              </p>
+            </div>
+            <div className="about-visual" data-scroll="slide-right" style={{ position: 'relative' }}>
+              <div className="glass-card" style={{ padding: '30px', borderRadius: '24px', background: '#f8fafc', border: '1px solid rgba(15,23,42,0.06)', boxShadow: '0 20px 40px rgba(15,23,42,0.04)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'linear-gradient(135deg, #6366f1, #a855f7)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff' }}>
+                    <i data-lucide="cpu" style={{ width: '24px', height: '24px' }}></i>
+                  </div>
+                  <div>
+                    <h4 style={{ color: '#0f172a', fontSize: '16px', fontWeight: 700 }}>Autonomous AI Core</h4>
+                    <span style={{ color: '#64748b', fontSize: '12px' }}>IAMKRATU.AI Technology</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <div style={{ background: '#ffffff', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(15,23,42,0.06)', display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#0f172a' }}>
+                    <span>Deploy 24x7 Agents</span>
+                    <span style={{ color: '#22c55e', fontWeight: '600' }}>Ready</span>
+                  </div>
+                  <div style={{ background: '#ffffff', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(15,23,42,0.06)', display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#0f172a' }}>
+                    <span>Zero Code Integrations</span>
+                    <span style={{ color: '#6366f1', fontWeight: '600' }}>Active</span>
+                  </div>
+                  <div style={{ background: '#ffffff', padding: '12px 16px', borderRadius: '8px', border: '1px solid rgba(15,23,42,0.06)', display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#0f172a' }}>
+                    <span>Custom Knowledge Brain</span>
+                    <span style={{ color: '#a855f7', fontWeight: '600' }}>Trained</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHAT WE OFFER SECTION */}
+        <section className="offerings-section section-padding reveal-up" id="offerings" style={{ padding: '100px 0', borderBottom: '1px solid rgba(15,23,42,0.06)' }}>
+          <div className="container">
+            <div className="section-header text-center" style={{ marginBottom: '60px' }}>
+              <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                What We Offer
+              </span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#0f172a', marginBottom: '16px' }}>
+                AI Agents for Every Business Need
+              </h2>
+            </div>
+            <div className="template-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon"><i data-lucide="headset"></i></div>
+                <h3>AI Customer Support Agent</h3>
+                <p>Automate customer conversations across websites, WhatsApp, and social media platforms with intelligent AI support agents.</p>
+                <a href="/services#customer-support-agent" className="template-link">Learn More <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon"><i data-lucide="trending-up"></i></div>
+                <h3>AI Sales Agent</h3>
+                <p>Capture, qualify, and convert leads automatically using conversational AI.</p>
+                <a href="/services#sales-agent" className="template-link">Learn More <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon"><i data-lucide="search"></i></div>
+                <h3>AI SEO Agent</h3>
+                <p>Boost search rankings with AI-powered keyword research, SEO content generation, competitor analysis, and optimization.</p>
+                <a href="/services#seo-agent" className="template-link">Learn More <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon"><i data-lucide="message-square"></i></div>
+                <h3>AI WhatsApp Agent</h3>
+                <p>Automate customer engagement, order updates, lead follow-ups, and support directly on WhatsApp.</p>
+                <a href="/services#whatsapp-agent" className="template-link">Learn More <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon"><i data-lucide="phone"></i></div>
+                <h3>AI Voice Agent</h3>
+                <p>Deploy AI voice assistants for customer calls, appointment booking, support, and lead qualification.</p>
+                <a href="/services#voice-agent" className="template-link">Learn More <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div> {/* END OF LIGHT THEME FOLD */}
+
+      {/* HOW IT WORKS SECTION (DARK THEME) */}
+      <section className="how-it-works-section section-padding reveal-up how-it-works-dark-theme" id="how-it-works" style={{ padding: '100px 0' }}>
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              Train AI Using Your Business Knowledge
+          <div className="section-header text-center" style={{ marginBottom: '60px' }}>
+            <span className="badge-accent" style={{ background: 'rgba(0, 102, 255, 0.1)', color: '#00BFFF', border: '1px solid rgba(0, 102, 255, 0.2)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+              Process
+            </span>
+            <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#ffffff', marginBottom: '16px' }}>
+              How IAMKRATU.AI Works
             </h2>
-            <p className="section-desc">
-              Instantly turn your company data into a smart, responsive AI
-              agent. Connect your existing knowledge base and let the AI do the
-              rest.
-            </p>
           </div>
-
-          <div className="training-grid">
-            {/* Training sources */}
-            <div className="training-sources">
-              <div className="glass-card source-card">
-                <div className="icon-box red">
-                  <i data-lucide="file-text"></i>
-                </div>
-                <div className="source-info">
-                  <h3>PDF Documents</h3>
-                  <p>Upload manuals and guides</p>
-                </div>
-              </div>
-              <div className="glass-card source-card">
-                <div className="icon-box blue">
-                  <i data-lucide="globe"></i>
-                </div>
-                <div className="source-info">
-                  <h3>Website URLs</h3>
-                  <p>Scrape your entire site</p>
-                </div>
-              </div>
-              <div className="glass-card source-card">
-                <div className="icon-box green">
-                  <i data-lucide="book-user"></i>
-                </div>
-                <div className="source-info">
-                  <h3>Help Center / FAQs</h3>
-                  <p>Sync with Zendesk or Intercom</p>
-                </div>
-              </div>
-              <div className="glass-card source-card">
-                <div className="icon-box yellow">
-                  <i data-lucide="sheet"></i>
-                </div>
-                <div className="source-info">
-                  <h3>Google Sheets Integration</h3>
-                  <p>Lead capture &amp; workflow sync</p>
-                </div>
-              </div>
+          <div className="process-timeline reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px' }}>
+            <div className="process-step" data-scroll="fade-scale">
+              <div className="process-icon"><i data-lucide="mouse-pointer"></i></div>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', margin: '12px 0 8px', color: '#ffffff' }}>1. Choose Your AI Agent</h3>
+              <p style={{ fontSize: '13px', color: '#B6C2D9' }}>Select the AI agent that fits your business needs.</p>
             </div>
-
-            {/* AI Brain Visual */}
-            <div className="ai-brain-visual glass-card" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <ChromaKeyVideo
-                src={aiTrainingVideo}
-                similarity={0.4}
-                smoothness={0.08}
-                maxWidth={800}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "24px",
-                }}
-              />
+            <div className="process-step" data-scroll="fade-scale" style={{ animationDelay: '0.1s' }}>
+              <div className="process-icon"><i data-lucide="database"></i></div>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', margin: '12px 0 8px', color: '#ffffff' }}>2. Train & Customize</h3>
+              <p style={{ fontSize: '13px', color: '#B6C2D9' }}>Upload business data, FAQs, SOPs, product information, or workflows.</p>
+            </div>
+            <div className="process-step" data-scroll="fade-scale" style={{ animationDelay: '0.2s' }}>
+              <div className="process-icon"><i data-lucide="share-2"></i></div>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', margin: '12px 0 8px', color: '#ffffff' }}>3. Integrate with Your Platforms</h3>
+              <p style={{ fontSize: '13px', color: '#B6C2D9' }}>Connect your website, WhatsApp, CRM, or social platforms.</p>
+            </div>
+            <div className="process-step" data-scroll="fade-scale" style={{ animationDelay: '0.3s' }}>
+              <div className="process-icon"><i data-lucide="rocket"></i></div>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', margin: '12px 0 8px', color: '#ffffff' }}>4. Launch Automation</h3>
+              <p style={{ fontSize: '13px', color: '#B6C2D9' }}>Your AI agent starts handling tasks automatically.</p>
+            </div>
+            <div className="process-step" data-scroll="fade-scale" style={{ animationDelay: '0.4s' }}>
+              <div className="process-icon"><i data-lucide="bar-chart-3"></i></div>
+              <h3 style={{ fontSize: '16px', fontWeight: '700', margin: '12px 0 8px', color: '#ffffff' }}>5. Monitor & Scale</h3>
+              <p style={{ fontSize: '13px', color: '#B6C2D9' }}>Track performance, analytics, and expand your AI workforce.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. WORKFLOW AUTOMATION SECTION */}
-      <section className="workflow-automation section-padding" id="workflows">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">
-              Build Powerful Automation Workflows
-            </h2>
-            <p className="section-desc">
-              Design complex conversational journeys visually. No coding
-              required.
-            </p>
+      {/* REOPEN LIGHT THEME FOLD */}
+      <div className="light-theme-fold" style={{ backgroundColor: '#ffffff', color: '#0f172a', padding: 0 }}>
+
+        {/* OMNICHANNEL INTEGRATIONS SECTION */}
+        <section className="integrations section-padding" id="integrations" style={{ padding: '80px 0', borderBottom: '1px solid rgba(15,23,42,0.06)', background: '#ffffff' }}>
+          <div className="container">
+            <div className="section-header text-center" style={{ marginBottom: '40px' }}>
+              <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                Integrations
+              </span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#0f172a', marginBottom: '16px' }}>
+                Connect Every Communication Channel
+              </h2>
+              <p style={{ color: '#475569', fontSize: '15px', maxWidth: '600px', margin: '0 auto' }}>
+                Deploy your AI agents wherever your customers are. Seamlessly integrate with your favorite tools.
+              </p>
+            </div>
           </div>
 
-          <div className="workflow-builder glass-card">
-            <div className="builder-header">
-              <div className="tools">
-                <i data-lucide="mouse-pointer-2"></i> <i data-lucide="hand"></i>{" "}
-                <i data-lucide="zoom-in"></i>
+          <div className="apps-marquee">
+            <div className="apps-marquee-track">
+              <div className="apps-marquee-group">
+                <div className="integration-card glass-card"><i className="fa-brands fa-whatsapp" style={{ color: '#25D366', fontSize: '20px' }}></i> WhatsApp</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-telegram" style={{ color: '#0088cc', fontSize: '20px' }}></i> Telegram</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-instagram" style={{ color: '#E1306C', fontSize: '20px' }}></i> Instagram</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-facebook-messenger" style={{ color: '#1877F2', fontSize: '20px' }}></i> Messenger</div>
+                <div className="integration-card glass-card"><i className="fa-regular fa-envelope" style={{ color: '#EA4335', fontSize: '20px' }}></i> Gmail</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-shopify" style={{ color: '#95BF47', fontSize: '20px' }}></i> Shopify</div>
+                <div className="integration-card glass-card"><i className="fa-solid fa-bolt" style={{ color: '#FF4F00', fontSize: '20px' }}></i> Zapier</div>
+                <div className="integration-card glass-card"><i className="fa-solid fa-code" style={{ color: '#A8B9CC', fontSize: '20px' }}></i> APIs</div>
+                <div className="integration-card glass-card"><i className="fa-solid fa-circle-nodes" style={{ color: '#7C3AED', fontSize: '20px' }}></i> Webhooks</div>
               </div>
-              <div className="builder-title">Lead Qualification Flow</div>
-              <button className="btn btn-primary btn-small">Publish</button>
+              <div className="apps-marquee-group">
+                <div className="integration-card glass-card"><i className="fa-brands fa-whatsapp" style={{ color: '#25D366', fontSize: '20px' }}></i> WhatsApp</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-telegram" style={{ color: '#0088cc', fontSize: '20px' }}></i> Telegram</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-instagram" style={{ color: '#E1306C', fontSize: '20px' }}></i> Instagram</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-facebook-messenger" style={{ color: '#1877F2', fontSize: '20px' }}></i> Messenger</div>
+                <div className="integration-card glass-card"><i className="fa-regular fa-envelope" style={{ color: '#EA4335', fontSize: '20px' }}></i> Gmail</div>
+                <div className="integration-card glass-card"><i className="fa-brands fa-shopify" style={{ color: '#95BF47', fontSize: '20px' }}></i> Shopify</div>
+                <div className="integration-card glass-card"><i className="fa-solid fa-bolt" style={{ color: '#FF4F00', fontSize: '20px' }}></i> Zapier</div>
+                <div className="integration-card glass-card"><i className="fa-solid fa-code" style={{ color: '#A8B9CC', fontSize: '20px' }}></i> APIs</div>
+                <div className="integration-card glass-card"><i className="fa-solid fa-circle-nodes" style={{ color: '#7C3AED', fontSize: '20px' }}></i> Webhooks</div>
+              </div>
             </div>
-            <div className="builder-canvas">
-              {/* Workflow Nodes */}
-              <div
-                className="node node-trigger"
-                style={{
-                  top: "20px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                <div className="node-icon">
-                  <i data-lucide="message-square"></i>
-                </div>
-                <div className="node-content">
-                  <h4>Customer Message</h4>
-                  <p>WhatsApp</p>
-                </div>
+          </div>
+        </section>
+
+        {/* 8.5 PINNED SCROLLYTELLING SECTION */}
+        <section className="scrollytelling-section">
+          <div className="scrollytelling-container container">
+            {/* LEFT: STEP CONTENT (SCROLLING) */}
+            <div className="scrollytelling-left">
+              <div className={`scrollytelling-step ${activeStep === 1 ? 'active' : ''}`} data-step="1">
+                <span className="step-number">01</span>
+                <h3 className="step-title">Ingest Leads &amp; Trigger Workflows</h3>
+                <p className="step-description">
+                  As soon as a new lead interacts with your business via WhatsApp, Web forms, or Social media, Kratu AI captures their details instantly and initiates the customized automation workflow.
+                </p>
+                <div className="step-indicator-bar"></div>
               </div>
 
-              <svg
-                className="node-connector"
-                style={{ top: "80px", left: "50%", transform: "translateX(-50%)" }}
-                width="2"
-                height="40"
-              >
-                <line x1="1" y1="0" x2="1" y2="40" stroke="rgba(255,255,255,0.2)" strokeWidth="2" />
-                <line x1="1" y1="0" x2="1" y2="40" stroke="#a855f7" strokeWidth="2" className="animated-path" />
-              </svg>
-
-              <div
-                className="node node-ai"
-                style={{
-                  top: "120px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                <div className="node-icon">
-                  <i data-lucide="bot"></i>
-                </div>
-                <div className="node-content">
-                  <h4>AI Response</h4>
-                  <p>Answer & Ask for Email</p>
-                </div>
+              <div className={`scrollytelling-step ${activeStep === 2 ? 'active' : ''}`} data-step="2">
+                <span className="step-number">02</span>
+                <h3 className="step-title">Intelligent AI Routing &amp; Processing</h3>
+                <p className="step-description">
+                  Our NLP engine categorizes the lead's intent within milliseconds. The AI drafts a context-aware personalized response and automatically updates your internal CRM databases.
+                </p>
+                <div className="step-indicator-bar"></div>
               </div>
 
-              {/* Split paths */}
-              <svg
-                className="node-split"
-                style={{
-                  top: "180px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-                width="200"
-                height="60"
-              >
-                <path
-                  d="M100,0 L100,20 L10,20 L10,60"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.2)"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M100,0 L100,20 L10,20 L10,60"
-                  fill="none"
-                  stroke="#3b82f6"
-                  strokeWidth="2"
-                  className="animated-path"
-                />
-                <path
-                  d="M100,0 L100,20 L190,20 L190,60"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.2)"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M100,0 L100,20 L190,20 L190,60"
-                  fill="none"
-                  stroke="#f59e0b"
-                  strokeWidth="2"
-                  className="animated-path"
-                />
-              </svg>
+              <div className={`scrollytelling-step ${activeStep === 3 ? 'active' : ''}`} data-step="3">
+                <span className="step-number">03</span>
+                <h3 className="step-title">CRM Sync &amp; Calendar Execution</h3>
+                <p className="step-description">
+                  The agent finalizes the action by booking a calendar slot or sending an automated follow-up. Metrics are updated in real-time on your dashboard, closing the loop.
+                </p>
+                <div className="step-indicator-bar"></div>
+              </div>
+            </div>
 
-              <div
-                className="node node-action"
-                style={{
-                  top: "240px",
-                  left: "calc(50% - 90px)",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                <div className="node-icon">
-                  <i data-lucide="database"></i>
+
+            {/* RIGHT: PINNED VISUAL PANEL */}
+            <div className="scrollytelling-right">
+              <div className="pinned-glass-card">
+                <div className="pinned-card-header">
+                  <div className="header-status">
+                    <span className="pulse-dot-green"></span>
+                    <span>AI Agent Status: Active</span>
+                  </div>
+                  <div className="header-action">Demo Sync</div>
                 </div>
-                <div className="node-content">
-                  <h4>Lead Capture</h4>
-                  <p>Workflow Sync</p>
+                <div className="pinned-card-body">
+                  <div className={`scrolly-visual-state state-1 ${activeStep === 1 ? 'active' : ''}`}>
+                    <div className="visual-node-flow">
+                      <div className="flow-badge whatsapp-badge">
+                        <i className="fa-brands fa-whatsapp"></i> WhatsApp Inflow
+                      </div>
+                      <div className="flow-arrow-down">↓</div>
+                      <div className="flow-badge crm-badge pulse-glow">
+                        <i className="fa-solid fa-database"></i> Lead Captured
+                      </div>
+                    </div>
+                    <div className="visual-details">
+                      <span className="details-label">Lead Details:</span>
+                      <pre className="details-json">
+                        {`{
+  "source": "WhatsApp",
+  "name": "Jane Smith",
+  "status": "Incoming",
+  "time": "Just now"
+}`}
+                      </pre>
+                    </div>
+                  </div>
+
+                  <div className={`scrolly-visual-state state-2 ${activeStep === 2 ? 'active' : ''}`}>
+                    <div className="visual-nlp-analysis">
+                      <div className="nlp-intent-badge">
+                        <i className="fa-solid fa-brain"></i> Intent: Demo Booking
+                      </div>
+                      <div className="nlp-confidence">Confidence: 99.4%</div>
+                    </div>
+                    <div className="visual-details">
+                      <span className="details-label">AI Drafted Reply:</span>
+                      <p className="details-text" style={{ fontStyle: "italic" }}>
+                        "Hi Jane, I'd love to help you schedule a demo. Here are the available slots..."
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className={`scrolly-visual-state state-3 ${activeStep === 3 ? 'active' : ''}`}>
+                    <div className="visual-calendar-sync">
+                      <div className="calendar-slot">
+                        <div><i className="fa-solid fa-calendar-check"></i> Demo Confirmed</div>
+                        <span className="slot-time">Today, 2:00 PM</span>
+                      </div>
+                    </div>
+                    <div className="visual-details">
+                      <span className="details-label">CRM Update:</span>
+                      <div className="crm-sync-list">
+                        <div className="sync-item"><i className="fa-solid fa-circle-check" style={{ color: "#22c55e" }}></i> Pipeline Updated</div>
+                        <div className="sync-item"><i className="fa-solid fa-circle-check" style={{ color: "#22c55e" }}></i> Notification Dispatched</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
 
-              <div
-                className="node node-human"
-                style={{
-                  top: "240px",
-                  left: "calc(50% + 90px)",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                <div className="node-icon">
-                  <i data-lucide="headphones"></i>
+        {/* 9. INDUSTRIES SECTION */}
+        <section className="templates section-padding" id="industries" style={{ borderTop: '1px solid rgba(15,23,42,0.06)' }}>
+          <div className="container">
+            <div className="section-header text-center" style={{ marginBottom: '60px' }}>
+              <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                Industries We Serve
+              </span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#0f172a', marginBottom: '16px' }}>
+                Industry-Specific AI Solutions
+              </h2>
+            </div>
+            <div className="template-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(99,102,241,0.08)', color: '#6366f1' }}><i data-lucide="home"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Real Estate</h3>
+                <p>Qualify buyers, capture listings interest, and schedule property viewings automatically.</p>
+                <a href="/solutions#real-estate" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(236,72,153,0.08)', color: '#ec4899' }}><i data-lucide="shopping-basket"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Ecommerce</h3>
+                <p>Recover abandoned carts, recommend products, and answer shipping status FAQs 24x7.</p>
+                <a href="/solutions#ecommerce" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(34,197,94,0.08)', color: '#22c55e' }}><i data-lucide="heart-pulse"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Healthcare</h3>
+                <p>Manage patient appointments, send clinic reminders, and automate standard medical FAQs.</p>
+                <a href="/solutions#healthcare" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(249,115,22,0.08)', color: '#f97316' }}><i data-lucide="graduation-cap"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Education</h3>
+                <p>Engage prospective students, support enrollment queries, and schedule advisory sessions.</p>
+                <a href="/solutions#education" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(239,68,68,0.08)', color: '#ef4444' }}><i data-lucide="utensils-crossed"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Restaurants</h3>
+                <p>Automate reservation bookings, share digital menus, and process orders over WhatsApp.</p>
+                <a href="/solutions#restaurants" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(6,182,212,0.08)', color: '#06b6d4' }}><i data-lucide="plane"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Travel & Tourism</h3>
+                <p>Provide 24x7 support for booking itineraries, tour inquiries, and ticket cancellations.</p>
+                <a href="/solutions#travel" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(168,85,247,0.08)', color: '#a855f7' }}><i data-lucide="rocket"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Agencies & Startups</h3>
+                <p>Scale client operations, qualify lead pipelines, and automate internal administrative workflows.</p>
+                <a href="/solutions#agencies" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale">
+                <div className="template-icon" style={{ background: 'rgba(245,158,11,0.08)', color: '#f59e0b' }}><i data-lucide="dumbbell"></i></div>
+                <h3 style={{ color: '#0f172a' }}>Gyms & Fitness Studios</h3>
+                <p>Manage member check-ins, automate class booking alerts, and handle pricing plans inquiries.</p>
+                <a href="/solutions#fitness" className="template-link">Explore Solution <i data-lucide="arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 10. TESTIMONIALS SECTION */}
+        <section className="testimonials-section section-padding" id="testimonials" style={{ padding: '100px 0', borderTop: '1px solid rgba(15,23,42,0.06)', borderBottom: '1px solid rgba(15,23,42,0.06)', background: '#f8fafc' }}>
+          <div className="container">
+            <div className="section-header text-center" style={{ marginBottom: '60px' }}>
+              <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                Testimonials
+              </span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#0f172a', marginBottom: '16px' }}>
+                Trusted by Fast-Growing Brands
+              </h2>
+            </div>
+            <div className="template-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+              <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px', background: '#ffffff', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <div style={{ display: 'flex', gap: '4px', color: '#f59e0b', marginBottom: '15px' }}>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
                 </div>
-                <div className="node-content">
-                  <h4>Assign Sales</h4>
-                  <p>Live Agent Handoff</p>
+                <p style={{ fontSize: '14px', color: '#475569', fontStyle: 'italic', marginBottom: '24px', lineHeight: '1.6' }}>
+                  "Deploying the IAMKRATU.AI WhatsApp Agent has cut our support ticket delays to zero. Our lead collection doubled in the first month because of automated follow-ups!"
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>A</div>
+                  <div>
+                    <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#0f172a', margin: 0 }}>Amit Sharma</h4>
+                    <span style={{ fontSize: '12px', color: '#64748b' }}>Founder, Apex Realty</span>
+                  </div>
+                </div>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px', background: '#ffffff', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <div style={{ display: 'flex', gap: '4px', color: '#f59e0b', marginBottom: '15px' }}>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+                <p style={{ fontSize: '14px', color: '#475569', fontStyle: 'italic', marginBottom: '24px', lineHeight: '1.6' }}>
+                  "We use the AI SEO Agent to monitor ranks, optimize blog schedules, and write draft articles. Organic traffic has grown by 40% in just two months. A game-changer."
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#a855f7', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>P</div>
+                  <div>
+                    <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#0f172a', margin: 0 }}>Priya Patel</h4>
+                    <span style={{ fontSize: '12px', color: '#64748b' }}>Marketing Dir, GlowCart</span>
+                  </div>
+                </div>
+              </div>
+              <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px', background: '#ffffff', border: '1px solid rgba(15,23,42,0.06)' }}>
+                <div style={{ display: 'flex', gap: '4px', color: '#f59e0b', marginBottom: '15px' }}>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </div>
+                <p style={{ fontSize: '14px', color: '#475569', fontStyle: 'italic', marginBottom: '24px', lineHeight: '1.6' }}>
+                  "I was skeptical about AI Voice Calls, but IAMKRATU.AI schedules 30+ gym orientations a week. Zero manual calls needed. The integration with our CRM is seamless."
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#06b6d4', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>R</div>
+                  <div>
+                    <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#0f172a', margin: 0 }}>Rahul Mehta</h4>
+                    <span style={{ fontSize: '12px', color: '#64748b' }}>Operations Head, IronFit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 11. FAQ SECTION */}
+        <section className="faq-section section-padding" id="faq" style={{ padding: '100px 0', borderBottom: '1px solid rgba(15,23,42,0.06)' }}>
+          <div className="container">
+            <div className="section-header text-center" style={{ marginBottom: '60px' }}>
+              <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                FAQ
+              </span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#0f172a', marginBottom: '16px' }}>
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="faq-accordion" style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <details className="faq-item-details" style={{ marginBottom: '16px' }}>
+                <summary>What is IAMKRATU.AI? <i className="fa-solid fa-chevron-down"></i></summary>
+                <p>
+                  IAMKRATU.AI is an AI Workforce Platform that enables businesses to deploy trained AI Agents for customer support, sales, WhatsApp automation, voice assistants, and operations — available 24x7.
+                </p>
+              </details>
+              <details className="faq-item-details" style={{ marginBottom: '16px' }}>
+                <summary>Do I need technical knowledge to use the platform? <i className="fa-solid fa-chevron-down"></i></summary>
+                <p>
+                  No technical knowledge is required. Our platform is designed to let you choose, train, customize, and deploy AI Agents through a simple, zero-code interface.
+                </p>
+              </details>
+              <details className="faq-item-details" style={{ marginBottom: '16px' }}>
+                <summary>What integrations do you support? <i className="fa-solid fa-chevron-down"></i></summary>
+                <p>
+                  We support seamless integrations with WhatsApp Business, websites, popular CRM platforms, and major operations/automation software to sync leads and customer data instantly.
+                </p>
+              </details>
+              <details className="faq-item-details" style={{ marginBottom: '16px' }}>
+                <summary>Which languages are supported by the AI Agents? <i className="fa-solid fa-chevron-down"></i></summary>
+                <p>
+                  Our AI Agents feature multi-language support, allowing them to converse naturally in English, Hindi, Kannada, Tamil, Telugu, and other major regional/global languages.
+                </p>
+              </details>
+              <details className="faq-item-details" style={{ marginBottom: '16px' }}>
+                <summary>How do I train my AI Agents? <i className="fa-solid fa-chevron-down"></i></summary>
+                <p>
+                  You can easily train your agents by uploading your existing business data, PDFs, product lists, URLs, or FAQs. The agent ingests this information to resolve inquiries with high accuracy.
+                </p>
+              </details>
+              <details className="faq-item-details" style={{ marginBottom: '16px' }}>
+                <summary>How does the 24x7 AI Employee help my business grow? <i className="fa-solid fa-chevron-down"></i></summary>
+                <p>
+                  By automating lead capture, qualifying prospects, resolving support tickets instantly, and performing follow-ups on auto-pilot, your business remains open 24x7, accelerating conversion rates.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+      </div> {/* END OF LIGHT THEME FOLD */}
+
+      {/* SEAMLESS HERO STICKY SHOWCASE */}
+      <section className="hero-showcase-section">
+        {/* Slide 1: Platform Intelligence */}
+        <div className="showcase-slide">
+          <div className="showcase-glow orb-1"></div>
+          <div className="showcase-glow orb-2"></div>
+          <div className="container showcase-grid">
+            <div className="showcase-text">
+              <span className="badge-accent" style={{ background: 'rgba(0, 102, 255, 0.08)', color: '#0066FF', border: '1px solid rgba(0, 102, 255, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block' }}>
+                Platform Intelligence
+              </span>
+              <h2>Autonomous AI Employees Working 24x7</h2>
+              <p>IAMKRATU.AI deploys context-aware, trained agents that handle leads, conversations, and operations automatically with human-like precision.</p>
+            </div>
+            <div className="showcase-visual">
+              <div className="floating-glass-card card-main">
+                <div className="card-header-glow"></div>
+                <div className="card-content-wrap">
+                  <div className="flex-row">
+                    <span className="live-badge"><span className="pulse-dot"></span> Live Chat</span>
+                    <span className="confidence-label">Confidence: 98.6%</span>
+                  </div>
+                  <div className="chat-bubble received">
+                    Hi! How can I automate my CRM updates?
+                  </div>
+                  <div className="chat-bubble sent">
+                    I can connect your forms directly to HubSpot or Salesforce via webhooks instantly.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide 2: WhatsApp Automation */}
+        <div className="showcase-slide">
+          <div className="showcase-glow orb-3"></div>
+          <div className="showcase-glow orb-4"></div>
+          <div className="container showcase-grid">
+            <div className="showcase-visual">
+              <div className="floating-glass-card whatsapp-sim-card">
+                <div className="card-header-glow"></div>
+                <div className="card-content-wrap">
+                  <div className="whatsapp-header">
+                    <div className="whatsapp-avatar">
+                      <i className="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div className="whatsapp-user-info">
+                      <h4>Kratu AI WhatsApp Agent</h4>
+                      <span>Online • 24x7 Assistant</span>
+                    </div>
+                  </div>
+                  <div className="whatsapp-bubble-sent">
+                    Can I book a demo for tomorrow at 3 PM?
+                  </div>
+                  <div className="whatsapp-bubble-received">
+                    Sure! I have booked a slot for you. Check your email for details.
+                  </div>
+                  <div className="booking-confirm-badge">
+                    <div className="booking-icon">
+                      <i className="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div className="booking-details">
+                      <h5>Demo Booking Confirmed</h5>
+                      <p>Tomorrow at 3:00 PM (Local Time)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="showcase-text">
+              <span className="badge-accent" style={{ background: 'rgba(168, 85, 247, 0.08)', color: '#a855f7', border: '1px solid rgba(168, 85, 247, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block' }}>
+                Multi-Channel Automation
+              </span>
+              <h2>Automate WhatsApp, Telegram &amp; Chatbots</h2>
+              <p>Interact with customers instantly on their favorite messaging channels. Qualify leads, schedule appointments, and dispatch notifications automatically.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide 3: Real-Time Insights */}
+        <div className="showcase-slide">
+          <div className="showcase-glow orb-1"></div>
+          <div className="showcase-glow orb-3"></div>
+          <div className="container showcase-grid">
+            <div className="showcase-text">
+              <span className="badge-accent" style={{ background: 'rgba(236, 72, 153, 0.08)', color: '#ec4899', border: '1px solid rgba(236, 72, 153, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block' }}>
+                Performance Metrics
+              </span>
+              <h2>Real-Time Campaign Performance &amp; Insights</h2>
+              <p>Track and analyze every conversation, lead capture rate, and conversion metrics in real time. Sync details instantly with your CRM.</p>
+            </div>
+            <div className="showcase-visual">
+              <div className="floating-glass-card analytics-dashboard-card">
+                <div className="card-header-glow"></div>
+                <div className="card-content-wrap">
+                  <div className="analytics-header">
+                    <h4>Kratu AI Dashboard</h4>
+                    <p>Real-Time Performance Analytics</p>
+                  </div>
+                  <div className="metrics-row">
+                    <div className="metric-box">
+                      <div className="metric-label">Conversions</div>
+                      <div className="metric-value">
+                        +182% <span className="metric-change">↑</span>
+                      </div>
+                    </div>
+                    <div className="metric-box">
+                      <div className="metric-label">Response Time</div>
+                      <div className="metric-value">0.4s</div>
+                    </div>
+                  </div>
+                  <div className="crm-sync-list">
+                    <div className="crm-item">
+                      <div className="crm-user">
+                        <i className="fa-solid fa-user-check" style={{ color: '#0066FF' }}></i>
+                        <span>John Doe</span>
+                      </div>
+                      <div className="crm-status">CRM Synced</div>
+                    </div>
+                    <div className="crm-item">
+                      <div className="crm-user">
+                        <i className="fa-solid fa-user-check" style={{ color: '#a855f7' }}></i>
+                        <span>Jane Smith</span>
+                      </div>
+                      <div className="crm-status">Qualified</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -688,497 +1073,43 @@ export function HomeContent() {
         </div>
       </section>
 
-      {/* 5. OMNICHANNEL INTEGRATIONS SECTION */}
-      <section className="integrations section-padding" id="integrations">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              Connect Every Communication Channel
-            </h2>
-            <p className="section-desc">
-              Deploy your AI agents wherever your customers are. Seamlessly
-              integrate with your favorite tools.
-            </p>
-          </div>
-
-          <div className="integration-grid">
-            {/* Row 1 */}
-            <div className="integration-card glass-card">
-              <i
-                data-lucide="message-circle"
-                style={{ color: "#25D366", fontSize: "20px" }}
-              ></i>{" "}
-              WhatsApp
-            </div>
-            <div className="integration-card glass-card">
-              <i
-                data-lucide="send"
-                style={{ color: "#0088cc", fontSize: "20px" }}
-              ></i>{" "}
-              Telegram
-            </div>
-            <div className="integration-card glass-card">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#E1306C"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{
-                  display: "inline-block",
-                  verticalAlign: "middle",
-                  marginRight: "6px",
-                }}
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-              Instagram
-            </div>
-            <div className="integration-card glass-card">
-              <i
-                data-lucide="message-circle"
-                style={{ color: "#1877F2", fontSize: "20px" }}
-              ></i>{" "}
-              Messenger
-            </div>
-            <div className="integration-card glass-card">
-              <i data-lucide="mail" style={{ color: "#EA4335" }}></i> Gmail
-            </div>
-            {/* Row 2 */}
-            <div className="integration-card glass-card">
-              <i
-                data-lucide="shopping-cart"
-                style={{ color: "#95BF47", fontSize: "20px" }}
-              ></i>{" "}
-              Shopify
-            </div>
-            <div className="integration-card glass-card">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#E01E5A"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{
-                  display: "inline-block",
-                  verticalAlign: "middle",
-                  marginRight: "6px",
-                }}
-              >
-                <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
-                <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-                <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
-                <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
-                <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
-                <path d="M15.5 19v1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5h1.5z" />
-                <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" />
-                <path d="M8.5 5H7V3.5C7 2.67 7.67 2 8.5 2S10 2.67 10 3.5 9.33 5 8.5 5z" />
-              </svg>
-              Slack
-            </div>
-            <div className="integration-card glass-card">
-              <i data-lucide="code" style={{ color: "#A8B9CC" }}></i> APIs
-            </div>
-            <div className="integration-card glass-card">
-              <i data-lucide="webhook" style={{ color: "#7C3AED" }}></i>{" "}
-              Webhooks
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. CAMPAIGNS & BROADCASTS SECTION */}
-      <section className="campaigns section-padding">
-        <div className="container container-split">
-          <div className="split-content">
-            <h2 className="section-title">Launch Smart AI Campaigns</h2>
-            <ul className="feature-list">
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <strong className="feature-label">WhatsApp Broadcasts:</strong>
-                <span className="feature-desc">
-                  Send mass messages with high open rates.
-                </span>
-              </li>
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <strong className="feature-label">Campaign Scheduling:</strong>
-                <span className="feature-desc">
-                  Plan campaigns ahead of time for optimal delivery.
-                </span>
-              </li>
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <strong className="feature-label">Message Templates:</strong>
-                <span className="feature-desc">
-                  Pre-approved Meta templates for quick launching.
-                </span>
-              </li>
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <strong className="feature-label">Smart Segmentation:</strong>
-                <span className="feature-desc">
-                  Target users based on interaction history.
-                </span>
-              </li>
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <strong className="feature-label">Automated Follow-ups:</strong>
-                <span className="feature-desc">
-                  AI handles responses to campaign replies.
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className="split-visual">
-            <CampaignAnalytics />
-          </div>
-        </div>
-      </section>
-
-      {/* 7. AI + HUMAN SUPPORT SECTION */}
-      <section className="human-support section-padding">
-        <div className="container container-split reverse">
-          <div className="split-content">
-            <h2 className="section-title">AI Automation With Human Support</h2>
-            <p className="section-desc">
-              Don't lose the human touch. Our platform seamlessly routes complex
-              queries to human agents while the AI handles the repetitive tasks.
-            </p>
-            <div className="feature-grid-2">
-              <div className="feat-item">
-                <i data-lucide="bot"></i>
-                <h5>AI First Line</h5>
-                <p>Resolves 80% of queries instantly.</p>
-              </div>
-              <div className="feat-item">
-                <i data-lucide="users"></i>
-                <h5>Live Agent Handoff</h5>
-                <p>Seamless transfer with full context.</p>
-              </div>
-              <div className="feat-item">
-                <i data-lucide="inbox"></i>
-                <h5>Shared Inbox</h5>
-                <p>Collaborate across your team.</p>
-              </div>
-              <div className="feat-item">
-                <i data-lucide="sparkles"></i>
-                <h5>AI Assisted Replies</h5>
-                <p>Draft suggested responses for humans.</p>
-              </div>
-            </div>
-          </div>
-          <div className="split-visual">
-            <LiveSupportSimulation />
-          </div>
-        </div>
-      </section>
-
-      {/* 8. ANALYTICS DASHBOARD SECTION */}
-      <section className="analytics section-padding text-center">
-        <div className="container">
-          <div className="section-header mx-auto">
-            <h2 className="section-title">Track Performance In Real Time</h2>
-            <p className="section-desc">
-              Comprehensive insights into your AI's performance, lead
-              generation, and customer satisfaction.
-            </p>
-          </div>
-
-          <div className="analytics-grid">
-            <div className="glass-card stat-card">
-              <div className="stat-header">
-                <span className="title">Resolution Rate</span>
-                <i data-lucide="trending-up" className="text-green"></i>
-              </div>
-              <div className="stat-value-large">86.4%</div>
-              <div className="stat-sub">+5.2% from last week</div>
-              <div className="mini-chart chart-green"></div>
-            </div>
-            <div className="glass-card stat-card">
-              <div className="stat-header">
-                <span className="title">Messages Processed</span>
-                <i data-lucide="message-square" className="text-blue"></i>
-              </div>
-              <div className="stat-value-large">124k</div>
-              <div className="stat-sub">+12% from last week</div>
-              <div className="mini-chart chart-blue"></div>
-            </div>
-            <div className="glass-card stat-card">
-              <div className="stat-header">
-                <span className="title">Avg Response Time</span>
-                <i data-lucide="clock" className="text-purple"></i>
-              </div>
-              <div className="stat-value-large">1.2s</div>
-              <div className="stat-sub">-0.4s from last week</div>
-              <div className="mini-chart chart-purple"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. TEMPLATE MARKETPLACE SECTION */}
-      <section className="templates section-padding">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              Start Faster With Ready-Made Templates
-            </h2>
-            <p className="section-desc">
-              Deploy industry-specific AI agents in one click.
-            </p>
-          </div>
-
-          <div className="template-grid">
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="home"></i>
-              </div>
-              <h3>Real Estate AI Bot</h3>
-              <p>
-                Qualify leads, schedule property viewings, and answer FAQs about
-                listings.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="heart-pulse"></i>
-              </div>
-              <h3>Clinic Assistant</h3>
-              <p>
-                Manage appointments, send reminders, and handle patient
-                inquiries securely.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="utensils-crossed"></i>
-              </div>
-              <h3>Restaurant Booking Bot</h3>
-              <p>
-                Take reservations, showcase menus, and handle takeout orders on
-                WhatsApp.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="shopping-basket"></i>
-              </div>
-              <h3>E-commerce Sales Bot</h3>
-              <p>
-                Recommend products, track orders, and recover abandoned carts.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="concierge-bell"></i>
-              </div>
-              <h3>Customer Support AI</h3>
-              <p>
-                Handle returns, refunds, and general inquiries with a human
-                handoff option.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="contact-round"></i>
-              </div>
-              <h3>Lead Generation Bot</h3>
-              <p>
-                Engage website visitors, collect contact info, and sync to
-                workflow automation.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="dumbbell"></i>
-              </div>
-              <h3>Gym / Fitness AI Assistant</h3>
-              <p>
-                Manage memberships, class bookings, and fitness inquiries
-                automatically.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="car-front"></i>
-              </div>
-              <h3>Car Rental AI Booking Bot</h3>
-              <p>
-                Handle reservations, availability checks, and customer support
-                on autopilot.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-            <div className="glass-card template-card">
-              <div className="template-icon">
-                <i data-lucide="graduation-cap"></i>
-              </div>
-              <h3>Education / Tutoring AI Assistant</h3>
-              <p>
-                Answer course questions, schedule sessions, and support student
-                enrollment.
-              </p>
-              <a
-                href="#"
-                className="template-link open-modal"
-                data-modal-title="Preview Template"
-              >
-                Preview Template <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA SECTION */}
+      {/* FINAL CTA SECTION (STAYS DARK/COLORED FOR PREMIUM FOOTER TRANSITION) */}
       <section className="final-cta">
         <div className="cta-background">
           <div className="glow-orb orb-1"></div>
           <div className="glow-orb orb-2"></div>
         </div>
         <div className="container text-center relative z-10">
-          <h2 className="hero-title">
-            Start Automating Customer Conversations With AI
+          <h2 className="hero-title" style={{ color: '#ffffff' }}>
+            Ready to Build Your AI Workforce?
           </h2>
-          <p className="hero-subtitle mx-auto" style={{ maxWidth: "600px" }}>
-            Join thousands of businesses saving time and increasing sales with
-            our AI automation platform.
+          <p className="hero-subtitle mx-auto" style={{ maxWidth: "600px", color: '#cbd5e1' }}>
+            Join thousands of businesses saving time and increasing sales with our AI platform.
           </p>
-          <div className="hero-cta justify-center mt-8">
-            <a
-              href="#"
-              className="btn btn-primary btn-large glow-btn open-modal"
-              data-modal-title="Get Started Now"
+          <div className="hero-cta justify-center mt-8" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button
+              className="btn btn-primary open-modal"
+              data-modal-title="Start Free Trial"
             >
-              Get Started Now
-            </a>
-            <a
-              href="#"
-              className="btn btn-ghost btn-large open-modal"
-              data-modal-title="Book a Demo"
+              Start Free Trial
+            </button>
+            <button
+              className="btn btn-outline open-modal"
+              data-modal-title="Book Demo"
             >
               Book Demo
-            </a>
+            </button>
+            <button
+              className="btn btn-ghost open-modal"
+              data-modal-title="Contact Sales"
+              style={{ color: 'white' }}
+            >
+              Contact Sales
+            </button>
           </div>
         </div>
       </section>
 
-      {/* 12. FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <a href="/" className="logo">
-                <div className="logo-icon">
-                  <i data-lucide="bot"></i>
-                </div>
-                <h2>AgenticAI</h2>
-              </a>
-              <p className="footer-desc">
-                Next-generation AI automation platform for modern businesses.
-                Streamline communication, automate workflows, and grow faster.
-              </p>
-              <div className="social-links">
-                <a href="#">
-                  <i data-lucide="twitter"></i>
-                </a>
-                <a href="#">
-                  <i data-lucide="linkedin"></i>
-                </a>
-                <a href="#">
-                  <i data-lucide="github"></i>
-                </a>
-              </div>
-            </div>
-
-            <div className="footer-links">
-              <h4>Platform</h4>
-              <a href="/services">Services</a>
-              <a href="/solutions">Solutions</a>
-              <a href="#features">Features</a>
-              <a href="/pricing">Pricing</a>
-            </div>
-
-            <div className="footer-links">
-              <h4>Company</h4>
-              <a href="/contact">Contact</a>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <p>&copy; 2026 AgenticAI Inc. All rights reserved.</p>
-            <div className="status-indicator">
-              <span className="pulse-dot"></span> All systems operational
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

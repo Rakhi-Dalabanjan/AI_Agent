@@ -1,7 +1,12 @@
-/* Auto-generated from services.html — do not edit by hand unless syncing from legacy HTML */
+import { useEffect } from 'react';
 import { ChromaKeyVideo } from '../../components/ChromaKeyVideo';
+import { refreshLucideIcons } from '../../utils/lucide';
 
 export function ServicesContent() {
+    useEffect(() => {
+        refreshLucideIcons();
+    }, []);
+
     return (
         <>
             {/* BACKGROUND GLOWS */}
@@ -97,302 +102,351 @@ export function ServicesContent() {
                 </div>
             </section>
 
-            {/* MAIN BODY CONTAINER */}
+            {/* MAIN BODY SECTION (LIGHT FOLD) */}
+            <div className="light-theme-fold">
+                <div className="container">
+
+                    {/* SHORTCUT BAR */}
+                    <div className="shortcut-tabs reveal">
+                        <a href="#whatsapp-agent" className="shortcut-tab tab-green" data-section="whatsapp-agent"><i className="fa-brands fa-whatsapp"></i> WhatsApp AI Agent</a>
+                        <a href="#workflow-automation" className="shortcut-tab tab-blue" data-section="workflow-automation"><i className="fa-solid fa-gears"></i> Workflow Automation</a>
+                        <a href="#custom-solutions" className="shortcut-tab tab-red" data-section="custom-solutions"><i className="fa-solid fa-brain"></i> Custom AI Solutions</a>
+                    </div>
+
+                    {/* MAIN SERVICES HORIZONTAL CARDS */}
+                    <div className="services-list">
+
+                        {/* 01: WhatsApp AI Agent */}
+                        <div className="service-h-card border-green reveal reveal-left" id="whatsapp-agent">
+                            <div className="shc-number">01</div>
+                            <div className="shc-content">
+                                <div className="shc-icon-box animate-svg-pulse" style={{ background: 'rgba(34, 197, 94, 0.15)', color: '#22c55e' }}>
+                                    <i className="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <h3>WhatsApp AI Agent</h3>
+                                <p>Automate WhatsApp conversations capture leads instantly, provide 24/7 support, and manage customer engagement using intelligent AI-powered automation.</p>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '10px 0' }}>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Auto Replies</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Lead Qualification</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Appointment Booking</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Workflow Sync</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Payment Reminders</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Multilingual Support</span>
+                                </div>
+                                <a href="#" className="shc-btn shc-btn-green open-modal" data-modal-title="Book a Demo">Explore WhatsApp AI <i className="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div className="shc-visual">
+                                <div style={{ width: '340px', height: '260px', background: '#075e54', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column' }}>
+                                    <div style={{ padding: '12px 16px', color: 'white', display: 'flex', alignItems: 'center', gap: '12px', background: '#128c7e' }}>
+                                        <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: '#fff', color: '#128c7e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}><i className="fa-solid fa-robot"></i></div>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                                            <span style={{ fontSize: '14px', fontWeight: '600', lineHeight: '1.2' }}>Kratu Chat</span>
+                                            <span style={{ fontSize: '11px', color: '#a7f3d0', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                <span className="online-dot" style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80' }}></span> Online
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div style={{ flex: '1', background: '#efe7dd', padding: '18px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                        <div className="chat-bubble-1" style={{ alignSelf: 'flex-start', background: 'white', color: '#333', padding: '10px 14px', borderRadius: '8px 8px 8px 0', fontSize: '13px', maxWidth: '80%' }}>Hi, I'm interested in your services.</div>
+                                        <div className="chat-typing" style={{ alignSelf: 'flex-end', background: '#dcf8c6', padding: '10px 14px', borderRadius: '8px 8px 0 8px', display: 'flex', gap: '4px', alignItems: 'center', width: 'fit-content' }}>
+                                            <span className="dot" style={{ width: '5px', height: '5px', background: '#555', borderRadius: '50%' }}></span>
+                                            <span className="dot" style={{ width: '5px', height: '5px', background: '#555', borderRadius: '50%' }}></span>
+                                            <span className="dot" style={{ width: '5px', height: '5px', background: '#555', borderRadius: '50%' }}></span>
+                                        </div>
+                                        <div className="chat-bubble-2" style={{ alignSelf: 'flex-end', background: '#dcf8c6', color: '#333', padding: '10px 14px', borderRadius: '8px 8px 0 8px', fontSize: '13px', maxWidth: '80%' }}>Hello! 😊 How can I help you today?</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="shc-benefits">
+                                <h4>Key Benefits</h4>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Faster customer responses</div>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Improved lead conversion</div>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Reduced support workload</div>
+                            </div>
+                        </div>
+
+
+                        {/* 02: Workflow Automation */}
+                        <div className="service-h-card border-blue reveal" id="workflow-automation">
+                            <div className="shc-number">02</div>
+                            <div className="shc-content">
+                                <div className="shc-icon-box animate-svg-pulse" style={{ background: 'rgba(59, 130, 246, 0.15)', color: '#3b82f6' }}>
+                                    <i className="fa-solid fa-sitemap"></i>
+                                </div>
+                                <h3>Workflow Automation</h3>
+                                <p>Automate repetitive business operations and improve workflow management using intelligent AI-powered systems.</p>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '10px 0' }}>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Lead Management</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Task Automation</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Notifications</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Data Synchronization</span>
+                                </div>
+                                <a href="#" className="shc-btn shc-btn-blue open-modal" data-modal-title="Book a Demo">Explore Automation <i className="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div className="shc-visual">
+                                {/* Flow Node Diagram */}
+                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', padding: '24px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', width: '320px', height: '180px' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center' }}>
+                                        <div className="wf-node wf-node-1" style={{ fontSize: '13px', padding: '10px 16px', background: 'rgba(59, 130, 246, 0.2)', color: '#60a5fa', borderRadius: '6px', border: '1px solid rgba(59, 130, 246, 0.3)' }}>New Lead</div>
+                                        <div className="wf-arrow wf-arrow-1" style={{ color: '#3b82f6', fontSize: '16px' }}><i className="fa-solid fa-arrow-right"></i></div>
+                                        <div className="wf-node wf-node-2" style={{ fontSize: '13px', padding: '10px 16px', background: 'rgba(168, 85, 247, 0.2)', color: '#c084fc', borderRadius: '6px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>Qualify</div>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingLeft: '50px', justifyContent: 'flex-start' }}>
+                                        <div className="wf-arrow wf-arrow-2" style={{ color: '#cbd5e1', fontSize: '16px' }}><i className="fa-solid fa-arrow-turn-down"></i></div>
+                                        <div className="wf-node wf-node-3" style={{ fontSize: '13px', padding: '10px 16px', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', borderRadius: '6px', border: '1px solid rgba(34, 197, 94, 0.3)' }}>Workflow Sync</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="shc-benefits">
+                                <h4>Key Benefits</h4>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Improved workflow efficiency</div>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Reduced operational errors</div>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Faster internal processes</div>
+                            </div>
+                        </div>
+
+                        {/* 03: Custom AI Solutions */}
+                        <div className="service-h-card border-orange reveal reveal-right" id="custom-solutions">
+                            <div className="shc-number">03</div>
+                            <div className="shc-content">
+                                <div className="shc-icon-box animate-svg-pulse" style={{ background: 'rgba(249, 115, 22, 0.15)', color: '#f97316' }}>
+                                    <i className="fa-solid fa-brain"></i>
+                                </div>
+                                <h3>Custom AI Solutions</h3>
+                                <p>Tailored AI systems designed specifically for your business operations, workflows, and automation goals.</p>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '10px 0' }}>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ AI Dashboards</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ AI Chatbots</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ Automation Portals</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ API Integrations</span>
+                                    <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ Enterprise AI Systems</span>
+                                </div>
+                                <a href="#" className="shc-btn shc-btn-orange open-modal" data-modal-title="Book a Demo">Explore Custom AI <i className="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div className="shc-visual">
+                                {/* Glowing Neural Network Mock */}
+                                <div style={{ position: 'relative', width: '240px', height: '240px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <div style={{ position: 'absolute', width: '100%', height: '100%', borderRadius: '50%', border: '1px dashed rgba(249, 115, 22, 0.4)', animation: 'spin 10s linear infinite' }}></div>
+
+                                    {/* Connecting Neural Pulse Lines */}
+                                    <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: '1' }}>
+                                        {/* Base connection lines */}
+                                        <line x1="120" y1="120" x2="48" y2="38" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
+                                        <line x1="120" y1="120" x2="204" y2="194" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
+                                        <line x1="120" y1="120" x2="32" y2="183" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
+
+                                        {/* Animated Pulse overlays */}
+                                        <line className="neural-pulse neural-pulse-1" x1="120" y1="120" x2="48" y2="38" stroke="url(#neural-glow-grad)" strokeWidth="1.5" />
+                                        <line className="neural-pulse neural-pulse-2" x1="120" y1="120" x2="204" y2="194" stroke="url(#neural-glow-grad)" strokeWidth="1.5" />
+                                        <line className="neural-pulse neural-pulse-3" x1="120" y1="120" x2="32" y2="183" stroke="url(#neural-glow-grad)" strokeWidth="1.5" />
+
+                                        <defs>
+                                            <linearGradient id="neural-glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stopColor="#f97316" stopOpacity="0.1" />
+                                                <stop offset="50%" stopColor="#ef4444" stopOpacity="1" />
+                                                <stop offset="100%" stopColor="#f97316" stopOpacity="0.1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+
+                                    <div className="custom-ai-core" style={{ width: '80px', height: '80px', background: 'linear-gradient(135deg, #f97316, #ef4444)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '24px', fontWeight: '800', boxShadow: '0 0 25px rgba(249, 115, 22, 0.5)', zIndex: '2' }}>
+                                        AI
+                                    </div>
+
+                                    {/* Floating neural network nodes with entrance wrappers */}
+                                    <div className="custom-ai-node-wrap custom-ai-node-wrap-1" style={{ position: 'absolute', top: '30px', left: '40px' }}>
+                                        <div className="custom-ai-node custom-ai-node-1" style={{ width: '16px', height: '16px', background: '#f97316', borderRadius: '50%', boxShadow: '0 0 10px #f97316' }}></div>
+                                    </div>
+                                    <div className="custom-ai-node-wrap custom-ai-node-wrap-2" style={{ position: 'absolute', bottom: '40px', right: '30px' }}>
+                                        <div className="custom-ai-node custom-ai-node-2" style={{ width: '12px', height: '12px', background: '#ef4444', borderRadius: '50%', boxShadow: '0 0 8px #ef4444' }}></div>
+                                    </div>
+                                    <div className="custom-ai-node-wrap custom-ai-node-wrap-3" style={{ position: 'absolute', bottom: '50px', left: '25px' }}>
+                                        <div className="custom-ai-node custom-ai-node-3" style={{ width: '14px', height: '14px', background: '#f97316', borderRadius: '50%', boxShadow: '0 0 10px #f97316' }}></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="shc-benefits">
+                                <h4>Key Benefits</h4>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Fully customized systems</div>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Scalable infrastructure</div>
+                                <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Competitive advantage</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {/* WHY CHOOSE US SECTION */}
+                    <section className="why-choose-us section-padding reveal-up" id="why-choose-us" style={{ padding: '100px 0', borderBottom: '1px solid rgba(15,23,42,0.06)' }}>
+                        <div className="section-header text-center" style={{ marginBottom: '60px' }}>
+                            <span className="badge-accent" style={{ background: 'rgba(99, 102, 241, 0.08)', color: '#6366f1', border: '1px solid rgba(99, 102, 241, 0.15)', padding: '6px 12px', borderRadius: '20px', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', display: 'inline-block', marginBottom: '16px' }}>
+                                Why Choose Us
+                            </span>
+                            <h2 className="section-title" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 800, color: '#0f172a', marginBottom: '16px' }}>
+                                Why Businesses Choose IAMKRATU.AI
+                            </h2>
+                        </div>
+                        <div className="template-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+                            <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px' }}>
+                                <div className="template-icon" style={{ background: 'rgba(34, 197, 94, 0.12)', color: '#22c55e' }}><i data-lucide="clock"></i></div>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', marginTop: '15px', marginBottom: '10px', color: '#0f172a' }}>24x7 AI Employees</h3>
+                                <p style={{ fontSize: '14px', color: '#475569' }}>Your AI agents work around the clock without breaks for business growth.</p>
+                            </div>
+                            <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px' }}>
+                                <div className="template-icon" style={{ background: 'rgba(59, 130, 246, 0.12)', color: '#3b82f6' }}><i data-lucide="shield-alert"></i></div>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', marginTop: '15px', marginBottom: '10px', color: '#0f172a' }}>No Technical Knowledge Required</h3>
+                                <p style={{ fontSize: '14px', color: '#475569' }}>Build and customize your AI workforce easily without writing code.</p>
+                            </div>
+                            <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px' }}>
+                                <div className="template-icon" style={{ background: 'rgba(168, 85, 247, 0.12)', color: '#a855f7' }}><i data-lucide="languages"></i></div>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', marginTop: '15px', marginBottom: '10px', color: '#0f172a' }}>Multi-Language Support</h3>
+                                <p style={{ fontSize: '14px', color: '#475569' }}>Support for English, Hindi, Kannada, Tamil, Telugu, and more.</p>
+                            </div>
+                            <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px' }}>
+                                <div className="template-icon" style={{ background: 'rgba(236, 72, 153, 0.12)', color: '#ec4899' }}><i data-lucide="git-pull-request"></i></div>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', marginTop: '15px', marginBottom: '10px', color: '#0f172a' }}>CRM, Website & WhatsApp Integrations</h3>
+                                <p style={{ fontSize: '14px', color: '#475569' }}>Connect seamlessly with WhatsApp, websites, CRMs, and standard business tools.</p>
+                            </div>
+                            <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px' }}>
+                                <div className="template-icon" style={{ background: 'rgba(6, 182, 212, 0.12)', color: '#06b6d4' }}><i data-lucide="trending-up"></i></div>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', marginTop: '15px', marginBottom: '10px', color: '#0f172a' }}>Automate Lead Generation</h3>
+                                <p style={{ fontSize: '14px', color: '#475569' }}>Automatically capture, qualify, and nurture leads to improve customer engagement.</p>
+                            </div>
+                            <div className="glass-card template-card" data-scroll="fade-scale" style={{ textAlign: 'left', padding: '30px' }}>
+                                <div className="template-icon" style={{ background: 'rgba(249, 115, 22, 0.12)', color: '#f97316' }}><i data-lucide="zap"></i></div>
+                                <h3 style={{ fontSize: '18px', fontWeight: '700', marginTop: '15px', marginBottom: '10px', color: '#0f172a' }}>Scalable AI Automation</h3>
+                                <p style={{ fontSize: '14px', color: '#475569' }}>Start with a single AI agent and scale into a complete departmental AI workforce.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* HOW OUR SERVICES WORK */}
+                    <div className="section-title-centered reveal">
+                        <h2>How Our Services Work</h2>
+                        <p>We follow a structured process to design, build, and integrate top-tier AI solutions for your business.</p>
+                    </div>
+
+                    <div className="process-timeline reveal">
+                        <div className="process-step reveal reveal-delay-1">
+                            <div className="process-icon"><i className="fa-solid fa-comments-dollar" style={{ color: '#3b82f6' }}></i></div>
+                            <h3>Consultation</h3>
+                            <p>We analyze your business processes and identify high-value AI automation opportunities.</p>
+                        </div>
+                        <div className="process-step reveal reveal-delay-2">
+                            <div className="process-icon"><i className="fa-solid fa-code" style={{ color: '#a855f7' }}></i></div>
+                            <h3>AI Development</h3>
+                            <p>Our engineers train tailored Large Language Models and build conversational paths.</p>
+                        </div>
+                        <div className="process-step reveal reveal-delay-3">
+                            <div className="process-icon"><i className="fa-solid fa-plug" style={{ color: '#22c55e' }}></i></div>
+                            <h3>Integration</h3>
+                            <p>We seamlessly link the AI agent to your workflows, WhatsApp APIs, and existing apps.</p>
+                        </div>
+                        <div className="process-step reveal reveal-delay-4">
+                            <div className="process-icon"><i className="fa-solid fa-rocket" style={{ color: '#f59e0b' }}></i></div>
+                            <h3>Launch & Optimize</h3>
+                            <p>Deploy live, continuously monitor, and optimize conversion metrics dynamically.</p>
+                        </div>
+                    </div>
+
+
+                    {/* INDUSTRIES WE SERVE */}
+                    <div className="section-title-centered reveal" id="industries">
+                        <h2>Industries We Serve</h2>
+                        <p>Our AI solutions are flexible and drive massive growth across a diverse set of market industries.</p>
+                    </div>
+
+                    <div className="industries-slider">
+                        <div className="industries-track">
+                            {/* Set 1: Original Cards */}
+                            <div className="industry-card"><i className="fa-solid fa-house-chimney"></i><h3>Real Estate</h3><p>Qualify property inquiries, schedule viewings, and send automated listings.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-heart-pulse"></i><h3>Healthcare</h3><p>Automated patient scheduling, FAQs, and medication reminder agents.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-cart-shopping"></i><h3>E-Commerce</h3><p>Resolve tracking issues, recommend products, and recover abandoned carts.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-graduation-cap"></i><h3>Education</h3><p>Engage student inquiries, process admissions, and deliver course assistance.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-utensils"></i><h3>Restaurants</h3><p>Handle digital orders, table reservations, and customer support FAQs.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-briefcase"></i><h3>Agencies</h3><p>Scale lead generation, client onboarding, and 24/7 tier-1 support.</p></div>
+
+                            {/* Set 2: Duplicated Cards for Infinite Loop */}
+                            <div className="industry-card"><i className="fa-solid fa-house-chimney"></i><h3>Real Estate</h3><p>Qualify property inquiries, schedule viewings, and send automated listings.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-heart-pulse"></i><h3>Healthcare</h3><p>Automated patient scheduling, FAQs, and medication reminder agents.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-cart-shopping"></i><h3>E-Commerce</h3><p>Resolve tracking issues, recommend products, and recover abandoned carts.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-graduation-cap"></i><h3>Education</h3><p>Engage student inquiries, process admissions, and deliver course assistance.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-utensils"></i><h3>Restaurants</h3><p>Handle digital orders, table reservations, and customer support FAQs.</p></div>
+                            <div className="industry-card"><i className="fa-solid fa-briefcase"></i><h3>Agencies</h3><p>Scale lead generation, client onboarding, and 24/7 tier-1 support.</p></div>
+                        </div>
+                    </div>
+
+                    {/* SUCCESS STORIES */}
+                    <div className="section-title-centered reveal">
+                        <h2>Success Stories</h2>
+                        <p>Real businesses achieving groundbreaking results with our specialized AI agency tools.</p>
+                    </div>
+
+                    <div className="results-grid">
+                        <div className="result-card reveal reveal-delay-1">
+                            <div className="result-img-wrap">
+                                <img src="/images/real_estate.png" alt="Real Estate Case Study" />
+                            </div>
+                            <div className="result-info">
+                                <h3>Real Estate Lead Qualifier</h3>
+                                <p>Reduced response times from 4 hours to 10 seconds while increasing qualified leads by 70% using custom WhatsApp AI.</p>
+                                <div className="metrics-row">
+                                    <div className="metric-item">
+                                        <span className="metric-val">70%</span>
+                                        <span className="metric-lbl">Lead Boost</span>
+                                    </div>
+                                    <div className="metric-item">
+                                        <span className="metric-val">80%</span>
+                                        <span className="metric-lbl">Speed Rise</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="result-card reveal reveal-delay-2">
+                            <div className="result-img-wrap">
+                                <img src="/images/whatsapp_study.png" alt="E-commerce Case Study" />
+                            </div>
+                            <div className="result-info">
+                                <h3>WhatsApp Customer Support</h3>
+                                <p>Automated 85% of inbound customer service inquiries for a major online store, lowering operating costs drastically.</p>
+                                <div className="metrics-row">
+                                    <div className="metric-item">
+                                        <span className="metric-val">85%</span>
+                                        <span className="metric-lbl">Auto Resolve</span>
+                                    </div>
+                                    <div className="metric-item">
+                                        <span className="metric-val">45%</span>
+                                        <span className="metric-lbl">Cost Cut</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="result-card reveal reveal-delay-3">
+                            <div className="result-img-wrap">
+                                <img src="/images/workflow_study.png" alt="Workflow Automation Case Study" />
+                            </div>
+                            <div className="result-info">
+                                <h3>Enterprise Workflow Syncer</h3>
+                                <p>Synced client records across multiple SaaS apps, saving the team 40+ hours of repetitive manual admin tasks weekly.</p>
+                                <div className="metrics-row">
+                                    <div className="metric-item">
+                                        <span className="metric-val">40h</span>
+                                        <span className="metric-lbl">Weekly Saved</span>
+                                    </div>
+                                    <div className="metric-item">
+                                        <span className="metric-val">2X</span>
+                                        <span className="metric-lbl">Prod. Lift</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <div className="container">
-
-                {/* SHORTCUT BAR */}
-                <div className="shortcut-tabs reveal">
-                    <a href="#whatsapp-agent" className="shortcut-tab tab-green" data-section="whatsapp-agent"><i className="fa-brands fa-whatsapp"></i> WhatsApp AI Agent</a>
-                    <a href="#workflow-automation" className="shortcut-tab tab-blue" data-section="workflow-automation"><i className="fa-solid fa-gears"></i> Workflow Automation</a>
-                    <a href="#custom-solutions" className="shortcut-tab tab-red" data-section="custom-solutions"><i className="fa-solid fa-brain"></i> Custom AI Solutions</a>
-                </div>
-
-                {/* MAIN SERVICES HORIZONTAL CARDS */}
-                <div className="services-list">
-
-                    {/* 01: WhatsApp AI Agent */}
-                    <div className="service-h-card border-green reveal reveal-left" id="whatsapp-agent">
-                        <div className="shc-number">01</div>
-                        <div className="shc-content">
-                            <div className="shc-icon-box animate-svg-pulse" style={{ background: 'rgba(34, 197, 94, 0.15)', color: '#22c55e' }}>
-                                <i className="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <h3>WhatsApp AI Agent</h3>
-                            <p>Automate WhatsApp conversations capture leads instantly, provide 24/7 support, and manage customer engagement using intelligent AI-powered automation.</p>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '10px 0' }}>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Auto Replies</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Lead Qualification</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Appointment Booking</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Workflow Sync</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Payment Reminders</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e', borderRadius: '20px', border: '1px solid rgba(34,197,94,0.3)' }}>✔ Multilingual Support</span>
-                            </div>
-                            <a href="#" className="shc-btn shc-btn-green open-modal" data-modal-title="Book a Demo">Explore WhatsApp AI <i className="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                        <div className="shc-visual">
-                            <div style={{ width: '340px', height: '260px', background: '#075e54', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column' }}>
-                                <div style={{ padding: '12px 16px', color: 'white', display: 'flex', alignItems: 'center', gap: '12px', background: '#128c7e' }}>
-                                    <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: '#fff', color: '#128c7e', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px' }}><i className="fa-solid fa-robot"></i></div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-                                        <span style={{ fontSize: '14px', fontWeight: '600', lineHeight: '1.2' }}>Kratu Chat</span>
-                                        <span style={{ fontSize: '11px', color: '#a7f3d0', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                            <span className="online-dot" style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80' }}></span> Online
-                                        </span>
-                                    </div>
-                                </div>
-                                <div style={{ flex: '1', background: '#efe7dd', padding: '18px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                    <div className="chat-bubble-1" style={{ alignSelf: 'flex-start', background: 'white', color: '#333', padding: '10px 14px', borderRadius: '8px 8px 8px 0', fontSize: '13px', maxWidth: '80%' }}>Hi, I'm interested in your services.</div>
-                                    <div className="chat-typing" style={{ alignSelf: 'flex-end', background: '#dcf8c6', padding: '10px 14px', borderRadius: '8px 8px 0 8px', display: 'flex', gap: '4px', alignItems: 'center', width: 'fit-content' }}>
-                                        <span className="dot" style={{ width: '5px', height: '5px', background: '#555', borderRadius: '50%' }}></span>
-                                        <span className="dot" style={{ width: '5px', height: '5px', background: '#555', borderRadius: '50%' }}></span>
-                                        <span className="dot" style={{ width: '5px', height: '5px', background: '#555', borderRadius: '50%' }}></span>
-                                    </div>
-                                    <div className="chat-bubble-2" style={{ alignSelf: 'flex-end', background: '#dcf8c6', color: '#333', padding: '10px 14px', borderRadius: '8px 8px 0 8px', fontSize: '13px', maxWidth: '80%' }}>Hello! 😊 How can I help you today?</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shc-benefits">
-                            <h4>Key Benefits</h4>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Faster customer responses</div>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Improved lead conversion</div>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Reduced support workload</div>
-                        </div>
-                    </div>
-
-
-                    {/* 02: Workflow Automation */}
-                    <div className="service-h-card border-blue reveal" id="workflow-automation">
-                        <div className="shc-number">02</div>
-                        <div className="shc-content">
-                            <div className="shc-icon-box animate-svg-pulse" style={{ background: 'rgba(59, 130, 246, 0.15)', color: '#3b82f6' }}>
-                                <i className="fa-solid fa-sitemap"></i>
-                            </div>
-                            <h3>Workflow Automation</h3>
-                            <p>Automate repetitive business operations and improve workflow management using intelligent AI-powered systems.</p>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '10px 0' }}>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Lead Management</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Task Automation</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Notifications</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(59,130,246,0.1)', color: '#60a5fa', borderRadius: '20px', border: '1px solid rgba(59,130,246,0.3)' }}>✔ Data Synchronization</span>
-                            </div>
-                            <a href="#" className="shc-btn shc-btn-blue open-modal" data-modal-title="Book a Demo">Explore Automation <i className="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                        <div className="shc-visual">
-                            {/* Flow Node Diagram */}
-                            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '20px', padding: '24px', background: 'rgba(0,0,0,0.2)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', width: '320px', height: '180px' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center' }}>
-                                    <div className="wf-node wf-node-1" style={{ fontSize: '13px', padding: '10px 16px', background: 'rgba(59, 130, 246, 0.2)', color: '#60a5fa', borderRadius: '6px', border: '1px solid rgba(59, 130, 246, 0.3)' }}>New Lead</div>
-                                    <div className="wf-arrow wf-arrow-1" style={{ color: '#3b82f6', fontSize: '16px' }}><i className="fa-solid fa-arrow-right"></i></div>
-                                    <div className="wf-node wf-node-2" style={{ fontSize: '13px', padding: '10px 16px', background: 'rgba(168, 85, 247, 0.2)', color: '#c084fc', borderRadius: '6px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>Qualify</div>
-                                </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px', paddingLeft: '50px', justifyContent: 'flex-start' }}>
-                                    <div className="wf-arrow wf-arrow-2" style={{ color: '#cbd5e1', fontSize: '16px' }}><i className="fa-solid fa-arrow-turn-down"></i></div>
-                                    <div className="wf-node wf-node-3" style={{ fontSize: '13px', padding: '10px 16px', background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', borderRadius: '6px', border: '1px solid rgba(34, 197, 94, 0.3)' }}>Workflow Sync</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shc-benefits">
-                            <h4>Key Benefits</h4>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Improved workflow efficiency</div>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Reduced operational errors</div>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Faster internal processes</div>
-                        </div>
-                    </div>
-
-                    {/* 03: Custom AI Solutions */}
-                    <div className="service-h-card border-orange reveal reveal-right" id="custom-solutions">
-                        <div className="shc-number">03</div>
-                        <div className="shc-content">
-                            <div className="shc-icon-box animate-svg-pulse" style={{ background: 'rgba(249, 115, 22, 0.15)', color: '#f97316' }}>
-                                <i className="fa-solid fa-brain"></i>
-                            </div>
-                            <h3>Custom AI Solutions</h3>
-                            <p>Tailored AI systems designed specifically for your business operations, workflows, and automation goals.</p>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '10px 0' }}>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ AI Dashboards</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ AI Chatbots</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ Automation Portals</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ API Integrations</span>
-                                <span style={{ fontSize: '11px', padding: '4px 10px', background: 'rgba(249,115,22,0.1)', color: '#fb923c', borderRadius: '20px', border: '1px solid rgba(249,115,22,0.3)' }}>✔ Enterprise AI Systems</span>
-                            </div>
-                            <a href="#" className="shc-btn shc-btn-orange open-modal" data-modal-title="Book a Demo">Explore Custom AI <i className="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                        <div className="shc-visual">
-                            {/* Glowing Neural Network Mock */}
-                            <div style={{ position: 'relative', width: '240px', height: '240px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <div style={{ position: 'absolute', width: '100%', height: '100%', borderRadius: '50%', border: '1px dashed rgba(249, 115, 22, 0.4)', animation: 'spin 10s linear infinite' }}></div>
-
-                                {/* Connecting Neural Pulse Lines */}
-                                <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: '1' }}>
-                                    {/* Base connection lines */}
-                                    <line x1="120" y1="120" x2="48" y2="38" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
-                                    <line x1="120" y1="120" x2="204" y2="194" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
-                                    <line x1="120" y1="120" x2="32" y2="183" stroke="rgba(249, 115, 22, 0.15)" strokeWidth="1" strokeDasharray="3 3" />
-
-                                    {/* Animated Pulse overlays */}
-                                    <line className="neural-pulse neural-pulse-1" x1="120" y1="120" x2="48" y2="38" stroke="url(#neural-glow-grad)" strokeWidth="1.5" />
-                                    <line className="neural-pulse neural-pulse-2" x1="120" y1="120" x2="204" y2="194" stroke="url(#neural-glow-grad)" strokeWidth="1.5" />
-                                    <line className="neural-pulse neural-pulse-3" x1="120" y1="120" x2="32" y2="183" stroke="url(#neural-glow-grad)" strokeWidth="1.5" />
-
-                                    <defs>
-                                        <linearGradient id="neural-glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#f97316" stopOpacity="0.1" />
-                                            <stop offset="50%" stopColor="#ef4444" stopOpacity="1" />
-                                            <stop offset="100%" stopColor="#f97316" stopOpacity="0.1" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-
-                                <div className="custom-ai-core" style={{ width: '80px', height: '80px', background: 'linear-gradient(135deg, #f97316, #ef4444)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '24px', fontWeight: '800', boxShadow: '0 0 25px rgba(249, 115, 22, 0.5)', zIndex: '2' }}>
-                                    AI
-                                </div>
-
-                                {/* Floating neural network nodes with entrance wrappers */}
-                                <div className="custom-ai-node-wrap custom-ai-node-wrap-1" style={{ position: 'absolute', top: '30px', left: '40px' }}>
-                                    <div className="custom-ai-node custom-ai-node-1" style={{ width: '16px', height: '16px', background: '#f97316', borderRadius: '50%', boxShadow: '0 0 10px #f97316' }}></div>
-                                </div>
-                                <div className="custom-ai-node-wrap custom-ai-node-wrap-2" style={{ position: 'absolute', bottom: '40px', right: '30px' }}>
-                                    <div className="custom-ai-node custom-ai-node-2" style={{ width: '12px', height: '12px', background: '#ef4444', borderRadius: '50%', boxShadow: '0 0 8px #ef4444' }}></div>
-                                </div>
-                                <div className="custom-ai-node-wrap custom-ai-node-wrap-3" style={{ position: 'absolute', bottom: '50px', left: '25px' }}>
-                                    <div className="custom-ai-node custom-ai-node-3" style={{ width: '14px', height: '14px', background: '#f97316', borderRadius: '50%', boxShadow: '0 0 10px #f97316' }}></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shc-benefits">
-                            <h4>Key Benefits</h4>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Fully customized systems</div>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Scalable infrastructure</div>
-                            <div className="shc-benefit-item"><i className="fa-solid fa-circle-check"></i> Competitive advantage</div>
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* HOW OUR SERVICES WORK */}
-                <div className="section-title-centered reveal">
-                    <h2>How Our Services Work</h2>
-                    <p>We follow a structured process to design, build, and integrate top-tier AI solutions for your business.</p>
-                </div>
-
-                <div className="process-timeline reveal">
-                    <div className="process-step reveal reveal-delay-1">
-                        <div className="process-icon"><i className="fa-solid fa-comments-dollar" style={{ color: '#3b82f6' }}></i></div>
-                        <h3>Consultation</h3>
-                        <p>We analyze your business processes and identify high-value AI automation opportunities.</p>
-                    </div>
-                    <div className="process-step reveal reveal-delay-2">
-                        <div className="process-icon"><i className="fa-solid fa-code" style={{ color: '#a855f7' }}></i></div>
-                        <h3>AI Development</h3>
-                        <p>Our engineers train tailored Large Language Models and build conversational paths.</p>
-                    </div>
-                    <div className="process-step reveal reveal-delay-3">
-                        <div className="process-icon"><i className="fa-solid fa-plug" style={{ color: '#22c55e' }}></i></div>
-                        <h3>Integration</h3>
-                        <p>We seamlessly link the AI agent to your workflows, WhatsApp APIs, and existing apps.</p>
-                    </div>
-                    <div className="process-step reveal reveal-delay-4">
-                        <div className="process-icon"><i className="fa-solid fa-rocket" style={{ color: '#f59e0b' }}></i></div>
-                        <h3>Launch & Optimize</h3>
-                        <p>Deploy live, continuously monitor, and optimize conversion metrics dynamically.</p>
-                    </div>
-                </div>
-
-
-                {/* INDUSTRIES WE SERVE */}
-                <div className="section-title-centered reveal" id="industries">
-                    <h2>Industries We Serve</h2>
-                    <p>Our AI solutions are flexible and drive massive growth across a diverse set of market industries.</p>
-                </div>
-
-                <div className="industries-slider">
-                    <div className="industries-track">
-                        {/* Set 1: Original Cards */}
-                        <div className="industry-card"><i className="fa-solid fa-house-chimney"></i><h3>Real Estate</h3><p>Qualify property inquiries, schedule viewings, and send automated listings.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-heart-pulse"></i><h3>Healthcare</h3><p>Automated patient scheduling, FAQs, and medication reminder agents.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-cart-shopping"></i><h3>E-Commerce</h3><p>Resolve tracking issues, recommend products, and recover abandoned carts.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-graduation-cap"></i><h3>Education</h3><p>Engage student inquiries, process admissions, and deliver course assistance.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-utensils"></i><h3>Restaurants</h3><p>Handle digital orders, table reservations, and customer support FAQs.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-briefcase"></i><h3>Agencies</h3><p>Scale lead generation, client onboarding, and 24/7 tier-1 support.</p></div>
-
-                        {/* Set 2: Duplicated Cards for Infinite Loop */}
-                        <div className="industry-card"><i className="fa-solid fa-house-chimney"></i><h3>Real Estate</h3><p>Qualify property inquiries, schedule viewings, and send automated listings.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-heart-pulse"></i><h3>Healthcare</h3><p>Automated patient scheduling, FAQs, and medication reminder agents.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-cart-shopping"></i><h3>E-Commerce</h3><p>Resolve tracking issues, recommend products, and recover abandoned carts.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-graduation-cap"></i><h3>Education</h3><p>Engage student inquiries, process admissions, and deliver course assistance.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-utensils"></i><h3>Restaurants</h3><p>Handle digital orders, table reservations, and customer support FAQs.</p></div>
-                        <div className="industry-card"><i className="fa-solid fa-briefcase"></i><h3>Agencies</h3><p>Scale lead generation, client onboarding, and 24/7 tier-1 support.</p></div>
-                    </div>
-                </div>
-
-                {/* SUCCESS STORIES */}
-                <div className="section-title-centered reveal">
-                    <h2>Success Stories</h2>
-                    <p>Real businesses achieving groundbreaking results with our specialized AI agency tools.</p>
-                </div>
-
-                <div className="results-grid">
-                    <div className="result-card reveal reveal-delay-1">
-                        <div className="result-img-wrap">
-                            <img src="/images/real_estate.png" alt="Real Estate Case Study" />
-                        </div>
-                        <div className="result-info">
-                            <h3>Real Estate Lead Qualifier</h3>
-                            <p>Reduced response times from 4 hours to 10 seconds while increasing qualified leads by 70% using custom WhatsApp AI.</p>
-                            <div className="metrics-row">
-                                <div className="metric-item">
-                                    <span className="metric-val">70%</span>
-                                    <span className="metric-lbl">Lead Boost</span>
-                                </div>
-                                <div className="metric-item">
-                                    <span className="metric-val">80%</span>
-                                    <span className="metric-lbl">Speed Rise</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="result-card reveal reveal-delay-2">
-                        <div className="result-img-wrap">
-                            <img src="/images/whatsapp_study.png" alt="E-commerce Case Study" />
-                        </div>
-                        <div className="result-info">
-                            <h3>WhatsApp Customer Support</h3>
-                            <p>Automated 85% of inbound customer service inquiries for a major online store, lowering operating costs drastically.</p>
-                            <div className="metrics-row">
-                                <div className="metric-item">
-                                    <span className="metric-val">85%</span>
-                                    <span className="metric-lbl">Auto Resolve</span>
-                                </div>
-                                <div className="metric-item">
-                                    <span className="metric-val">45%</span>
-                                    <span className="metric-lbl">Cost Cut</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="result-card reveal reveal-delay-3">
-                        <div className="result-img-wrap">
-                            <img src="/images/workflow_study.png" alt="Workflow Automation Case Study" />
-                        </div>
-                        <div className="result-info">
-                            <h3>Enterprise Workflow Syncer</h3>
-                            <p>Synced client records across multiple SaaS apps, saving the team 40+ hours of repetitive manual admin tasks weekly.</p>
-                            <div className="metrics-row">
-                                <div className="metric-item">
-                                    <span className="metric-val">40h</span>
-                                    <span className="metric-lbl">Weekly Saved</span>
-                                </div>
-                                <div className="metric-item">
-                                    <span className="metric-val">2X</span>
-                                    <span className="metric-lbl">Prod. Lift</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {/* FOOTER CTA WITH ROBOT */}
                 <div className="footer-cta-wrap reveal">
                     <div className="footer-cta-card">
@@ -407,41 +461,8 @@ export function ServicesContent() {
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            {/* FOOTER */}
-            <footer style={{ padding: '60px 0 30px', borderTop: '1px solid rgba(255,255,255,0.08)', background: '#050816', position: 'relative', zIndex: '10' }}>
-                <div className="container">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
-                        <div style={{ maxWidth: '300px' }}>
-                            <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '15px' }}>
-                                <div className="logo-icon"><i data-lucide="bot"></i></div>
-                                <h2>AgenticAI</h2>
-                            </a>
-                            <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6' }}>Building cutting-edge autonomous AI solutions to empower modern fast-growing businesses.</p>
-                        </div>
-                        <div style={{ display: 'flex', gap: '60px' }}>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <h4 style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Platform</h4>
-                                <a href="/services" style={{ color: '#94a3b8', fontSize: '13px' }}>Services</a>
-                                <a href="/solutions" style={{ color: '#94a3b8', fontSize: '13px' }}>Solutions</a>
-                                <a href="/pricing" style={{ color: '#94a3b8', fontSize: '13px' }}>Pricing</a>
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <h4 style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Company</h4>
-                                <a href="#" className="open-modal" data-modal-title="Contact Support" style={{ color: '#94a3b8', fontSize: '13px' }}>Contact</a>
-                                <a href="#" style={{ color: '#94a3b8', fontSize: '13px' }}>Privacy Policy</a>
-                                <a href="#" style={{ color: '#94a3b8', fontSize: '13px' }}>Terms of Service</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', color: '#64748b' }}>
-                        <p>&copy; 2026 AgenticAI Inc. All rights reserved.</p>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block', boxShadow: '0 0 5px #22c55e' }}></span> Systems Operational</div>
-                    </div>
-                </div>
-            </footer>
         </>
     );
 }

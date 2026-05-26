@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/preview-modal.css';
 
 export function WebsitePreviewModal({ isOpen, onClose, plan }) {

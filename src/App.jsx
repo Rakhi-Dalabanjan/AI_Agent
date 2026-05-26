@@ -6,6 +6,9 @@ import SolutionsPage from './pages/SolutionsPage';
 import PricingPage from './pages/PricingPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import { ProtectedRoute } from './components/ProtectedRoute';
 
 const MODAL_MODES = {
   '/': 'home',
@@ -29,6 +32,15 @@ function AppLayout() {
 export default function App() {
   return (
     <Routes>
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route 
+        path="/admin/dashboard" 
+        element={
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        } 
+      />
       <Route element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="services" element={<ServicesPage />} />
