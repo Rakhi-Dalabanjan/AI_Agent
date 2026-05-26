@@ -51,6 +51,16 @@
     flex-direction: column;
   }
 }
+@media (max-width: 768px) {
+  .action-tab-content {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+  .act-btn {
+    padding: 14px 10px;
+    font-size: 13px;
+  }
+}
 
 .why-box {
   text-align: center;
@@ -97,7 +107,8 @@
 
 /* ── WhatsApp Chat Widget ── */
 .sol-wa-widget {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 240px;
     background: #ece5dd;
     border-radius: 16px;
@@ -106,6 +117,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    box-sizing: border-box;
 }
 .sol-wa-header {
     background: #075e54;
@@ -250,12 +262,14 @@
 
 /* ── Workflow Widget ── */
 .sol-wf-widget {
-    width: 340px;
+    width: 100%;
+    max-width: 340px;
     background: rgba(0,0,0,0.25);
     padding: 18px;
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    box-sizing: border-box;
 }
 .sol-wf-title {
     font-size: 11px;
@@ -283,6 +297,11 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+}
+.sol-wf-step i,
+.sol-wf-spinner,
+.sol-wf-check {
+    flex-shrink: 0;
 }
 .sol-wf-step span:first-of-type {
     flex: 1;

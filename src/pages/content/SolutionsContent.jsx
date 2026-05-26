@@ -451,10 +451,10 @@ export function SolutionsContent() {
                                 <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '15px' }}>WhatsApp AI Solutions</h3>
                                 <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '20px', lineHeight: '1.6' }}>Turn WhatsApp into your smartest 24/7 sales agent and customer support channel. Qualify leads and close deals automatically.</p>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: '#cbd5e1' }}>
-                                    <div><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginRight: '8px' }}></i> Instant auto replies</div>
-                                    <div><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginRight: '8px' }}></i> Automated buyer and lead qualification</div>
-                                    <div><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginRight: '8px' }}></i> Calendar integration for appointment booking</div>
-                                    <div><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginRight: '8px' }}></i> Multi-language support (50+ languages)</div>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginTop: '2px', flexShrink: 0 }}></i> <span>Instant auto replies</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginTop: '2px', flexShrink: 0 }}></i> <span>Automated buyer and lead qualification</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginTop: '2px', flexShrink: 0 }}></i> <span>Calendar integration for appointment booking</span></div>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}><i className="fa-solid fa-check-circle" style={{ color: '#22c55e', marginTop: '2px', flexShrink: 0 }}></i> <span>Multi-language support (50+ languages)</span></div>
                                 </div>
                             </div>
                             <div className="atc-preview" style={{ display: 'flex', justifyContent: 'center' }}>
@@ -699,6 +699,7 @@ export function SolutionsContent() {
                     </div>
                 </div>
             </div>
+
 
         </>
     );

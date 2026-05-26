@@ -131,6 +131,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
 }
 
@@ -773,13 +774,17 @@ body:not(.dark-mode) .navbar.scrolled .mobile-menu-btn {
 }
 
 .animated-path {
-  stroke-dasharray: 10;
-  animation: dash 20s linear infinite;
+  stroke-dasharray: 6, 8;
+  animation: dash-flow 0.8s linear infinite;
+  filter: drop-shadow(0 0 6px currentColor);
 }
 
-@keyframes dash {
+@keyframes dash-flow {
+  from {
+    stroke-dashoffset: 14;
+  }
   to {
-    stroke-dashoffset: -100;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -2542,6 +2547,7 @@ body:not(.dark-mode) .close-modal:hover {
   line-height: 1.15;
   font-weight: 900;
   margin-bottom: 25px;
+  min-height: 2.5em;
 }
 
 .gradient-text {

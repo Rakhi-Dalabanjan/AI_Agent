@@ -181,7 +181,6 @@ export default function AdminLogin() {
               Sign In
             </button>
           </form>
-
           <div style={{ textAlign: 'center', marginTop: '1rem' }}>
             <button
               onClick={() => navigate('/')}

@@ -58,37 +58,95 @@ export function HomeContent() {
               style={{ fontSize: "clamp(30px, 3.8vw, 52px)", lineHeight: "1.2", fontWeight: 800 }}
             >
               Build Your AI Workforce <br />
-              for <HeroTypedCycle />
+              for <HeroTypedCycle /> &amp; Business Growth
             </h1>
 
             <p className="hero-description">
-              IAMKRATU.AI helps businesses deploy trained AI Agents for sales, customer support, SEO, lead generation, operations, and automation — available 24x7.
+              IAMKRATU.AI helps businesses deploy trained AI Agents for sales, customer support, social media, SEO, lead generation, operations, and automation — available 24x7.
             </p>
 
             <div className="hero-buttons" style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "20px" }}>
               <button
-                className="btn btn-primary open-modal"
-                data-modal-title="Start Free Trial"
+                className="btn-primary-purple open-modal btn-magnetic"
+                data-modal-title="Hire AI Agents"
               >
-                Start Free Trial <i data-lucide="arrow-right" style={{ marginLeft: "6px" }}></i>
+                <i
+                  data-lucide="users"
+                  style={{ width: "18px", height: "18px" }}
+                ></i>{" "}
+                Hire AI Agents{" "}
+                <i
+                  data-lucide="arrow-right"
+                  style={{ marginLeft: "5px", width: "18px", height: "18px" }}
+                ></i>
               </button>
               <button
-                className="btn btn-outline open-modal"
-                data-modal-title="Book Demo"
+                className="btn-secondary-outline open-modal btn-magnetic"
+                data-modal-title="Book a Demo"
               >
-                Book Demo
-              </button>
-              <button
-                className="btn btn-ghost open-modal"
-                data-modal-title="Contact Sales"
-              >
-                Contact Sales
+                <i
+                  data-lucide="calendar-check"
+                  style={{ color: "#a855f7", fontSize: "18px" }}
+                ></i>{" "}
+                Book Free Demo
               </button>
             </div>
 
-            <p className="trust-line" style={{ marginTop: "24px", fontSize: "12px", color: "#64748b", maxWidth: "90%", lineHeight: "1.5" }}>
-              <strong>Designed for:</strong> startups, SMEs, agencies, ecommerce brands, real estate firms, travel companies, clinics, restaurants, and growing businesses.
-            </p>
+            <div className="trust-grid">
+              <div className="trust-box">
+                <div className="trust-icon" style={{ color: "#3b82f6" }}>
+                  <i data-lucide="clock"></i>
+                  <span className="icon-24">24</span>
+                </div>
+                <div className="trust-text">
+                  <span className="highlight-text">24/7</span>
+                  <br />
+                  AI Support
+                </div>
+              </div>
+              <div className="trust-box">
+                <div className="trust-icon" style={{ color: "#22c55e" }}>
+                  <i data-lucide="message-circle"></i>
+                </div>
+                <div className="trust-text">
+                  <span className="highlight-text">WhatsApp</span>
+                  <br />
+                  Integration
+                </div>
+              </div>
+
+              <div className="trust-box">
+                <div className="trust-icon" style={{ color: "#3b82f6" }}>
+                  <i data-lucide="settings-2"></i>
+                </div>
+                <div className="trust-text">
+                  <span className="highlight-text">Workflow</span>
+                  <br />
+                  Automation
+                </div>
+              </div>
+            </div>
+
+            <div className="trusted-by-hero">
+              <p>Designed for startups, SMEs, agencies, ecommerce brands, real estate firms, and growing businesses.</p>
+              <div className="trusted-logos">
+                <span>
+                  <i data-lucide="home"></i> realestate.com
+                </span>
+                <span>
+                  <i data-lucide="plus-square"></i> MediCare
+                </span>
+                <span>
+                  <i data-lucide="shopping-bag"></i> ShopEase
+                </span>
+                <span>
+                  <i data-lucide="graduation-cap"></i> EduSmart
+                </span>
+                <span>
+                  <i data-lucide="bar-chart"></i> WorkFlow
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT: Hero Video */}
@@ -1084,18 +1142,19 @@ export function HomeContent() {
             Ready to Build Your AI Workforce?
           </h2>
           <p className="hero-subtitle mx-auto" style={{ maxWidth: "600px", color: '#cbd5e1' }}>
-            Join thousands of businesses saving time and increasing sales with our AI platform.
+            Deploy intelligent AI Agents for your business today.
           </p>
           <div className="hero-cta justify-center mt-8" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button
-              className="btn btn-primary open-modal"
+              className="btn btn-primary btn-large glow-btn open-modal"
               data-modal-title="Start Free Trial"
             >
               Start Free Trial
             </button>
             <button
-              className="btn btn-outline open-modal"
+              className="btn btn-ghost btn-large open-modal"
               data-modal-title="Book Demo"
+              style={{ color: 'white' }}
             >
               Book Demo
             </button>
@@ -1109,7 +1168,6 @@ export function HomeContent() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
