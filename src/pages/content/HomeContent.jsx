@@ -1152,16 +1152,14 @@ export function HomeContent() {
               Start Free Trial
             </button>
             <button
-              className="btn btn-ghost btn-large open-modal"
+              className="btn btn-outline btn-large open-modal"
               data-modal-title="Book Demo"
-              style={{ color: 'white' }}
             >
               Book Demo
             </button>
             <button
-              className="btn btn-ghost open-modal"
+              className="btn btn-outline btn-large open-modal"
               data-modal-title="Contact Sales"
-              style={{ color: 'white' }}
             >
               Contact Sales
             </button>
