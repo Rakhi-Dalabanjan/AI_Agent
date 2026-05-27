@@ -123,6 +123,7 @@ html.lenis body {
 
 html {
   scroll-behavior: auto !important;
+  overflow-x: hidden;
 }
 
 body {
@@ -133,6 +134,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   position: relative;
+  width: 100%;
 }
 
 /* Background Elements */

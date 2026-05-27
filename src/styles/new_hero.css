@@ -819,6 +819,7 @@
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
+    flex-direction: column;
   }
 
   .hero-content {
