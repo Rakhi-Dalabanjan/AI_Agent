@@ -1,21 +1,14 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useInstallApp } from "../hooks/useInstallApp";
 
 export function MobileNav() {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const installInfo = useInstallApp();
 
   const linkClass = ({ isActive }) => (isActive ? "active" : undefined);
 
-  const handleInstall = () => {
-    if (window.confirm("Do you want to install Kratu AI?")) {
-      const link = document.createElement("a");
-      link.href = "/Kratu AI.apk";
-      link.download = "Kratu AI.apk";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  };
+
 
   return (
     <>
@@ -68,9 +61,9 @@ export function MobileNav() {
               <button
                 type="button"
                 className="nav-btn-solid"
-                onClick={handleInstall}
+                onClick={installInfo.action}
               >
-                Install
+                {installInfo.text}
               </button>
             </>
           ) : (
@@ -93,7 +86,7 @@ export function MobileNav() {
               <button
                 type="button"
                 className="nav-btn-solid"
-                onClick={handleInstall}
+                onClick={installInfo.action}
                 style={{
                   width: "100%",
                   padding: "14px",
@@ -102,7 +95,7 @@ export function MobileNav() {
                   fontWeight: 600,
                 }}
               >
-                Install
+                {installInfo.text}
               </button>
             </>
           )}

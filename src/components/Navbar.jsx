@@ -1,8 +1,10 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useInstallApp } from '../hooks/useInstallApp';
 
 export function Navbar({ variant = 'default' }) {
   const location = useLocation();
   const isHome = variant === 'home' || location.pathname === '/';
+  const installInfo = useInstallApp();
 
   return (
     <nav className="navbar" id="navbar">
@@ -77,18 +79,9 @@ export function Navbar({ variant = 'default' }) {
           <button
             type="button"
             className="nav-btn-solid"
-            onClick={() => {
-              if (window.confirm("Do you want to install Kratu AI?")) {
-                const link = document.createElement("a");
-                link.href = "/Kratu AI.apk";
-                link.download = "Kratu AI.apk";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }
-            }}
+            onClick={installInfo.action}
           >
-            Install
+            {installInfo.text}
           </button>
           <button
             type="button"
