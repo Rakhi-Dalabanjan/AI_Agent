@@ -76,10 +76,19 @@ export function Navbar({ variant = 'default' }) {
           </Link>
           <button
             type="button"
-            className="nav-btn-solid open-modal"
-            data-modal-title="Book a Demo"
+            className="nav-btn-solid"
+            onClick={() => {
+              if (window.confirm("Do you want to install Kratu AI?")) {
+                const link = document.createElement("a");
+                link.href = "/Kratu AI.apk";
+                link.download = "Kratu AI.apk";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }
+            }}
           >
-            Book Free Demo
+            Install
           </button>
           <button
             type="button"

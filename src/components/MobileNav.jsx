@@ -6,6 +6,17 @@ export function MobileNav() {
 
   const linkClass = ({ isActive }) => (isActive ? "active" : undefined);
 
+  const handleInstall = () => {
+    if (window.confirm("Do you want to install Kratu AI?")) {
+      const link = document.createElement("a");
+      link.href = "/Kratu AI.apk";
+      link.download = "Kratu AI.apk";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <>
       <div className="svc-nav-overlay" id="mobile-nav-overlay" />
@@ -56,10 +67,10 @@ export function MobileNav() {
               <Link to="#">Login</Link>
               <button
                 type="button"
-                className="nav-btn-solid open-modal"
-                data-modal-title="Book a Demo"
+                className="nav-btn-solid"
+                onClick={handleInstall}
               >
-                Book Free Demo
+                Install
               </button>
             </>
           ) : (
@@ -81,8 +92,8 @@ export function MobileNav() {
               </a>
               <button
                 type="button"
-                className="nav-btn-solid open-modal"
-                data-modal-title="Book a Demo"
+                className="nav-btn-solid"
+                onClick={handleInstall}
                 style={{
                   width: "100%",
                   padding: "14px",
@@ -91,7 +102,7 @@ export function MobileNav() {
                   fontWeight: 600,
                 }}
               >
-                Book Free Demo
+                Install
               </button>
             </>
           )}

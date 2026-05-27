@@ -22,7 +22,9 @@
   .pricing-cards-grid,
   .explore-grid,
   .featured-cards-grid,
-  .service-grid {
+  .service-grid,
+  .case-studies-grid,
+  .why-kratu-grid {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
@@ -41,7 +43,9 @@
   .pricing-card-custom,
   .explore-card,
   .featured-card,
-  .service-h-card {
+  .service-h-card,
+  .case-card,
+  .why-card {
     position: sticky !important;
     top: 80px !important;      /* Sits just below fixed navbar */
     z-index: 1 !important;
@@ -63,7 +67,9 @@
   .pricing-card-custom:not(:first-child),
   .explore-card:not(:first-child),
   .featured-card:not(:first-child),
-  .service-h-card:not(:first-child) {
+  .service-h-card:not(:first-child),
+  .case-card:not(:first-child),
+  .why-card:not(:first-child) {
     margin-top: -8px !important;
   }
 
@@ -75,52 +81,62 @@
   .template-card:nth-child(1),  .industry-card:nth-child(1),
   .solution-card:nth-child(1),  .result-card:nth-child(1),
   .pricing-card-custom:nth-child(1), .explore-card:nth-child(1),
-  .featured-card:nth-child(1),  .service-h-card:nth-child(1)  { z-index: 1 !important; }
+  .featured-card:nth-child(1),  .service-h-card:nth-child(1),
+  .case-card:nth-child(1), .why-card:nth-child(1) { z-index: 1 !important; }
 
   .template-card:nth-child(2),  .industry-card:nth-child(2),
   .solution-card:nth-child(2),  .result-card:nth-child(2),
   .pricing-card-custom:nth-child(2), .explore-card:nth-child(2),
-  .featured-card:nth-child(2),  .service-h-card:nth-child(2)  { z-index: 2 !important; }
+  .featured-card:nth-child(2),  .service-h-card:nth-child(2),
+  .case-card:nth-child(2), .why-card:nth-child(2) { z-index: 2 !important; }
 
   .template-card:nth-child(3),  .industry-card:nth-child(3),
   .solution-card:nth-child(3),  .result-card:nth-child(3),
   .pricing-card-custom:nth-child(3), .explore-card:nth-child(3),
-  .featured-card:nth-child(3),  .service-h-card:nth-child(3)  { z-index: 3 !important; }
+  .featured-card:nth-child(3),  .service-h-card:nth-child(3),
+  .case-card:nth-child(3), .why-card:nth-child(3) { z-index: 3 !important; }
 
   .template-card:nth-child(4),  .industry-card:nth-child(4),
   .solution-card:nth-child(4),  .result-card:nth-child(4),
   .pricing-card-custom:nth-child(4), .explore-card:nth-child(4),
-  .featured-card:nth-child(4),  .service-h-card:nth-child(4)  { z-index: 4 !important; }
+  .featured-card:nth-child(4),  .service-h-card:nth-child(4),
+  .case-card:nth-child(4), .why-card:nth-child(4) { z-index: 4 !important; }
 
   .template-card:nth-child(5),  .industry-card:nth-child(5),
   .solution-card:nth-child(5),  .result-card:nth-child(5),
   .pricing-card-custom:nth-child(5), .explore-card:nth-child(5),
-  .featured-card:nth-child(5),  .service-h-card:nth-child(5)  { z-index: 5 !important; }
+  .featured-card:nth-child(5),  .service-h-card:nth-child(5),
+  .case-card:nth-child(5), .why-card:nth-child(5) { z-index: 5 !important; }
 
   .template-card:nth-child(6),  .industry-card:nth-child(6),
   .solution-card:nth-child(6),  .result-card:nth-child(6),
   .pricing-card-custom:nth-child(6), .explore-card:nth-child(6),
-  .featured-card:nth-child(6),  .service-h-card:nth-child(6)  { z-index: 6 !important; }
+  .featured-card:nth-child(6),  .service-h-card:nth-child(6),
+  .case-card:nth-child(6), .why-card:nth-child(6) { z-index: 6 !important; }
 
   .template-card:nth-child(7),  .industry-card:nth-child(7),
   .solution-card:nth-child(7),  .result-card:nth-child(7),
   .pricing-card-custom:nth-child(7), .explore-card:nth-child(7),
-  .featured-card:nth-child(7),  .service-h-card:nth-child(7)  { z-index: 7 !important; }
+  .featured-card:nth-child(7),  .service-h-card:nth-child(7),
+  .case-card:nth-child(7), .why-card:nth-child(7) { z-index: 7 !important; }
 
   .template-card:nth-child(8),  .industry-card:nth-child(8),
   .solution-card:nth-child(8),  .result-card:nth-child(8),
   .pricing-card-custom:nth-child(8), .explore-card:nth-child(8),
-  .featured-card:nth-child(8),  .service-h-card:nth-child(8)  { z-index: 8 !important; }
+  .featured-card:nth-child(8),  .service-h-card:nth-child(8),
+  .case-card:nth-child(8), .why-card:nth-child(8) { z-index: 8 !important; }
 
   .template-card:nth-child(9),  .industry-card:nth-child(9),
   .solution-card:nth-child(9),  .result-card:nth-child(9),
   .pricing-card-custom:nth-child(9), .explore-card:nth-child(9),
-  .featured-card:nth-child(9),  .service-h-card:nth-child(9)  { z-index: 9 !important; }
+  .featured-card:nth-child(9),  .service-h-card:nth-child(9),
+  .case-card:nth-child(9), .why-card:nth-child(9) { z-index: 9 !important; }
 
   .template-card:nth-child(10), .industry-card:nth-child(10),
   .solution-card:nth-child(10), .result-card:nth-child(10),
   .pricing-card-custom:nth-child(10), .explore-card:nth-child(10),
-  .featured-card:nth-child(10), .service-h-card:nth-child(10) { z-index: 10 !important; }
+  .featured-card:nth-child(10), .service-h-card:nth-child(10),
+  .case-card:nth-child(10), .why-card:nth-child(10) { z-index: 10 !important; }
 
   /* ─────────────────────────────────────────────────────
      LIGHT THEME — white card background
@@ -129,7 +145,9 @@
   body:not(.dark-mode) .industry-card,
   body:not(.dark-mode) .solution-card,
   body:not(.dark-mode) .featured-card,
-  body:not(.dark-mode) .explore-card {
+  body:not(.dark-mode) .explore-card,
+  body:not(.dark-mode) .case-card,
+  body:not(.dark-mode) .why-card {
     background: #ffffff !important;
     border: 1px solid rgba(99, 102, 241, 0.08) !important;
   }
@@ -208,7 +226,9 @@
   .pricing-card-custom,
   .explore-card,
   .featured-card,
-  .service-h-card {
+  .service-h-card,
+  .case-card,
+  .why-card {
     border-radius: 16px !important;
     padding: 18px !important;
     top: 75px !important; /* Slightly less gap on small phones */

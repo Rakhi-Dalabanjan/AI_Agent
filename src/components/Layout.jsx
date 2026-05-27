@@ -49,7 +49,7 @@ export function Layout({ navbarVariant = 'default', modalMode = 'home' }) {
   }, [navigate]);
 
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.0, smoothTouch: false, syncTouch: false }}>
+    <ReactLenis root options={{ lerp: 0.08, duration: 1.0, smoothTouch: true, syncTouch: false }}>
       <MobileNav />
       <Navbar variant={navbarVariant} />
       <Outlet />

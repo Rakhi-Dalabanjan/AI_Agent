@@ -436,37 +436,37 @@ export function ResourcesContent() {
             </div>
 
             <div className="why-kratu-grid">
-              <div className="why-item">
+              <div className="why-card">
                 <div className="why-icon"><i className="fa-solid fa-brain"></i></div>
                 <h4>Practical Knowledge</h4>
                 <p>Learn strategies and workflows that you can implement in your business operations immediately.</p>
               </div>
 
-              <div className="why-item">
+              <div className="why-card">
                 <div className="why-icon"><i className="fa-solid fa-chart-line-up"></i></div>
                 <h4>Business Focused</h4>
                 <p>Resources focused completely on reducing operations overhead and maximizing output productivity.</p>
               </div>
 
-              <div className="why-item">
+              <div className="why-card">
                 <div className="why-icon"><i className="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h4>AI Simplified</h4>
                 <p>High-quality guides structured clearly to help both tech-savvy and non-technical stakeholders.</p>
               </div>
 
-              <div className="why-item">
+              <div className="why-card">
                 <div className="why-icon"><i className="fa-solid fa-compass"></i></div>
                 <h4>Industry Specific Insights</h4>
                 <p>Tailor-made benchmarks, guidelines, and strategies matching specific industry challenges.</p>
               </div>
 
-              <div className="why-item">
+              <div className="why-card">
                 <div className="why-icon"><i className="fa-solid fa-graduation-cap"></i></div>
                 <h4>Continuous Learning</h4>
                 <p>Stay constantly updated with structural trends in the fast-paced autonomous AI revolution.</p>
               </div>
 
-              <div className="why-item">
+              <div className="why-card">
                 <div className="why-icon"><i className="fa-solid fa-circle-check"></i></div>
                 <h4>Actionable Content</h4>
                 <p>Get downloadable kits, spreadsheets, guides, and templates ready to build your automated workforce.</p>

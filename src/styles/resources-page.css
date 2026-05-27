@@ -865,10 +865,22 @@
   margin-top: 50px;
 }
 
-.why-item {
+.why-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 30px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.why-card:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  transform: translateY(-4px);
 }
 
 .why-icon {
@@ -885,14 +897,14 @@
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.05);
 }
 
-.why-item h4 {
+.why-card h4 {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 8px;
   color: #0f172a;
 }
 
-.why-item p {
+.why-card p {
   font-size: 13px;
   color: #475569;
   line-height: 1.6;
